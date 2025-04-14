@@ -58,12 +58,31 @@
             z-index: 100;
         }
         
+        /* NUEVOS ESTILOS DEL HEADER - INICIO */
         .navbar {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .nav-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             padding: 15px 0;
         }
+        
+        .mobile-menu-container {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .mobile-menu-container.active {
+            display: flex;
+        }
+        /* NUEVOS ESTILOS DEL HEADER - FIN */
         
         .logo {
             display: flex;
@@ -102,18 +121,14 @@
             transition: all 0.3s;
         }
         
-        /* Menú de navegación mobile-first */
+        /* Menú de navegación mobile-first - MODIFICADO */
         .nav-links {
-            display: none;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .nav-links.active {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .nav-links a {
@@ -122,7 +137,9 @@
             font-weight: 500;
             transition: color 0.3s;
             width: 100%;
-            padding: 8px 0;
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
         .nav-links a:hover {
@@ -130,13 +147,8 @@
         }
         
         .nav-cta {
-            display: none;
             width: 100%;
-            margin-top: 15px;
-        }
-        
-        .nav-cta.active {
-            display: block;
+            margin-bottom: 20px;
         }
         
         /* Botón CTA */
@@ -164,6 +176,36 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+        }
+        
+        /* Estilos para el botón de cierre del menú móvil */
+        .menu-close {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 22px;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-dark);
+            z-index: 101;
+        }
+        
+        /* Menú móvil expandido */
+        .mobile-menu-container.active {
+            position: fixed;
+            top: 66px; /* Altura del header */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--white);
+            z-index: 99;
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 66px);
         }
         
         /* Sección Hero */
@@ -713,17 +755,53 @@
                 display: none;
             }
             
-            .nav-links {
+            /* Estilos para escritorio */
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .nav-header {
+                width: auto;
+                padding: 0;
+            }
+            
+            .mobile-menu-container {
                 display: flex !important;
                 flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
                 width: auto;
-                margin-top: 0;
+                margin-left: auto;
+                position: static;
+                height: auto;
+                padding: 0;
+                overflow: visible;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-right: 20px;
+                margin-bottom: 0;
+                width: auto;
+            }
+            
+            .nav-links a {
+                padding: 0 15px;
+                width: auto;
+                border-bottom: none;
+                text-align: left;
             }
             
             .nav-cta {
-                display: block !important;
+                margin-bottom: 0;
                 width: auto;
-                margin-top: 0;
+            }
+            
+            .menu-close {
+                display: none !important;
             }
             
             .hero-title {
@@ -757,119 +835,41 @@
             .hero-title {
                 font-size: 48px;
             }
-            /* Estilos para el menú móvil optimizado */
-@media (max-width: 1023px) {
-    body.menu-open {
-        overflow: hidden;
-    }
-    
-    .navbar {
-        position: relative;
-    }
-    
-    .nav-links.active,
-    .nav-cta.active {
-        display: flex;
-    }
-    
-    /* Contenedor del menú móvil */
-    .nav-links.active {
-        position: fixed;
-        top: 66px; /* Altura del header */
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--white);
-        z-index: 99;
-        padding: 20px;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        height: calc(100vh - 66px);
-    }
-    
-    /* Estilos de los enlaces del menú */
-    .nav-links.active a {
-        padding: 15px 0;
-        font-size: 18px;
-        text-align: center;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    /* Estilos del botón CTA en móvil */
-    .nav-cta.active {
-        position: fixed;
-        bottom: 30px;
-        left: 20px;
-        right: 20px;
-        z-index: 100;
-        width: calc(100% - 40px);
-    }
-    
-    /* Botón de cierre */
-    .menu-close {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 24px;
-        height: 24px;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 24px;
-        color: var(--text-dark);
-    }
-    
-    /* Ajustar espacio para evitar superposiciones */
-    .nav-links.active {
-        padding-bottom: 90px; /* Dar espacio al botón CTA */
-    }
-}
-
-/* Asegurar que en escritorio todo se vea correctamente */
-@media (min-width: 1024px) {
-    .menu-close {
-        display: none !important;
-    }
-    
-    .nav-links, .nav-cta {
-        position: static;
-        padding: 0;
-        height: auto;
-        overflow: visible;
-    }
-}
         }
     </style>
 </head>
 
 <body>
-    <!-- Encabezado -->
+    <!-- Encabezado modificado para móviles -->
     <header>
         <div class="container">
             <div class="navbar">
-                <a href="#" class="logo">
-                    <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//logo.svg" alt="Analiza.pe Logo">
-                    Analiza<span>.pe</span>
-                </a>
-                
-                <!-- Menú Hamburguesa para móviles -->
-                <div class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="nav-header">
+                    <a href="#" class="logo">
+                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//logo.svg" alt="Analiza.pe Logo">
+                        Analiza<span>.pe</span>
+                    </a>
+                    
+                    <!-- Menú Hamburguesa para móviles -->
+                    <div class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
                 
-                <!-- Menú de navegación -->
-                <div class="nav-links" id="navLinks">
-                    <a href="#soluciones">Soluciones</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#contacto">Contacto</a>
-                </div>
-                
-                <div class="nav-cta" id="navCta">
-                    <a href="#consulta" class="cta-button cta-consultation"><i class="fas fa-calendar-check"></i> Consulta Gratis</a>
+                <!-- Contenedor para el menú móvil -->
+                <div class="mobile-menu-container" id="mobileMenuContainer">
+                    <!-- Menú de navegación -->
+                    <div class="nav-links" id="navLinks">
+                        <a href="#soluciones">Soluciones</a>
+                        <a href="#servicios">Servicios</a>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                    
+                    <div class="nav-cta" id="navCta">
+                        <a href="#consulta" class="cta-button cta-consultation"><i class="fas fa-calendar-check"></i> Consulta Gratis</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1208,8 +1208,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Referencias a elementos del DOM
     const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const navCta = document.getElementById('navCta');
+    const mobileMenuContainer = document.getElementById('mobileMenuContainer');
     const header = document.querySelector('header');
     
     // Crear el botón de cierre "X" para el menú móvil
@@ -1218,16 +1217,15 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.innerHTML = '<i class="fas fa-times"></i>';
     closeButton.classList.add('menu-close');
     
-    // Añadir el botón de cierre al header después del menú toggle
-    menuToggle.parentNode.insertBefore(closeButton, menuToggle.nextSibling);
+    // Añadir el botón de cierre al header
+    header.querySelector('.container').appendChild(closeButton);
     
     // Ocultar inicialmente el botón de cierre
     closeButton.style.display = 'none';
     
     // Función para abrir el menú móvil
     function openMobileMenu() {
-        navLinks.classList.add('active');
-        navCta.classList.add('active');
+        mobileMenuContainer.classList.add('active');
         menuToggle.style.display = 'none';
         closeButton.style.display = 'flex';
         document.body.classList.add('menu-open'); // Para evitar el scroll
@@ -1235,8 +1233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función para cerrar el menú móvil
     function closeMobileMenu() {
-        navLinks.classList.remove('active');
-        navCta.classList.remove('active');
+        mobileMenuContainer.classList.remove('active');
         menuToggle.style.display = 'flex';
         closeButton.style.display = 'none';
         document.body.classList.remove('menu-open');
@@ -1247,12 +1244,14 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.addEventListener('click', closeMobileMenu);
     
     // Cerrar el menú al hacer clic en un enlace
+    const navLinks = document.getElementById('navLinks');
     const menuLinks = navLinks.querySelectorAll('a');
     menuLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
     
     // Cerrar el menú al hacer clic en el botón CTA
+    const navCta = document.getElementById('navCta');
     const ctaButton = navCta.querySelector('a');
     if (ctaButton) {
         ctaButton.addEventListener('click', closeMobileMenu);

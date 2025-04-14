@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza.pe - Soluciones de Inteligencia Financiera y de Mercado</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (para los iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variables de colores basadas en el logo */
+        :root {
+            --primary-blue: #2563eb;     /* Azul principal para elementos destacados */
+            --dark-blue: #1d4ed8;        /* Azul oscuro para hover */
+            --accent-red: #ef4444;       /* Rojo para acentos y elementos de atención */
+            --text-dark: #111827;        /* Color de texto principal */
+            --text-medium: #4b5563;      /* Color de texto secundario */
+            --bg-light: #f8fafc;         /* Fondo claro */
+            --white: #ffffff;            /* Blanco */
+        }
+        
+        /* Estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Encabezado y Navegación Mejorada */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: var(--primary-blue);
+        }
+        
+        /* Menú de navegación mejorado */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Menú desplegable para soluciones */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            margin-top: 5px;
+            padding: 10px 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #555;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: var(--primary-blue);
+        }
+        
+        .dropdown-content a i {
+            margin-right: 8px;
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown-trigger::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+        
+        /* Botones CTA mejorados */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button.cta-demo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Agregamos una insignia "Nuevo" */
+        .new-badge {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: 600;
+        }
+        
+        /* Menú hamburguesa para móviles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        /* Sección Hero adaptada al perfil */
+        .hero {
+            padding: 140px 0 80px;
+            background-color: #f8fafc;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .hero-title span {
+            color: var(--primary-blue);
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .ratings {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .avatar-group {
+            display: flex;
+            margin-right: 15px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -10px;
+            object-fit: cover;
+        }
+        
+        .avatar:first-child {
+            margin-left: 0;
+        }
+        
+        .avatar-count {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid white;
+            margin-left: -10px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 5px;
+        }
+        
+        /* Barra de tiempo de demo */
+        .demo-timer {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 450px;
+        }
+        
+        .timer-icon {
+            color: #0284c7;
+            font-size: 24px;
+        }
+        
+        .timer-text {
+            font-size: 14px;
+            color: #0369a1;
+            flex: 1;
+        }
+        
+        .timer-text strong {
+            font-weight: 600;
+        }
+        
+        /* Sección de beneficios enfocada */
+        .benefits {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: #4b5563;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #dbeafe;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .benefit-description {
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .benefit-link i {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        
+        /* Sección de soluciones para la industria */
+        .industry-solutions {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+        
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .solution-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .solution-img {
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .solution-content {
+            padding: 20px;
+        }
+        
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .solution-description {
+            color: #4b5563;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .solution-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        
+        .solution-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .solution-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Sección de características mejorada */
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .features-image {
+            grid-column: 2;
+            text-align: center;
+        }
+        
+        .features-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-group-left, .feature-group-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .feature-card {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #dbeafe;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        
+        .feature-card-content {
+            flex: 1;
+        }
+        
+        .feature-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .feature-card-description {
+            color: #4b5563;
+            font-size: 15px;
+        }
+        
+        /* Sección de ROI agregada */
+        .roi-section {
+            padding: 70px 0;
+            background-color: #f0f9ff;
+        }
+        
+        .roi-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .roi-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+        
+        .roi-stats {
+            margin: 30px 0;
+        }
+        
+        .roi-stat {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .roi-stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-right: 15px;
+        }
+        
+        .roi-stat-text {
+            color: #4b5563;
+            line-height: 1.4;
+        }
+        
+        .roi-calculator {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .roi-calculator h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        
+        .calculator-form {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .calc-result {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .calc-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .calc-label {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        
+        /* Correción del pie de página */
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-about .logo {
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-about p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #1f2937;
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-blue);
+        }
+        
+        .footer-links h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid #1f2937;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-bottom-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-container {
+                flex-direction: column;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-image {
+                grid-column: 1;
+                order: -1;
+                margin-bottom: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .roi-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links, .nav-cta {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-top: 15px;
+            }
+            
+            .nav-links.active, .nav-cta.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding-left: 20px;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .dropdown-trigger::after {
+                float: right;
+                margin-top: 5px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .features-grid {
+                gap: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .roi-stat {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .roi-stat-value {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado Mejorado -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="#" class="logo">
+                    <img src="/api/placeholder/40/40" alt="Analiza.pe Logo">
+                    Analiza<span>.pe</span>
+                </a>
+                
+                <!-- Menú Hamburguesa para móviles -->
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- Menú de navegación simplificado -->
+                <div class="nav-links" id="navLinks">
+                    <a href="#soluciones">Soluciones</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                
+                <div class="nav-cta" id="navCta">
+                    <a href="#demo" class="cta-button cta-demo"><i class="fas fa-play-circle"></i> Demo en 30min</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero adaptada al perfil -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Transforma tus datos financieros en <span>ventajas competitivas</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Soluciones rápidas para empresas que generan grandes volúmenes de datos financieros y de mercado. Dashboards personalizados, análisis predictivos y reportes automatizados listos en tiempo récord.
+                    </p>
+                    
+                    <div>
+                        <a href="#demo" class="cta-button cta-demo"><i class="fas fa-play-circle"></i> Agenda Demo en 30min</a>
+                        <a href="#como-funciona" class="secondary-button">Ver cómo funciona</a>
+                    </div>
+                    
+                    <div class="demo-timer">
+                        <div class="timer-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="timer-text">
+                            <strong>Demo Express:</strong> Para ejecutivos ocupados, en solo 30 minutos verás cómo aprovechar tus datos corporativos.
+                        </div>
+                    </div>
+                    
+                    <div class="ratings">
+                        <div class="avatar-group">
+                            <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
+                            <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
+                            <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
+                            <div class="avatar-count">+200</div>
+                        </div>
+                        
+                        <div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>4.9/5 de empresas satisfechas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="/api/placeholder/640/360" alt="Dashboard Financiero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Soluciones Sectoriales -->
+    <section id="soluciones" class="industry-solutions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">SOLUCIONES SECTORIALES</div>
+                <h2 class="section-title">Optimizadas para tu industria</h2>
+                <p class="section-description">
+                    Desarrollamos soluciones específicas para cada sector industrial, permitiéndote aprovechar al máximo tus datos empresariales.
+                </p>
+            </div>
+            
+            <div class="solution-cards">
+                <!-- Solución 1: Manufactura -->
+                <div class="solution-card">
+                    <img src="/api/placeholder/400/160" alt="Manufactura" class="solution-img">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Manufactura Industrial</h3>
+                        <p class="solution-description">
+                            Optimiza costos de producción, analiza rendimiento de equipos y predice mantenimientos preventivos.
+                        </p>
+                        <a href="#manufactura" class="solution-link">
+                            Explorar solución <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Solución 2: Finanzas -->
+                <div class="solution-card">
+                    <img src="/api/placeholder/400/160" alt="Finanzas" class="solution-img">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Análisis Financiero</h3>
+                        <p class="solution-description">
+                            Visualiza flujos de efectivo, tendencias de gastos y proyecciones financieras en tiempo real.
+                        </p>
+                        <a href="#finanzas" class="solution-link">
+                            Explorar solución <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Solución 3: Mercado -->
+                <div class="solution-card">
+                    <img src="/api/placeholder/400/160" alt="Mercado" class="solution-img">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Inteligencia de Mercado</h3>
+                        <p class="solution-description">
+                            Analiza competidores, identifica tendencias y detecta oportunidades de crecimiento en tu sector.
+                        </p>
+                        <a href="#mercado" class="solution-link">
+                            Explorar solución <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Solución 4: Operaciones -->
+                <div class="solution-card">
+                    <img src="/api/placeholder/400/160" alt="Operaciones" class="solution-img">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Eficiencia Operativa</h3>
+                        <p class="solution-description">
+                            Identifica cuellos de botella, optimiza procesos y reduce costos operativos con análisis avanzados.
+                        </p>
+                        <a href="#operaciones" class="solution-link">
+                            Explorar solución <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de ROI -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="roi-container">
+                <div class="roi-content">
+                    <div class="section-badge">RESULTADOS TANGIBLES</div>
+                    <h2>Retorno de inversión medible desde el primer mes</h2>
+                    <p>Nuestros clientes comienzan a ver resultados inmediatamente después de implementar nuestras soluciones de análisis de datos.</p>
+                    
+                    <div class="roi-stats">
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">30%</div>
+                            <div class="roi-stat-text">Reducción promedio en costos operativos tras identificar ineficiencias ocultas en los datos.</div>
+                        </div>
+                        
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">45%</div>
+                            <div class="roi-stat-text">Aumento en la precisión de las proyecciones financieras gracias a nuestros modelos predictivos.</div>
+                        </div>
+                        
+                        <div class="roi-stat">
+                            <div class="roi-stat-value">5x</div>
+                            <div class="roi-stat-text">Multiplicador de la velocidad en la toma de decisiones basadas en datos concretos.</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#testimonios" class="cta-button">Ver casos de éxito</a>
+                </div>
+                
+                <div class="roi-image">
+                    <img src="/api/placeholder/450/300" alt="Dashboard de ROI" class="roi-dashboard-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">FUNCIONALIDADES</div>
+                <h2 class="section-title">Herramientas que potencian tus decisiones</h2>
+                <p class="section-description">
+                    Soluciones diseñadas por expertos para empresas, enfocadas en resultados concretos y medibles.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-group-left">
+                    <!-- Característica 1 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Dashboards para ejecutivos</h3>
+                            <p class="feature-card-description">
+                                Visualiza KPIs financieros y operativos en tiempo real. Ideal para presentaciones ejecutivas y reuniones de directorio.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Característica 2 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Alertas predictivas</h3>
+                            <p class="feature-card-description">
+                                Anticipa desviaciones en métricas clave y recibe notificaciones antes que los problemas escalen.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Característica 3 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Reportes automatizados</h3>
+                            <p class="feature-card-description">
+                                Genera y distribuye informes periódicos personalizados para cada área, ahorrando horas de trabajo manual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-image">
+                    <img src="/api/placeholder/400/300" alt="Dashboard Financiero">
+                </div>
+                
+                <div class="feature-group-right">
+                    <!-- Característica 4 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Análisis predictivo</h3>
+                            <p class="feature-card-description">
+                                Modelos de machine learning que proyectan tendencias de costos, ventas y producción con precisión superior al 90%.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Característica 5 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Simulación financiera</h3>
+                            <p class="feature-card-description">
+                                Escenarios de tipo "What-if" para evaluar el impacto de decisiones estratégicas antes de implementarlas.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Característica 6 -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="feature-card-content">
+                            <h3 class="feature-card-title">Permisos multinivel</h3>
+                            <p class="feature-card-description">
+                                Control granular de acceso a información sensible, ideal para estructuras organizacionales complejas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Script para el menú responsive -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navCta = document.getElementById('navCta');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                navCta.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

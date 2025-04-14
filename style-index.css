@@ -1,0 +1,83 @@
+/* Estilos para el menú móvil optimizado */
+@media (max-width: 1023px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .navbar {
+        position: relative;
+    }
+    
+    .nav-links.active,
+    .nav-cta.active {
+        display: flex;
+    }
+    
+    /* Contenedor del menú móvil */
+    .nav-links.active {
+        position: fixed;
+        top: 66px; /* Altura del header */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--white);
+        z-index: 99;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        height: calc(100vh - 66px);
+    }
+    
+    /* Estilos de los enlaces del menú */
+    .nav-links.active a {
+        padding: 15px 0;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    /* Estilos del botón CTA en móvil */
+    .nav-cta.active {
+        position: fixed;
+        bottom: 30px;
+        left: 20px;
+        right: 20px;
+        z-index: 100;
+        width: calc(100% - 40px);
+    }
+    
+    /* Botón de cierre */
+    .menu-close {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--text-dark);
+    }
+    
+    /* Ajustar espacio para evitar superposiciones */
+    .nav-links.active {
+        padding-bottom: 90px; /* Dar espacio al botón CTA */
+    }
+}
+
+/* Asegurar que en escritorio todo se vea correctamente */
+@media (min-width: 1024px) {
+    .menu-close {
+        display: none !important;
+    }
+    
+    .nav-links, .nav-cta {
+        position: static;
+        padding: 0;
+        height: auto;
+        overflow: visible;
+    }
+}

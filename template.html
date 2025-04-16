@@ -78,8 +78,8 @@
         async function loadAllComponents() {
             // Carga header y footer. Promise.all espera a que ambas cargas terminen.
             await Promise.all([
-                loadComponent('componentes-visuales/header/header.html', 'header-placeholder'),
-                loadComponent('componentes-visuales/footer/footer.html', 'footer-placeholder')
+                loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'),
+                loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')
             ]);
 
             // IMPORTANTE: Los scripts específicos de los componentes (header.js, footer.js)
@@ -99,9 +99,9 @@
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
 
-    <script src="componentes-visuales/header/header.js" defer></script>
+    <script src="componentes-visuales/Header/header.js" defer></script>
 
-    <script src="componentes-visuales/footer/footer.js" defer></script>
+    <script src="componentes-visuales/Footer/footer.js" defer></script>
 
     </body>
 </html>

@@ -7,9 +7,6 @@
     
     <title>Analiza.pe - Soluciones de Inteligencia Financiera y de Mercado</title>
     
-    <!-- Favicon -->
-    <link rel="icon" href="/analiza.pe/assets/img/favicon.ico">
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +15,45 @@
     <!-- Font Awesome (para los iconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Estilos globales y componentes -->
-    <link rel="stylesheet" href="/analiza.pe/assets/css/normalize.css">
-    <link rel="stylesheet" href="/analiza.pe/assets/css/styles.css">
+    <!-- Estilos de componentes -->
     <link rel="stylesheet" href="/analiza.pe/componentes-visuales/header/header.css">
     <link rel="stylesheet" href="/analiza.pe/componentes-visuales/footer/footer.css">
     
-    <!-- Estilos específicos de la página (opcional) -->
-    <!-- <link rel="stylesheet" href="/analiza.pe/assets/css/page-specific.css"> -->
+    <style>
+        /* Estilos básicos para el contenido principal - 
+           Normalmente esto estaría en un archivo CSS separado */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #111827;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            padding: 80px 0 50px;
+            background-color: #f8fafc;
+        }
+        
+        .section-light {
+            background-color: #ffffff;
+            padding: 60px 0;
+        }
+        
+        .section-dark {
+            background-color: #f1f5f9;
+            padding: 60px 0;
+        }
+        
+        /* Resto de estilos básicos para el contenido */
+    </style>
 </head>
 <body>
     <!-- Contenedor para el Header -->
@@ -43,7 +71,7 @@
                         </h1>
                         
                         <p class="hero-description">
-                            Descripción introductoria de la página. Reemplaza este texto con contenido específico relacionado con la sección actual del sitio web.
+                            Descripción introductoria de la página. Reemplaza este texto con contenido específico.
                         </p>
                         
                         <div>
@@ -52,7 +80,8 @@
                     </div>
                     
                     <div class="hero-image">
-                        <img src="/analiza.pe/assets/img/placeholder.jpg" alt="Imagen descriptiva">
+                        <!-- Imagen de placeholder -->
+                        <img src="https://via.placeholder.com/600x400" alt="Imagen descriptiva">
                     </div>
                 </div>
             </div>
@@ -65,13 +94,11 @@
                     <div class="section-badge">SECCIÓN 1</div>
                     <h2 class="section-title">Título de la sección</h2>
                     <p class="section-description">
-                        Descripción general de esta sección. Aquí puedes incluir información relevante sobre el contenido que se presentará a continuación.
+                        Descripción general de esta sección. Aquí puedes incluir información relevante.
                     </p>
                 </div>
                 
-                <!-- Contenido específico de la sección -->
                 <div class="section-content">
-                    <!-- Aquí va el contenido específico de esta sección -->
                     <p>Contenido de ejemplo. Reemplaza esto con el contenido real de tu página.</p>
                 </div>
             </div>
@@ -84,13 +111,11 @@
                     <div class="section-badge">SECCIÓN 2</div>
                     <h2 class="section-title">Otro título de sección</h2>
                     <p class="section-description">
-                        Descripción de la segunda sección. Esta área puede contener información adicional sobre los servicios o productos ofrecidos.
+                        Descripción de la segunda sección. Esta área puede contener información adicional.
                     </p>
                 </div>
                 
-                <!-- Contenido específico de la sección -->
                 <div class="section-content">
-                    <!-- Aquí va el contenido específico de esta sección -->
                     <p>Contenido de ejemplo para la segunda sección. Reemplaza esto con tu contenido real.</p>
                 </div>
             </div>
@@ -99,9 +124,6 @@
     
     <!-- Contenedor para el Footer -->
     <div id="footer-container"></div>
-    
-    <!-- Scripts globales -->
-    <script src="/analiza.pe/assets/js/main.js"></script>
     
     <!-- Scripts de componentes -->
     <script src="/analiza.pe/componentes-visuales/header/header.js"></script>
@@ -133,15 +155,7 @@
                 .catch(error => {
                     console.error('Error al cargar el footer:', error);
                 });
-            
-            // Inicializar scripts específicos de la página (si existen)
-            if (typeof initPageScripts === 'function') {
-                initPageScripts();
-            }
         });
     </script>
-    
-    <!-- Scripts específicos de la página (opcional) -->
-    <!-- <script src="/analiza.pe/assets/js/page-specific.js"></script> -->
 </body>
 </html>

@@ -7,6 +7,9 @@
     
     <title>Analiza.pe - Soluciones de Inteligencia Financiera y de Mercado</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/img/favicon.ico">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +19,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Estilos de componentes -->
-    <link rel="stylesheet" href="/analiza.pe/componentes-visuales/header/header.css">
-    <link rel="stylesheet" href="/analiza.pe/componentes-visuales/footer/footer.css">
+    <link rel="stylesheet" href="./componentes-visuales/header/header.css">
+    <link rel="stylesheet" href="./componentes-visuales/footer/footer.css">
     
     <style>
-        /* Estilos básicos para el contenido principal - 
-           Normalmente esto estaría en un archivo CSS separado */
+        /* Estilos básicos para el contenido principal */
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -42,6 +44,55 @@
             background-color: #f8fafc;
         }
         
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-title span {
+            color: #2563eb;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
         .section-light {
             background-color: #ffffff;
             padding: 60px 0;
@@ -52,7 +103,52 @@
             padding: 60px 0;
         }
         
-        /* Resto de estilos básicos para el contenido */
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #2563eb;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-description {
+            color: #4b5563;
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .hero-content {
+                flex: 1;
+                text-align: left;
+            }
+            
+            .hero-image {
+                flex: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -71,7 +167,7 @@
                         </h1>
                         
                         <p class="hero-description">
-                            Descripción introductoria de la página. Reemplaza este texto con contenido específico.
+                            Descripción introductoria de la página. Reemplaza este texto con contenido específico relacionado con la sección actual del sitio web.
                         </p>
                         
                         <div>
@@ -80,7 +176,6 @@
                     </div>
                     
                     <div class="hero-image">
-                        <!-- Imagen de placeholder -->
                         <img src="https://via.placeholder.com/600x400" alt="Imagen descriptiva">
                     </div>
                 </div>
@@ -94,11 +189,13 @@
                     <div class="section-badge">SECCIÓN 1</div>
                     <h2 class="section-title">Título de la sección</h2>
                     <p class="section-description">
-                        Descripción general de esta sección. Aquí puedes incluir información relevante.
+                        Descripción general de esta sección. Aquí puedes incluir información relevante sobre el contenido que se presentará a continuación.
                     </p>
                 </div>
                 
+                <!-- Contenido específico de la sección -->
                 <div class="section-content">
+                    <!-- Aquí va el contenido específico de esta sección -->
                     <p>Contenido de ejemplo. Reemplaza esto con el contenido real de tu página.</p>
                 </div>
             </div>
@@ -111,11 +208,13 @@
                     <div class="section-badge">SECCIÓN 2</div>
                     <h2 class="section-title">Otro título de sección</h2>
                     <p class="section-description">
-                        Descripción de la segunda sección. Esta área puede contener información adicional.
+                        Descripción de la segunda sección. Esta área puede contener información adicional sobre los servicios o productos ofrecidos.
                     </p>
                 </div>
                 
+                <!-- Contenido específico de la sección -->
                 <div class="section-content">
+                    <!-- Aquí va el contenido específico de esta sección -->
                     <p>Contenido de ejemplo para la segunda sección. Reemplaza esto con tu contenido real.</p>
                 </div>
             </div>
@@ -126,15 +225,15 @@
     <div id="footer-container"></div>
     
     <!-- Scripts de componentes -->
-    <script src="/analiza.pe/componentes-visuales/header/header.js"></script>
-    <script src="/analiza.pe/componentes-visuales/footer/footer.js"></script>
+    <script src="./componentes-visuales/header/header.js"></script>
+    <script src="./componentes-visuales/footer/footer.js"></script>
     
     <!-- Inicialización de componentes -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Cargar el header
             const headerContainer = document.getElementById('header-container');
-            fetch('/analiza.pe/componentes-visuales/header/header.html')
+            fetch('./componentes-visuales/header/header.html')
                 .then(response => response.text())
                 .then(data => {
                     headerContainer.innerHTML = data;
@@ -146,7 +245,7 @@
             
             // Cargar el footer
             const footerContainer = document.getElementById('footer-container');
-            fetch('/analiza.pe/componentes-visuales/footer/footer.html')
+            fetch('./componentes-visuales/footer/footer.html')
                 .then(response => response.text())
                 .then(data => {
                     footerContainer.innerHTML = data;

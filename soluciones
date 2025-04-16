@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones - Analiza.pe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="componentes-visuales/header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/footer/footer.css">
+    <link rel="stylesheet" href="css/soluciones.css">  <style>
+        /* Solo para transición de carga suave */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero-soluciones">
+            <div class="container">
+                <h1>Nuestras Soluciones</h1>
+                <p class="subtitulo">Transformamos datos en decisiones estratégicas y optimizamos tus procesos clave.</p>
+            </div>
+        </section>
+
+        <section class="lista-soluciones">
+            <div class="container">
+                <article class="solucion-item" id="crm">
+                    <div class="solucion-icono">
+                        <i class="fas fa-users-cog"></i> </div>
+                    <div class="solucion-contenido">
+                        <h2>Gestión de Relaciones con Clientes (CRM)</h2>
+                        <p>Implementamos y optimizamos plataformas CRM para centralizar la información de tus clientes, automatizar ventas y marketing, y fortalecer la lealtad. Te ayudamos a elegir e integrar la herramienta perfecta (como Salesforce, HubSpot, Zoho CRM) para tu negocio.</p>
+                        <ul>
+                            <li>Selección y consultoría de plataforma CRM.</li>
+                            <li>Implementación y configuración personalizada.</li>
+                            <li>Migración segura de datos existentes.</li>
+                            <li>Automatización de flujos de trabajo y procesos.</li>
+                            <li>Integración con otras herramientas empresariales.</li>
+                            <li>Capacitación y soporte para tu equipo.</li>
+                        </ul>
+                        <a href="contacto.html" class="cta-button">Optimizar mi CRM</a>
+                    </div>
+                </article>
+
+                <article class="solucion-item" id="analisis-datos">
+                     <div class="solucion-icono">
+                        <i class="fas fa-chart-line"></i> </div>
+                    <div class="solucion-contenido">
+                        <h2>Análisis Avanzado de Datos e Inteligencia de Negocios</h2>
+                        <p>Convertimos tus datos brutos en insights accionables. Mediante técnicas de limpieza, análisis, visualización (Power BI, Tableau) y modelado predictivo, revelamos oportunidades ocultas, optimizamos operaciones y te preparamos para el futuro.</p>
+                        <ul>
+                            <li>Limpieza, preparación y estructuración de datos.</li>
+                            <li>Análisis exploratorio para descubrir patrones (EDA).</li>
+                            <li>Creación de Dashboards y reportes interactivos.</li>
+                            <li>Modelado predictivo y proyecciones (Forecasting).</li>
+                            <li>Segmentación de clientes y análisis de mercado.</li>
+                            <li>Presentación de resultados clave para la toma de decisiones.</li>
+                        </ul>
+                        <a href="contacto.html" class="cta-button">Descubrir Insights</a>
+                    </div>
+                </article>
+
+                 </div>
+        </section>
+
+        <section class="cta-contacto-soluciones">
+            <div class="container">
+                <h2>¿Listo para transformar tu negocio?</h2>
+                <p>Conversemos sobre cómo nuestras soluciones pueden abordar tus desafíos específicos y ayudarte a alcanzar tus objetivos.</p>
+                <a href="contacto.html" class="cta-button cta-button-secondary">Hablar con un Consultor</a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponent(url, placeholderId) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                const placeholder = document.getElementById(placeholderId);
+                if (placeholder) {
+                    placeholder.innerHTML = text;
+                } else {
+                    console.error(`Placeholder with id ${placeholderId} not found.`);
+                }
+            } catch (error) {
+                console.error(`Could not load component from ${url}:`, error);
+                const placeholder = document.getElementById(placeholderId);
+                if (placeholder) {
+                    placeholder.innerHTML = `<p style="color: red; text-align: center;">Error al cargar ${placeholderId.replace('-placeholder', '')}.</p>`;
+                }
+            }
+        }
+
+        async function loadAllComponents() {
+            try {
+                await Promise.all([
+                    loadComponent('componentes-visuales/header/header.html', 'header-placeholder'),
+                    loadComponent('componentes-visuales/footer/footer.html', 'footer-placeholder')
+                ]);
+                // Añade clase 'loaded' al body después de cargar componentes para la transición
+                document.body.classList.add('loaded');
+            } catch (error) {
+                console.error("Error loading components:", error);
+                 document.body.classList.add('loaded'); // Añadir loaded incluso si hay error para mostrar contenido
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+
+    <script src="componentes-visuales/header/Header.js" defer></script>
+    <script src="componentes-visuales/footer/Footer.js" defer></script>
+</body>
+</html>

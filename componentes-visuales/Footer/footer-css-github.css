@@ -1,0 +1,211 @@
+/**
+ * Footer Component Styles - Analiza.pe
+ * Ubicación: componentes-visuales/footer/footer.css
+ */
+
+/* Variables de colores basadas en el diseño del sitio */
+:root {
+    --primary-blue: #2563eb;     /* Azul principal para elementos destacados */
+    --dark-blue: #1d4ed8;        /* Azul oscuro para hover */
+    --accent-red: #ef4444;       /* Rojo para acentos y elementos de atención */
+    --text-dark: #111827;        /* Color de texto principal */
+    --text-medium: #4b5563;      /* Color de texto secundario */
+    --bg-light: #f8fafc;         /* Fondo claro */
+    --white: #ffffff;            /* Blanco */
+    --footer-dark: #111827;      /* Color oscuro para el footer */
+    --footer-text: #9ca3af;      /* Color texto footer */
+}
+
+/* Estilos del Footer - Mobile First */
+#footer-component {
+    background-color: var(--footer-dark);
+    color: var(--white);
+    padding: 50px 0 20px;
+    position: relative;
+}
+
+#footer-component .container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.footer-about .logo img {
+    height: 36px;
+    margin-right: 10px;
+}
+
+.footer-about .logo span {
+    color: var(--primary-blue);
+}
+
+.footer-about p {
+    color: var(--footer-text);
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #1f2937;
+    color: var(--white);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: var(--primary-blue);
+}
+
+.footer-links h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-links a i {
+    margin-right: 8px;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1f2937;
+    color: var(--footer-text);
+    font-size: 13px;
+    gap: 15px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-bottom-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--white);
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    transition: all 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries (Mobile-First) */
+@media (min-width: 640px) {
+    #footer-component .container {
+        max-width: 600px;
+        padding: 0 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    #footer-component .container {
+        max-width: 720px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1024px) {
+    #footer-component .container {
+        max-width: 960px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    #footer-component .container {
+        max-width: 1200px;
+    }
+}

@@ -1,66 +1,101 @@
-/**
- * Script para el menú responsivo de Analiza.pe
- * Este script maneja la funcionalidad del menú en dispositivos móviles
- */
-function initAnalizaMenu() {
-    // Referencias a elementos del DOM
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenuContainer = document.getElementById('mobileMenuContainer');
-    const header = document.querySelector('.analiza-header');
-    
-    // Crear el botón de cierre "X" para el menú móvil
-    const closeButton = document.createElement('div');
-    closeButton.id = 'menuClose';
-    closeButton.innerHTML = '<i class="fas fa-times"></i>';
-    closeButton.classList.add('menu-close');
-    
-    // Añadir el botón de cierre al header
-    header.querySelector('.container').appendChild(closeButton);
-    
-    // Ocultar inicialmente el botón de cierre
-    closeButton.style.display = 'none';
-    
-    // Función para abrir el menú móvil
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header'); // Asume que solo hay un header
+    if (!header) return;
+
+    // Buscar elementos DENTRO del header cargado
+    const menuToggle = header.querySelector('#menuToggle');
+    const mobileMenuContainer = header.querySelector('#mobileMenuContainer');
+    // Asumimos que el botón de cierre se crea aquí si no existe
+    let closeButton = header.querySelector('#menuClose');
+
+    // Verificar elementos esenciales para el menú
+    if (!menuToggle || !mobileMenuContainer) {
+        console.warn("No se encontraron menuToggle o mobileMenuContainer en el header.");
+        return;
+    }
+
+    // Crear y añadir el botón de cierre si no existe en el HTML cargado
+    if (!closeButton) {
+        const navHeader = header.querySelector('.nav-header');
+        if (navHeader) {
+            closeButton = document.createElement('div');
+            closeButton.id = 'menuClose';
+            closeButton.innerHTML = '<i class="fas fa-times"></i>';
+            closeButton.classList.add('menu-close'); // Asegúrate que esta clase existe en header.css
+            closeButton.style.display = 'none'; // Oculto por defecto
+            navHeader.appendChild(closeButton); // Añadirlo al .nav-header
+        } else {
+             console.warn("No se encontró .nav-header para añadir el botón de cierre.");
+        }
+    }
+    // Si el botón ya existía en el HTML pero estaba oculto por defecto
+    else if(closeButton) {
+         closeButton.style.display = 'none';
+    }
+
+
     function openMobileMenu() {
         mobileMenuContainer.classList.add('active');
-        menuToggle.style.display = 'none';
-        closeButton.style.display = 'flex';
-        document.body.classList.add('menu-open'); // Para evitar el scroll
+        menuToggle.style.display = 'none'; // Ocultar hamburguesa
+         if(closeButton) closeButton.style.display = 'flex'; // Mostrar 'X'
+        document.body.classList.add('menu-open');
     }
-    
-    // Función para cerrar el menú móvil
+
     function closeMobileMenu() {
         mobileMenuContainer.classList.remove('active');
-        menuToggle.style.display = 'flex';
-        closeButton.style.display = 'none';
+         // Solo mostrar toggle si estamos en vista móvil (checkeando su display CSS)
+        if (window.getComputedStyle(menuToggle).display !== 'none') {
+             menuToggle.style.display = 'flex'; // Mostrar hamburguesa
+        }
+         if(closeButton) closeButton.style.display = 'none'; // Ocultar 'X'
         document.body.classList.remove('menu-open');
     }
-    
-    // Listeners de eventos
+
     menuToggle.addEventListener('click', openMobileMenu);
-    closeButton.addEventListener('click', closeMobileMenu);
-    
-    // Cerrar el menú al hacer clic en un enlace
-    const navLinks = document.getElementById('navLinks');
-    const menuLinks = navLinks.querySelectorAll('a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-    
-    // Cerrar el menú al hacer clic en el botón CTA
-    const navCta = document.getElementById('navCta');
-    const ctaButton = navCta.querySelector('a');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', closeMobileMenu);
+    // Solo añadir listener a closeButton si se encontró o creó
+    if (closeButton) {
+         closeButton.addEventListener('click', closeMobileMenu);
     }
-    
-    // Ajustar el menú al redimensionar la ventana
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 1024) {
+
+
+    // Cerrar menú al hacer clic en enlaces y botón CTA DENTRO del contenedor del menú
+    const linksAndCtas = mobileMenuContainer.querySelectorAll('#navLinks a, #navCta a');
+    linksAndCtas.forEach(link => {
+        link.addEventListener('click', () => {
+             // Solo cerrar si el menú está visible (activo)
+             if (mobileMenuContainer.classList.contains('active')) {
+                 closeMobileMenu();
+             }
+        });
+    });
+
+    // Ajustar estado en resize
+     window.addEventListener('resize', function() {
+        const isDesktop = window.innerWidth >= 1024;
+        // Si pasamos a escritorio y el menú estaba activo, lo cerramos
+        if (isDesktop && mobileMenuContainer.classList.contains('active')) {
             closeMobileMenu();
         }
+        // Asegurarse de que el icono correcto (o ninguno) se muestre en escritorio
+         if(isDesktop) {
+             menuToggle.style.display = 'none';
+             if (closeButton) closeButton.style.display = 'none';
+              document.body.classList.remove('menu-open'); // Asegurar scroll si pasamos a desktop
+         } else {
+             // Si volvemos a móvil y el menú no está activo, mostrar hamburguesa
+             if (!mobileMenuContainer.classList.contains('active')) {
+                  menuToggle.style.display = 'flex';
+                  if (closeButton) closeButton.style.display = 'none';
+             }
+         }
     });
-}
 
-// Inicializar el menú cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', initAnalizaMenu);
+     // Estado inicial al cargar la página (para evitar FOUC)
+     if (window.innerWidth < 1024) {
+        menuToggle.style.display = 'flex';
+         if (closeButton) closeButton.style.display = 'none';
+     } else {
+         menuToggle.style.display = 'none';
+          if (closeButton) closeButton.style.display = 'none';
+     }
+});

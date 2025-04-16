@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analiza.pe - Soluciones de inteligencia para transformar tus datos corporativos en ventajas competitivas reales.">
+    
+    <title>Analiza.pe - Soluciones de Inteligencia Financiera y de Mercado</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (para los iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos globales y componentes -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="componentes-visuales/header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/footer/footer.css">
+    
+    <!-- Estilos específicos de la página (opcional) -->
+    <!-- <link rel="stylesheet" href="assets/css/page-specific.css"> -->
+</head>
+<body>
+    <!-- Contenedor para el Header -->
+    <div id="header-container"></div>
+    
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Título principal de la <span>página</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Descripción introductoria de la página. Reemplaza este texto con contenido específico relacionado con la sección actual del sitio web.
+                        </p>
+                        
+                        <div>
+                            <a href="#accion" class="cta-button"><i class="fas fa-arrow-right"></i> Llamado a la acción</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <img src="assets/img/placeholder.jpg" alt="Imagen descriptiva">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Content Section 1 -->
+        <section class="content-section section-light">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">SECCIÓN 1</div>
+                    <h2 class="section-title">Título de la sección</h2>
+                    <p class="section-description">
+                        Descripción general de esta sección. Aquí puedes incluir información relevante sobre el contenido que se presentará a continuación.
+                    </p>
+                </div>
+                
+                <!-- Contenido específico de la sección -->
+                <div class="section-content">
+                    <!-- Aquí va el contenido específico de esta sección -->
+                    <p>Contenido de ejemplo. Reemplaza esto con el contenido real de tu página.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Content Section 2 -->
+        <section class="content-section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">SECCIÓN 2</div>
+                    <h2 class="section-title">Otro título de sección</h2>
+                    <p class="section-description">
+                        Descripción de la segunda sección. Esta área puede contener información adicional sobre los servicios o productos ofrecidos.
+                    </p>
+                </div>
+                
+                <!-- Contenido específico de la sección -->
+                <div class="section-content">
+                    <!-- Aquí va el contenido específico de esta sección -->
+                    <p>Contenido de ejemplo para la segunda sección. Reemplaza esto con tu contenido real.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Contenedor para el Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Scripts globales -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts de componentes -->
+    <script src="componentes-visuales/header/header.js"></script>
+    <script src="componentes-visuales/footer/footer.js"></script>
+    
+    <!-- Inicialización de componentes -->
+    <script>
+        // Definir rutas de los componentes
+        const headerPath = 'componentes-visuales/header/header.html';
+        const footerPath = 'componentes-visuales/footer/footer.html';
+        
+        // Cargar componentes al terminar de cargar el DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar el header
+            loadHeader(headerPath);
+            
+            // Cargar el footer
+            loadFooter(footerPath);
+            
+            // Inicializar scripts específicos de la página (si existen)
+            if (typeof initPageScripts === 'function') {
+                initPageScripts();
+            }
+        });
+    </script>
+    
+    <!-- Scripts específicos de la página (opcional) -->
+    <!-- <script src="assets/js/page-specific.js"></script> -->
+</body>
+</html>

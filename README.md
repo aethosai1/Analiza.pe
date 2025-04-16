@@ -26,19 +26,26 @@ Este repositorio contiene el código fuente del sitio web para Analiza.pe, una p
 ## 📂 Estructura del Proyecto
 
 ```
-analiza-pe-website/
+analiza.pe/
 │
-├── index.html                  # Archivo principal HTML
-├── assets/
-│   ├── css/
-│   │   └── styles.css          # Estilos CSS (actualmente en el HTML)
-│   ├── js/
-│   │   └── main.js             # JavaScript (actualmente en el HTML)
-│   └── img/                    # Imágenes del sitio
-│       └── logo.svg            # Logo de Analiza.pe
+├── index.html                  # Página principal
+├── servicios.html              # Páginas adicionales del sitio
+├── nosotros.html
+├── blog.html
+├── contacto.html
 │
-└── README.md                   # Este archivo
-```
+└── componentes-visuales/       # Componentes reutilizables
+    ├── header/                 # Componente de cabecera
+    │   ├── header.html         # Estructura HTML del header
+    │   ├── header.css          # Estilos específicos del header
+    │   ├── header.js           # Funcionalidad JavaScript del header
+    │   └── README.md           # Documentación del componente
+    │
+    └── footer/                 # Componente de pie de página
+        ├── footer.html         # Estructura HTML del footer
+        ├── footer.css          # Estilos específicos del footer
+        ├── footer.js           # Funcionalidad JavaScript del footer
+        └── README.md           # Documentación del componente
 
 ## 📱 Secciones de la Página
 

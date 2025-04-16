@@ -1,0 +1,193 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 /* --- GLOBAL CSS --- */\
+\
+/* 1. Variables CSS (Paleta de Colores, Fuentes, etc.)\
+----------------------------------------------------- */\
+:root \{\
+    /* Paleta de Colores (Extra\'edda del index.html original) */\
+    --primary-blue: #2563eb;     /* Azul principal para elementos destacados */\
+    --dark-blue: #1d4ed8;        /* Azul oscuro para hover */\
+    --accent-red: #ef4444;       /* Rojo para acentos y elementos de atenci\'f3n */\
+    --text-dark: #111827;        /* Color de texto principal oscuro */\
+    --text-medium: #4b5563;      /* Color de texto secundario/medio */\
+    --text-light: #6b7280;       /* Color de texto claro */\
+    --bg-light: #f8fafc;         /* Fondo claro para secciones */\
+    --bg-white: #ffffff;         /* Fondo blanco */\
+    --border-color: #e5e7eb;     /* Color para bordes sutiles */\
+    --footer-dark: #0f172a;      /* Fondo oscuro para el footer */\
+    --footer-text: #94a3b8;      /* Texto claro para el footer */\
+    --white: #ffffff;            /* Blanco puro */\
+\
+    /* Tipograf\'eda */\
+    --font-primary: 'Inter', sans-serif; /* Fuente principal */\
+\
+    /* Otros */\
+    --container-width: 1140px; /* Ancho m\'e1ximo del contenedor */\
+    --container-padding: 20px; /* Padding lateral del contenedor */\
+    --border-radius-sm: 4px;\
+    --border-radius-md: 6px;\
+    --transition-speed: 0.3s;\
+\}\
+\
+/* 2. Resets y Normalizaci\'f3n B\'e1sica\
+----------------------------------------------------- */\
+*,\
+*::before,\
+*::after \{\
+    box-sizing: border-box; /* Incluye padding y border en el tama\'f1o total */\
+    margin: 0;             /* Quita m\'e1rgenes por defecto */\
+    padding: 0;            /* Quita paddings por defecto */\
+\}\
+\
+html \{\
+    scroll-behavior: smooth; /* Desplazamiento suave en anclas */\
+    font-size: 100%;       /* Base para REMs (usualmente 16px) */\
+\}\
+\
+body \{\
+    font-family: var(--font-primary);\
+    font-size: 1rem; /* 16px por defecto */\
+    line-height: 1.6; /* Espaciado entre l\'edneas */\
+    color: var(--text-medium); /* Color de texto por defecto */\
+    background-color: var(--white); /* Fondo general */\
+    -webkit-font-smoothing: antialiased; /* Mejora renderizado de fuentes en Webkit */\
+    -moz-osx-font-smoothing: grayscale; /* Mejora renderizado de fuentes en Firefox */\
+\
+    /* Ajuste para compensar header fijo (Mantenido aqu\'ed para centralizarlo) */\
+    /* Ajusta '76px' y '66px' a la altura real de tu header en m\'f3vil/escritorio */\
+    padding-top: 76px;\
+\}\
+\
+img, picture, video, canvas, svg \{\
+    display: block; /* Evita espacio extra debajo de im\'e1genes */\
+    max-width: 100%; /* Asegura que las im\'e1genes no desborden su contenedor */\
+    height: auto;    /* Mantiene la proporci\'f3n de aspecto */\
+\}\
+\
+input, button, textarea, select \{\
+    font: inherit; /* Hereda la fuente del body */\
+\}\
+\
+/* 3. Clase Contenedor Principal\
+----------------------------------------------------- */\
+.container \{\
+    width: 100%;\
+    max-width: var(--container-width);\
+    margin-left: auto;\
+    margin-right: auto;\
+    padding-left: var(--container-padding);\
+    padding-right: var(--container-padding);\
+\}\
+\
+/* 4. Estilos de Tipograf\'eda Base\
+----------------------------------------------------- */\
+h1, h2, h3, h4, h5, h6 \{\
+    color: var(--text-dark);\
+    font-weight: 600; /* Un poco m\'e1s de peso para encabezados */\
+    line-height: 1.3; /* Ligeramente m\'e1s ajustado que el texto normal */\
+    margin-bottom: 1rem; /* Espacio debajo de los encabezados */\
+\}\
+\
+h1 \{ font-size: 2.5rem; \} /* ~40px */\
+h2 \{ font-size: 2rem; \}   /* ~32px */\
+h3 \{ font-size: 1.75rem; \} /* ~28px */\
+h4 \{ font-size: 1.5rem; \}  /* ~24px */\
+h5 \{ font-size: 1.25rem; \} /* ~20px */\
+h6 \{ font-size: 1rem; \}    /* ~16px */\
+/* Ajusta estos tama\'f1os seg\'fan tu dise\'f1o */\
+\
+p \{\
+    margin-bottom: 1rem; /* Espacio entre p\'e1rrafos */\
+\}\
+\
+a \{\
+    color: var(--primary-blue); /* Color de enlace por defecto */\
+    text-decoration: none; /* Quitar subrayado por defecto */\
+    transition: color var(--transition-speed) ease;\
+\}\
+\
+a:hover \{\
+    color: var(--dark-blue);\
+    /* text-decoration: underline; */ /* Opcional: Subrayar en hover */\
+\}\
+\
+ul, ol \{\
+    list-style-position: inside; /* Posici\'f3n de vi\'f1etas/n\'fameros */\
+    margin-bottom: 1rem;\
+    padding-left: 1.5rem; /* Espacio para vi\'f1etas/n\'fameros */\
+\}\
+\
+/* 5. Estilos para Botones Comunes\
+----------------------------------------------------- */\
+.cta-button \{\
+    display: inline-block; /* Para que respete padding y margin */\
+    padding: 10px 25px;\
+    background-color: var(--primary-blue);\
+    color: var(--white);\
+    border: none;\
+    border-radius: var(--border-radius-md);\
+    font-weight: 600;\
+    text-align: center;\
+    cursor: pointer;\
+    transition: background-color var(--transition-speed), transform 0.2s;\
+    text-decoration: none; /* Asegurar que no haya subrayado si se usa en <a> */\
+\}\
+\
+.cta-button:hover \{\
+    background-color: var(--dark-blue);\
+    transform: translateY(-2px); /* Efecto sutil al pasar el rat\'f3n */\
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\
+\}\
+\
+/* Estilo secundario opcional */\
+.cta-button-secondary \{\
+    background-color: transparent;\
+    color: var(--primary-blue);\
+    border: 1px solid var(--primary-blue);\
+\}\
+\
+.cta-button-secondary:hover \{\
+    background-color: rgba(37, 99, 235, 0.1); /* Azul muy transparente */\
+    color: var(--dark-blue);\
+    border-color: var(--dark-blue);\
+    transform: translateY(-2px);\
+    box-shadow: none; /* Quitar sombra para bot\'f3n secundario */\
+\}\
+\
+\
+/* 6. Accesibilidad\
+----------------------------------------------------- */\
+/* Estilo de foco visible claro para usuarios de teclado */\
+*:focus-visible \{\
+  outline: 2px solid var(--primary-blue);\
+  outline-offset: 2px;\
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.3); /* Sombra exterior suave */\
+\}\
+\
+/* Opcional: quitar outline si no es :focus-visible (para clics de rat\'f3n) */\
+*:focus:not(:focus-visible) \{\
+  outline: none;\
+  box-shadow: none;\
+\}\
+\
+/* 7. Media Queries (Ajustes Globales)\
+----------------------------------------------------- */\
+@media (min-width: 768px) \{\
+    /* Ejemplo: Aumentar tama\'f1o de fuente base en pantallas m\'e1s grandes */\
+    /* html \{ font-size: 106.25%; \} */ /* 17px */\
+\}\
+\
+@media (min-width: 1024px) \{\
+    /* Ajuste del padding del body para header en escritorio */\
+     body \{\
+        padding-top: 66px;\
+    \}\
+\}\
+\
+/* --- FIN GLOBAL CSS --- */}

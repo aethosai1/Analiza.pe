@@ -11,525 +11,249 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
-    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    <link rel="stylesheet" href="css/global.css">
+
+    <link rel="stylesheet" href="componentes-visuales/header/header.css">
+
+    <link rel="stylesheet" href="componentes-visuales/footer/footer.css">
+
+    <link rel="stylesheet" href="css/nosotros.css">
 
     <style>
-        /* Estilos generales para la página */
+        /* Estilos solo para la transición suave de carga del body */
         body {
-            opacity: 0;
+            opacity: 0; /* Ocultar hasta que todo esté listo (JS añadirá 'loaded') */
             transition: opacity 0.3s ease-in;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
         }
-        
         body.loaded {
             opacity: 1;
         }
-        
-        /* Estilos específicos para la página Nosotros */
-        .nosotros-hero {
-            background: linear-gradient(135deg, #0062cc, #0099ff);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-            margin-bottom: 60px;
-        }
-        
-        .nosotros-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .nosotros-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
-        
-        .nosotros-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .nosotros-section {
-            margin-bottom: 80px;
-        }
-        
-        .nosotros-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #0062cc;
-            position: relative;
-            padding-bottom: 12px;
-        }
-        
-        .nosotros-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #0099ff;
-        }
-        
-        .nosotros-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .nosotros-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .nosotros-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        
-        .card-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .card-content {
-            padding: 24px;
-        }
-        
-        .card-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: #0062cc;
-        }
-        
-        .valores-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .valor-item {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .valor-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .valor-icon {
-            font-size: 2.5rem;
-            color: #0099ff;
-            margin-bottom: 20px;
-        }
-        
-        .valor-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #0062cc;
-        }
-        
-        .equipo-section {
-            text-align: center;
-        }
-        
-        .equipo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .miembro-card {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .miembro-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .miembro-foto {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 4px solid #0099ff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .miembro-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: #0062cc;
-        }
-        
-        .miembro-info p {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            margin: 0 8px;
-            color: #0062cc;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: #0099ff;
-        }
-        
-        .stats-section {
-            background-color: #f8f9fa;
-            padding: 80px 0;
-            text-align: center;
-            margin: 80px 0;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .stat-item {
-            padding: 20px;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #0062cc;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            color: #666;
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin: 80px 0;
-            padding: 0 20px;
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, #0062cc, #0099ff);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 12px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .cta-box h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta-box p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: #0062cc;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .nosotros-hero {
-                padding: 60px 20px;
-            }
-            
-            .nosotros-hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .nosotros-section h2 {
-                font-size: 1.8rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-            
-            .cta-box {
-                padding: 40px 20px;
-            }
-            
-            .cta-box h2 {
-                font-size: 1.8rem;
-            }
-        }
+        /* Nota: El padding-top para compensar el header fijo está en css/global.css */
     </style>
+
 </head>
 <body>
 
     <div id="header-placeholder"></div>
 
     <main>
-        <!-- Sección Hero -->
         <section class="nosotros-hero">
-            <h1>Conócenos</h1>
-            <p>En Analiza.pe transformamos datos en decisiones estratégicas para impulsar el crecimiento de tu negocio en el entorno digital.</p>
+            <div class="container">
+                <h1>Conócenos</h1>
+                <p>En Analiza.pe transformamos datos en decisiones estratégicas para impulsar el crecimiento de tu negocio en el entorno digital.</p>
+             </div>
         </section>
-        
-        <!-- Sección Quiénes Somos -->
-        <section class="nosotros-section nosotros-container">
-            <h2>Quiénes Somos</h2>
-            <div class="nosotros-grid">
-                <div class="nosotros-card">
-                    <div class="card-image" style="background-image: url('/api/placeholder/600/400');"></div>
-                    <div class="card-content">
-                        <h3>Nuestra Historia</h3>
-                        <p>Fundada en 2018, Analiza.pe nació con la visión de democratizar el acceso a análisis de datos de calidad para empresas peruanas de todos los tamaños. Lo que comenzó como un pequeño equipo de analistas apasionados se ha convertido en una consultora líder en analítica digital en el Perú.</p>
+
+        <section class="nosotros-section">
+             <div class="container"> <div class="section-header">
+                     <span class="section-badge">NUESTRA ESENCIA</span>
+                     <h2 class="section-title">Quiénes Somos</h2>
+                </div>
+                <div class="nosotros-grid">
+                    <div class="nosotros-card">
+                        <img src="/api/placeholder/600/400" alt="Nuestra Historia" class="card-image">
+                        <div class="card-content">
+                            <h3>Nuestra Historia</h3>
+                            <p>Fundada en 2018, Analiza.pe nació con la visión de democratizar el acceso a análisis de datos de calidad para empresas peruanas de todos los tamaños. Lo que comenzó como un pequeño equipo de analistas apasionados se ha convertido en una consultora líder en analítica digital en el Perú.</p>
+                        </div>
+                    </div>
+
+                    <div class="nosotros-card">
+                         <img src="/api/placeholder/600/400" alt="Nuestra Misión" class="card-image">
+                        <div class="card-content">
+                            <h3>Nuestra Misión</h3>
+                            <p>Empoderamos a las empresas peruanas con insights accionables basados en datos, para que puedan tomar decisiones estratégicas informadas y maximizar su potencial de crecimiento en el entorno digital con confianza y precisión.</p>
+                        </div>
+                    </div>
+
+                    <div class="nosotros-card">
+                         <img src="/api/placeholder/600/400" alt="Nuestra Visión" class="card-image">
+                        <div class="card-content">
+                            <h3>Nuestra Visión</h3>
+                            <p>Ser reconocidos como el socio estratégico indispensable en análisis de datos para empresas líderes en el Perú, contribuyendo al desarrollo de una cultura de decisiones basadas en datos que impulse la innovación y competitividad en el mercado nacional.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="nosotros-card">
-                    <div class="card-image" style="background-image: url('/api/placeholder/600/400');"></div>
-                    <div class="card-content">
-                        <h3>Nuestra Misión</h3>
-                        <p>Empoderamos a las empresas peruanas con insights accionables basados en datos, para que puedan tomar decisiones estratégicas informadas y maximizar su potencial de crecimiento en el entorno digital con confianza y precisión.</p>
-                    </div>
-                </div>
-                
-                <div class="nosotros-card">
-                    <div class="card-image" style="background-image: url('/api/placeholder/600/400');"></div>
-                    <div class="card-content">
-                        <h3>Nuestra Visión</h3>
-                        <p>Ser reconocidos como el socio estratégico indispensable en análisis de datos para empresas líderes en el Perú, contribuyendo al desarrollo de una cultura de decisiones basadas en datos que impulse la innovación y competitividad en el mercado nacional.</p>
-                    </div>
-                </div>
-            </div>
+             </div>
         </section>
-        
-        <!-- Sección Valores -->
-        <section class="nosotros-section nosotros-container">
-            <h2>Nuestros Valores</h2>
-            <p>Los principios que guían nuestro trabajo y relaciones con los clientes:</p>
-            
-            <div class="valores-grid">
-                <div class="valor-item">
-                    <div class="valor-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Precisión</h3>
-                    <p>Nos comprometemos con la exactitud y el rigor metodológico en cada análisis que realizamos.</p>
+
+        <section class="nosotros-section">
+             <div class="container"> <div class="section-header">
+                    <span class="section-badge">PRINCIPIOS</span>
+                    <h2 class="section-title">Nuestros Valores</h2>
+                    <p class="section-description">Los principios que guían nuestro trabajo y relaciones con los clientes:</p>
                 </div>
-                
-                <div class="valor-item">
-                    <div class="valor-icon">
-                        <i class="fas fa-lightbulb"></i>
+                <div class="valores-grid">
+                    <div class="valor-item">
+                        <div class="valor-icon">
+                            <i class="fas fa-bullseye"></i> </div>
+                        <div class="valor-content"> <h3>Precisión</h3>
+                             <p>Nos comprometemos con la exactitud y el rigor metodológico en cada análisis que realizamos.</p>
+                        </div>
                     </div>
-                    <h3>Innovación</h3>
-                    <p>Constantemente exploramos nuevas tecnologías y metodologías para ofrecer soluciones creativas.</p>
-                </div>
-                
-                <div class="valor-item">
-                    <div class="valor-icon">
-                        <i class="fas fa-handshake"></i>
+
+                    <div class="valor-item">
+                        <div class="valor-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                         <div class="valor-content">
+                            <h3>Innovación</h3>
+                            <p>Constantemente exploramos nuevas tecnologías y metodologías para ofrecer soluciones creativas.</p>
+                         </div>
                     </div>
-                    <h3>Colaboración</h3>
-                    <p>Trabajamos como extensión del equipo de nuestros clientes, construyendo relaciones de confianza.</p>
-                </div>
-                
-                <div class="valor-item">
-                    <div class="valor-icon">
-                        <i class="fas fa-shield-alt"></i>
+
+                    <div class="valor-item">
+                        <div class="valor-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                         <div class="valor-content">
+                            <h3>Colaboración</h3>
+                            <p>Trabajamos como extensión del equipo de nuestros clientes, construyendo relaciones de confianza.</p>
+                         </div>
                     </div>
-                    <h3>Integridad</h3>
-                    <p>Actuamos con transparencia y ética en cada interacción y manejo de datos.</p>
+
+                    <div class="valor-item">
+                        <div class="valor-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                         <div class="valor-content">
+                            <h3>Integridad</h3>
+                            <p>Actuamos con transparencia y ética en cada interacción y manejo de datos.</p>
+                         </div>
+                    </div>
                 </div>
-            </div>
+             </div>
         </section>
-        
-        <!-- Estadísticas -->
+
         <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">300+</span>
-                    <span class="stat-label">Proyectos completados</span>
+            <div class="container"> <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Proyectos completados</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Clientes satisfechos</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Expertos en nuestro equipo</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
                 </div>
-                
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Clientes satisfechos</span>
-                </div>
-                
-                <div class="stat-item">
-                    <span class="stat-number">25+</span>
-                    <span class="stat-label">Expertos en nuestro equipo</span>
-                </div>
-                
-                <div class="stat-item">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Años de experiencia</span>
-                </div>
-            </div>
+             </div>
         </section>
-        
-        <!-- Equipo -->
-        <section class="nosotros-section nosotros-container equipo-section">
-            <h2>Nuestro Equipo</h2>
-            <p>Contamos con un equipo multidisciplinario de profesionales apasionados por los datos y la tecnología:</p>
-            
-            <div class="equipo-grid">
-                <div class="miembro-card">
-                    <img src="/api/placeholder/400/400" alt="Foto de Carlos Mendoza" class="miembro-foto">
-                    <div class="miembro-info">
-                        <h3>Carlos Mendoza</h3>
-                        <p>CEO & Fundador</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <section class="nosotros-section equipo-section">
+             <div class="container"> <div class="section-header">
+                    <span class="section-badge">TALENTO</span>
+                    <h2 class="section-title">Nuestro Equipo</h2>
+                    <p class="section-description">Contamos con un equipo multidisciplinario de profesionales apasionados por los datos y la tecnología:</p>
+                </div>
+                <div class="equipo-grid">
+                    <div class="miembro-card">
+                        <img src="/api/placeholder/400/400" alt="Foto de Carlos Mendoza" class="miembro-foto">
+                        <div class="miembro-info">
+                            <h3>Carlos Mendoza</h3>
+                            <p>CEO & Fundador</p>
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn Carlos Mendoza"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter Carlos Mendoza"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miembro-card">
+                        <img src="/api/placeholder/400/400" alt="Foto de Ana Paredes" class="miembro-foto">
+                        <div class="miembro-info">
+                            <h3>Ana Paredes</h3>
+                            <p>Directora de Consultoría</p>
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn Ana Paredes"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter Ana Paredes"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miembro-card">
+                        <img src="/api/placeholder/400/400" alt="Foto de Miguel Torres" class="miembro-foto">
+                        <div class="miembro-info">
+                            <h3>Miguel Torres</h3>
+                            <p>Líder de Ciencia de Datos</p>
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn Miguel Torres"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter Miguel Torres"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miembro-card">
+                        <img src="/api/placeholder/400/400" alt="Foto de Lucía Gómez" class="miembro-foto">
+                        <div class="miembro-info">
+                            <h3>Lucía Gómez</h3>
+                            <p>Especialista en Analytics</p>
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn Lucía Gómez"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter Lucía Gómez"><i class="fab fa-twitter"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="miembro-card">
-                    <img src="/api/placeholder/400/400" alt="Foto de Ana Paredes" class="miembro-foto">
-                    <div class="miembro-info">
-                        <h3>Ana Paredes</h3>
-                        <p>Directora de Consultoría</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miembro-card">
-                    <img src="/api/placeholder/400/400" alt="Foto de Miguel Torres" class="miembro-foto">
-                    <div class="miembro-info">
-                        <h3>Miguel Torres</h3>
-                        <p>Líder de Ciencia de Datos</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miembro-card">
-                    <img src="/api/placeholder/400/400" alt="Foto de Lucía Gómez" class="miembro-foto">
-                    <div class="miembro-info">
-                        <h3>Lucía Gómez</h3>
-                        <p>Especialista en Analytics</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             </div>
         </section>
-        
-        <!-- Call to Action -->
+
         <section class="cta-section">
-            <div class="cta-box">
-                <h2>¿Listo para transformar tus datos en estrategia?</h2>
-                <p>Descubre cómo podemos ayudarte a tomar decisiones basadas en datos que impulsen el crecimiento de tu negocio.</p>
-                <a href="#" class="cta-button">Contáctanos hoy</a>
-            </div>
+             <div class="container"> <div class="cta-box">
+                    <h2>¿Listo para transformar tus datos en estrategia?</h2>
+                    <p>Descubre cómo podemos ayudarte a tomar decisiones basadas en datos que impulsen el crecimiento de tu negocio.</p>
+                    <a href="contacto.html" class="cta-button">Contáctanos hoy</a> </div>
+             </div>
         </section>
     </main>
-
     <div id="footer-placeholder"></div>
 
+
     <script>
-        /**
-         * Carga el contenido HTML de una URL en un elemento placeholder.
-         * @param {string} url - La URL del archivo HTML del componente.
-         * @param {string} placeholderId - El ID del elemento donde se insertará el HTML.
-         */
+        // Script de carga de componentes (loadComponent, loadAllComponents)
+        // (El mismo que en template.html)
         async function loadComponent(url, placeholderId) {
             const placeholder = document.getElementById(placeholderId);
             if (!placeholder) {
                 console.warn(`Placeholder con ID "${placeholderId}" no encontrado.`);
-                return; // Salir si el placeholder no existe
+                return;
             }
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
-                    // Lanza un error si la respuesta HTTP no es exitosa (ej. 404 Not Found)
                     throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
                 }
                 const html = await response.text();
-                placeholder.innerHTML = html; // Inserta el HTML cargado
+                placeholder.innerHTML = html;
             } catch (error) {
-                // Captura errores de red o errores lanzados arriba
                 console.error(`No se pudo cargar el componente desde ${url}:`, error);
-                // Muestra un mensaje de error en el placeholder para feedback visual
                 placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error al cargar componente (${placeholderId}). Revisa la consola.</p>`;
             }
         }
 
-        /**
-         * Carga todos los componentes principales (Header, Footer) y luego muestra el body.
-         */
         async function loadAllComponents() {
-            // Carga header y footer. Promise.all espera a que ambas cargas terminen.
             await Promise.all([
-                loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'),
-                loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')
+                loadComponent('componentes-visuales/header/header.html', 'header-placeholder'), // Ruta en minúsculas
+                loadComponent('componentes-visuales/footer/footer.html', 'footer-placeholder')  // Ruta en minúsculas
             ]);
-
-            // Una vez cargado el HTML y listos los scripts deferidos para ejecutarse,
-            // hacemos visible el body.
             document.body.classList.add('loaded');
         }
-
-        // Iniciar la carga de componentes tan pronto como el DOM esté listo.
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
 
-    <script src="componentes-visuales/Header/header.js" defer></script>
-    <script src="componentes-visuales/Footer/footer.js" defer></script>
+    <script src="componentes-visuales/header/header.js" defer></script>
 
-</body>
+    <script src="componentes-visuales/footer/footer.js" defer></script>
+
+    </body>
 </html>

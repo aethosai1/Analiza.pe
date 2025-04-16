@@ -47,14 +47,14 @@ analiza.pe/
         ├── footer.js           # Funcionalidad JavaScript del footer
         └── README.md           # Documentación del componente
 
-## 📱 Secciones de la Página
+## 📱 Páginas del sitio:
 
-1. **Header/Navbar**: Barra de navegación con logo, menú y botón CTA.
-2. **Hero**: Sección principal con propuesta de valor y llamado a la acción.
-3. **Soluciones Sectoriales**: Tarjetas con soluciones específicas por industria.
-4. **ROI**: Sección con métricas y resultados tangibles.
-5. **Características**: Funcionalidades destacadas del servicio.
-6. **Footer**: Información de contacto y enlaces útiles.
+1. **Home**: Es la principa
+2. **Nosotro**: Quienes somo.
+3. **Soluciones**: CRM, Analisis, etc.
+4. **servicios**: prestaciones de servicios.
+5. **Contacto**: contactar a la empresa.
+6. **agendar**: Agendar una reunión con Martín.
 
 ## 🎨 Personalización
 

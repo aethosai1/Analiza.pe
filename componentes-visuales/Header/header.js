@@ -1,8 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Script para el menú responsivo de Analiza.pe
+ * Este script maneja la funcionalidad del menú en dispositivos móviles
+ */
+function initAnalizaMenu() {
     // Referencias a elementos del DOM
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenuContainer = document.getElementById('mobileMenuContainer');
-    const header = document.querySelector('header');
+    const header = document.querySelector('.analiza-header');
     
     // Crear el botón de cierre "X" para el menú móvil
     const closeButton = document.createElement('div');
@@ -56,4 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeMobileMenu();
         }
     });
-});
+}
+
+// Inicializar el menú cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', initAnalizaMenu);

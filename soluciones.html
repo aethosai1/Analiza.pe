@@ -114,8 +114,8 @@
         async function loadAllComponents() {
             try {
                 await Promise.all([
-                    loadComponent('componentes-visuales/header/header.html', 'header-placeholder'),
-                    loadComponent('componentes-visuales/footer/footer.html', 'footer-placeholder')
+                    loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'),
+                    loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')
                 ]);
                 // Añade clase 'loaded' al body después de cargar componentes para la transición
                 document.body.classList.add('loaded');

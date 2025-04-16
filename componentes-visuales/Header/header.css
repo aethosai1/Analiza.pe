@@ -6,13 +6,16 @@ header {
     position: fixed; /* O 'sticky' si prefieres */
     width: 100%;
     top: 0;
-    z-index: 100;
+    left: 0; /* Añadido para asegurar posicionamiento */
+    right: 0;/* Añadido para asegurar posicionamiento */
+    z-index: 1000; /* Z-index alto para estar sobre otros elementos */
 }
 
 .navbar {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Base móvil */
     width: 100%;
+    /* El .container le dará padding horizontal */
 }
 
 .nav-header {
@@ -20,10 +23,10 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px 0; /* Ajusta el padding según necesites */
-    position: relative; /* Necesario para el posicionamiento absoluto del botón de cierre */
-    z-index: 102; /* Asegura que el header esté sobre el menú desplegado */
-    background-color: var(--white); /* Fondo para tapar contenido al hacer scroll con menú abierto */
+    padding: 15px 0; /* Padding vertical */
+    position: relative;
+    z-index: 1002; /* Sobre el menú desplegable */
+    background-color: var(--white); /* Evitar transparencia */
 }
 
 .logo {
@@ -44,14 +47,16 @@ header {
     color: var(--primary-blue);
 }
 
-/* Menú hamburguesa */
+/* --- Estilos Menú Móvil --- */
+
 .menu-toggle {
-    display: flex; /* Mostrar por defecto en móvil */
+    display: flex; /* Mostrar en móvil */
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around; /* Distribuye las líneas */
     width: 24px;
     height: 18px;
     cursor: pointer;
+    z-index: 1005; /* Asegurar que esté visible */
 }
 
 .menu-toggle span {
@@ -60,50 +65,67 @@ header {
     width: 100%;
     background-color: var(--text-dark);
     border-radius: 2px;
-    transition: all 0.3s;
+    transition: all var(--transition-speed) ease;
 }
 
-/* Contenedor del menú móvil */
 .mobile-menu-container {
     display: none; /* Oculto por defecto */
     flex-direction: column;
-    width: 100%;
-    position: fixed; /* Fijo para ocupar la pantalla */
-    top: 76px; /* Ajustar según la altura REAL del nav-header (padding incluido) */
+    align-items: center; /* Centrar contenido del menú */
+    position: fixed;
+    top: 0; /* Ocupa toda la altura */
     left: 0;
     right: 0;
     bottom: 0;
     background-color: var(--white);
-    z-index: 99; /* Debajo del header pero sobre el contenido */
-    padding: 20px;
+    z-index: 1001; /* Debajo del nav-header pero sobre el main */
+    padding: 80px 20px 20px 20px; /* Padding arriba para dejar espacio al header, padding general */
     overflow-y: auto; /* Scroll si el contenido es largo */
-    height: calc(100vh - 76px); /* Altura menos la del header */
+    height: 100vh; /* Altura completa */
 }
 
 .mobile-menu-container.active {
     display: flex; /* Mostrar cuando está activo */
 }
 
-/* Enlaces de navegación (móvil) */
+/* Botón de cierre X (controlado por JS y estos estilos) */
+ #menuClose {
+    display: none; /* Oculto por defecto, JS lo muestra */
+    position: absolute; /* Posicionado relativo al nav-header */
+    top: 50%;
+    right: 0; /* Alineado a la derecha del .container */
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 5px; /* Área de clic más grande */
+    z-index: 1005; /* Visible sobre otros elementos */
+ }
+
 .nav-links {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Más espacio antes del CTA */
+    text-align: center;
 }
 
 .nav-links a {
     color: var(--text-medium);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1.1rem; /* Ligeramente más grande en móvil */
+    padding: 10px 0;
+    transition: color var(--transition-speed);
     width: 100%;
-    padding: 12px 0;
-    text-align: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
 }
+ .nav-links a:last-child {
+    border-bottom: none; /* Quitar borde del último */
+}
+
 
 .nav-links a:hover {
     color: var(--primary-blue);
@@ -111,120 +133,68 @@ header {
 
 .nav-cta {
     width: 100%;
-    margin-bottom: 20px;
+    text-align: center; /* Centrar botón */
 }
 
-/* Botón CTA (compartido, podría ir en estilos globales) */
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-blue);
-    color: var(--white);
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
-    width: 100%; /* Ancho completo en móvil */
+/* Hereda estilos de .cta-button de global.css */
+.nav-cta .cta-button {
+   width: 100%; /* Botón ocupa todo el ancho en el menú móvil */
+   max-width: 280px; /* Pero con un máximo razonable */
 }
 
-.cta-button:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.cta-button.cta-consultation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-
-/* Botón de cierre del menú móvil */
-.menu-close {
-    display: none; /* Oculto inicialmente */
-    position: absolute; /* Posición relativa al nav-header */
-    right: 20px; /* Ajusta según el padding del container */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 24px;
-    color: var(--text-dark);
-    z-index: 105; /* Asegura que esté visible sobre otros elementos del header */
-}
-
-/* Estilos para evitar scroll cuando el menú está abierto */
-body.menu-open {
-    overflow: hidden;
-}
-
-
-/* Media Queries para Escritorio (Ajustes del Header) */
+/* --- Estilos Escritorio --- */
 @media (min-width: 1024px) {
-    .menu-toggle {
-        display: none; /* Ocultar hamburguesa en escritorio */
-    }
-
     .navbar {
         flex-direction: row;
         align-items: center;
-        justify-content: space-between; /* Asegura espacio entre logo y nav */
-        padding: 15px 0; /* Padding vertical para el navbar en escritorio */
+        justify-content: space-between;
+        padding: 10px 0; /* Ajustar padding vertical si es necesario */
     }
 
     .nav-header {
-        width: auto; /* Ancho automático para el logo */
-        padding: 0; /* Resetear padding */
+         width: auto; /* Ancho automático para logo */
+         padding: 0; /* Resetear padding */
+         background-color: transparent; /* Resetear fondo */
+    }
+
+    .menu-toggle, #menuClose {
+        display: none !important; /* Ocultar hamburguesa y cierre en escritorio */
     }
 
     .mobile-menu-container {
-        display: flex !important; /* Siempre visible en escritorio y anula el JS */
+        display: flex !important; /* Siempre visible */
         flex-direction: row;
         align-items: center;
+        position: static; /* Resetear posición */
+        height: auto; /* Resetear altura */
         width: auto; /* Ancho automático */
-        position: static; /* Posición normal en el flujo */
-        height: auto; /* Altura automática */
         padding: 0; /* Resetear padding */
+        background-color: transparent; /* Resetear fondo */
         overflow: visible; /* Resetear overflow */
-        background-color: transparent; /* Sin fondo propio */
         z-index: auto; /* Resetear z-index */
     }
 
     .nav-links {
         flex-direction: row;
+        gap: 25px; /* Espacio entre enlaces */
         margin-bottom: 0;
         width: auto;
-        margin-right: 20px; /* Espacio entre links y botón CTA */
-        gap: 0; /* Resetear gap si es necesario */
+        margin-right: 30px; /* Espacio entre enlaces y botón CTA */
     }
 
     .nav-links a {
-        padding: 0 15px; /* Espacio entre enlaces */
+        padding: 5px 0; /* Menos padding vertical */
+        font-size: 1rem; /* Tamaño normal en escritorio */
+        border-bottom: none; /* Sin borde */
         width: auto;
-        border-bottom: none;
-        text-align: left;
     }
 
     .nav-cta {
-        margin-bottom: 0;
         width: auto;
     }
-
-    .cta-button {
-        width: auto; /* Ancho automático para el botón en escritorio */
+     .nav-cta .cta-button {
+       width: auto; /* Ancho automático */
+       max-width: none; /* Sin máximo */
     }
 
-    .menu-close {
-        display: none !important; /* Asegurar que el botón de cierre nunca se muestre en escritorio */
-    }
-
-    body.menu-open {
-        overflow: auto; /* Permitir scroll en escritorio incluso si el menú estuvo abierto */
-    }
 }

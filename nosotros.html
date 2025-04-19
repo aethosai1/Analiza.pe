@@ -219,41 +219,78 @@
     <div id="footer-placeholder"></div>
 
 
-    <script>
-        // Script de carga de componentes (loadComponent, loadAllComponents)
-        // (El mismo que en template.html)
-        async function loadComponent(url, placeholderId) {
+   <script>
+        /**
+         * Carga HTML y JS de un componente.
+         * @param {string} componentName - Nombre del componente (ej: 'header', 'footer').
+         * @param {string} placeholderId - ID del div placeholder.
+         */
+        async function loadComponent(componentName, placeholderId) {
             const placeholder = document.getElementById(placeholderId);
             if (!placeholder) {
-                console.warn(`Placeholder con ID "${placeholderId}" no encontrado.`);
+                console.warn(`Placeholder ${placeholderId} not found.`);
                 return;
             }
+
+            const htmlUrl = `componentes-visuales/<span class="math-inline">\{componentName\}/</span>{componentName}.html`;
+            const jsUrl = `componentes-visuales/<span class="math-inline">\{componentName\}/</span>{componentName}.js`; // Ruta al JS
+
             try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
-                }
+                // --- 1. Cargar HTML ---
+                console.log(`Workspaceing HTML for ${componentName}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} for ${htmlUrl}`);
                 const html = await response.text();
-                placeholder.innerHTML = html;
+                placeholder.innerHTML = html; // Inserta el HTML
+                console.log(`HTML for ${componentName} loaded successfully.`);
+
+                // --- 2. Cargar y Ejecutar JS (DESPUÉS de insertar HTML) ---
+                console.log(`Attempting to fetch JS for ${componentName}...`);
+                try {
+                    const scriptResponse = await fetch(jsUrl);
+                    if (scriptResponse.ok) {
+                        const scriptText = await scriptResponse.text();
+                        // Ejecutar el script creando un elemento script
+                        const scriptElement = document.createElement('script');
+                        scriptElement.textContent = scriptText;
+                        // Añadirlo al final del body para asegurar ejecución en contexto
+                        document.body.appendChild(scriptElement);
+                        console.log(`JS for ${componentName} loaded and executed.`);
+                        // Opcional: limpiar el script añadido si es necesario
+                        // setTimeout(() => document.body.removeChild(scriptElement), 0);
+                    } else if (scriptResponse.status === 404) {
+                        // Es normal si un componente no tiene JS (ej. footer)
+                        console.log(`No JS file found for ${componentName} (404), skipping script execution.`);
+                    } else {
+                        // Otro error al buscar el script JS
+                        console.warn(`Could not load script ${jsUrl}: ${scriptResponse.statusText}`);
+                    }
+                } catch (scriptError) {
+                    console.error(`Error fetching or executing script ${jsUrl}:`, scriptError);
+                }
+
             } catch (error) {
-                console.error(`No se pudo cargar el componente desde ${url}:`, error);
-                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error al cargar componente (${placeholderId}). Revisa la consola.</p>`;
+                console.error(`Failed to load component ${componentName}:`, error);
+                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
             }
         }
 
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
         async function loadAllComponents() {
+            console.log("Loading all components...");
             await Promise.all([
-                loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'), // Ruta en minúsculas
-                loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')  // Ruta en minúsculas
+                loadComponent('header', 'header-placeholder'),
+                loadComponent('footer', 'footer-placeholder')
             ]);
             document.body.classList.add('loaded');
+            console.log("All components loaded.");
         }
+
+        // Iniciar todo cuando el DOM inicial esté listo
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
-
-    <script src="componentes-visuales/Header/header.js" defer></script>
-
-    <script src="componentes-visuales/Footer/footer.js" defer></script>
-
+    
     </body>
 </html>

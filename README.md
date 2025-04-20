@@ -33,15 +33,18 @@ analiza.pe/
 ├── nosotros.html
 ├── blog.html
 ├── contacto.html
-│
+├── CSS       Estilos
+│    ├── global.css        # estilo global
+│    │   ├── nosotros.css          # Estilos nosotros
+│    │   ├── contacto.css           # Estilo contacto
 └── componentes-visuales/       # Componentes reutilizables
-    ├── header/                 # Componente de cabecera
+    ├── Header/                 # Componente de cabecera
     │   ├── header.html         # Estructura HTML del header
     │   ├── header.css          # Estilos específicos del header
     │   ├── header.js           # Funcionalidad JavaScript del header
     │   └── README.md           # Documentación del componente
     │
-    └── footer/                 # Componente de pie de página
+    └── Footer/                 # Componente de pie de página
         ├── footer.html         # Estructura HTML del footer
         ├── footer.css          # Estilos específicos del footer
         ├── footer.js           # Funcionalidad JavaScript del footer

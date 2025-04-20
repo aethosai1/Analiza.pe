@@ -1,60 +1,38 @@
 /* Estilos Específicos del Header */
 
+/* --- Estilos Base del Header (Aplican a Móvil y Escritorio) --- */
 header {
-    /* [56] var(--white) */
-    /* [56] 0 2px 10px rgba(0, 0, 0, 0.1) */
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* [57] fixed */
-    /* [57] 100% */
-    /* [57] 0 */
-    position: fixed; /* O 'sticky' si prefieres */
-    width: 100%;
-    top: 0;
-    /* [57] 0 */
-    left: 0; /* Añadido para asegurar posicionamiento */
-    /* [58] 0 */
-    right: 0;/* Añadido para asegurar posicionamiento */
-    /* [58] 1000 */
-    z-index: 1000; /* Z-index alto para estar sobre otros elementos */
+    background-color: var(--white); /* Fondo blanco (depende de global.css) */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    position: fixed; /* Fijo en la parte superior */
+    width: 100%;   /* Ancho completo */
+    top: 0; left: 0; right: 0; /* Asegurar posición */
+    z-index: 1000; /* Sobre el contenido general */
 }
 
+/* Contenedor general de la barra de navegación */
 .navbar {
-    /* [59] flex */
-    /* [59] column */
     display: flex;
-    flex-direction: column; /* Base móvil */
-    /* [60] 100% */
+    flex-direction: column; /* En móvil, el header y el menú desplegable son bloques separados */
     width: 100%;
-    /* El .container le dará padding horizontal */
+    /* NOTA: El padding horizontal viene del '.container' definido en global.css (ver header.html) */
 }
 
+/* --- Estilos Barra Superior del Header (Móvil) --- */
 .nav-header {
-    /* [60] flex */
-    display: flex;
-    /* [61] space-between */
-    /* [61] center */
-    /* [61] 100% */
-    /* [61] 15px 0 */
-    /* [61] relative */
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Logo y menú toggle en línea */
+    justify-content: space-between; /* Logo a la izq, toggle a la der */
+    align-items: center; /* Centrar verticalmente */
     width: 100%;
-    padding: 15px 0; /* Padding vertical */
-    position: relative;
-    /* [61] 1002 */
+    padding: 15px 0; /* Espacio vertical DENTRO del header. El horizontal viene del .container */
+    position: relative; /* Para posicionar el botón 'X' absoluto */
     z-index: 1002; /* Sobre el menú desplegable */
-    /* [62] var(--white) */
-    background-color: var(--white); /* Evitar transparencia */
+    background-color: var(--white); /* Asegurar fondo sólido */
+    box-sizing: border-box; /* Asegurar que el padding no aumente el tamaño total */
 }
 
 .logo {
-    /* [63] flex */
-    /* [63] center */
-    /* [63] 700 */
-    /* [63] 20px */
-    /* [63] var(--text-dark) */
-    /* [63] none */
+    /* Estilos del logo: tamaño, fuente, color */
     display: flex;
     align-items: center;
     font-weight: 700;
@@ -62,256 +40,202 @@ header {
     color: var(--text-dark);
     text-decoration: none;
 }
-
 .logo img {
-    /* [64] 36px */
-    /* [64] 10px */
     height: 36px;
     margin-right: 10px;
+    vertical-align: middle; /* Mejor alineación vertical */
 }
-
 .logo span {
-    /* [64] var(--primary-blue) */
     color: var(--primary-blue);
 }
 
-/* --- Estilos Menú Móvil --- */
-
+/* --- Icono Hamburguesa (Móvil) --- */
 .menu-toggle {
-    /* [65] flex */
-    display: flex; /* Mostrar en móvil */
-    /* [66] column */
-    /* [66] space-around */
+    display: flex; /* Por defecto se muestra en móvil (JS puede ocultarlo) */
     flex-direction: column;
-    justify-content: space-around; /* Distribuye las líneas */
-    /* [67] 24px */
-    /* [67] 18px */
-    /* [67] pointer */
+    justify-content: space-around;
     width: 24px;
     height: 18px;
     cursor: pointer;
-    /* [67] 1005 */
-    z-index: 1005; /* Asegurar que esté visible */
+    z-index: 1005; /* Visible */
+    /* Resetear estilos de botón por si acaso */
+    margin: 0;
+    padding: 5px; /* Añadir padding para área táctil más grande */
+    background: transparent;
+    border: none;
+    box-sizing: content-box; /* Padding no aumenta el tamaño visual de las barras */
 }
-
-.menu-toggle span {
-    /* [68] block */
-    /* [68] 2px */
-    /* [68] 100% */
-    /* [68] var(--text-dark) */
+.menu-toggle span { /* Las 3 líneas */
     display: block;
     height: 2px;
     width: 100%;
-    background-color: var(--text-dark);
-    /* [69] 2px */
-    /* [69] all var(--transition-speed) ease */
+    background-color: var(--text-dark); /* Color de las líneas */
     border-radius: 2px;
-    transition: all var(--transition-speed) ease;
+    transition: all var(--transition-speed, 0.3s) ease; /* Transición suave */
 }
 
+/* --- Contenedor del Menú Desplegable (Overlay Móvil) --- */
 .mobile-menu-container {
-    /* [69] none */
-    display: none; /* Oculto por defecto */
-    /* [70] column */
-    /* [70] center */
-    flex-direction: column;
-    align-items: center; /* Centrar contenido del menú */
-    /* [71] fixed */
-    position: fixed;
-    /* [71] 0 */
-    top: 0; /* Ocupa toda la altura */
-    /* [72] 0 */
-    /* [72] 0 */
-    /* [72] 0 */
-    left: 0;
-    right: 0;
+    /* --- Estilo del Overlay --- */
+    position: fixed; /* Fijo en la pantalla */
+    top: 0; left: -100%; /* Inicia fuera de la pantalla a la izquierda */
+    width: 100%; /* Opcional: Podría ser 80% si no quieres pantalla completa */
     bottom: 0;
-    /* [72] var(--white) */
-    background-color: var(--white);
-    /* [72] 1001 */
-    z-index: 1001; /* Debajo del nav-header pero sobre el main */
-    /* [73] 80px 20px 20px 20px */
-    padding: 80px 20px 20px 20px; /* Padding arriba para dejar espacio al header, padding general */
-    /* [74] auto */
-    overflow-y: auto; /* Scroll si el contenido es largo */
-    /* [75] 100vh */
-    height: 100vh; /* Altura completa */
-}
-
-.mobile-menu-container.active {
-    /* [76] flex */
-    display: flex; /* Mostrar cuando está activo */
-}
-
-/* Botón de cierre X (controlado por JS y estos estilos) */
- #menuClose {
-    /* [77] none */
-    display: none; /* Oculto por defecto, JS lo muestra */
-    /* [78] absolute */
-    position: absolute; /* Posicionado relativo al nav-header */
-    /* [79] 50% */
-    top: 50%;
-    /* right: 0; */ /* <---- ESTA LÍNEA SE COMENTÓ/ELIMINÓ */
-    /* [80] 15px */
-    right: 15px;    /* <---- ESTA ES LA LÍNEA CORREGIDA */
-    /* [80] translateY(-50%) */
-    /* [80] 24px */
-    /* [80] var(--text-dark) */
-    /* [80] pointer */
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: var(--text-dark);
-    cursor: pointer;
-    /* [81] 5px */
-    padding: 5px; /* Área de clic más grande */
-    /* [81] 1005 */
-    z-index: 1005; /* Visible sobre otros elementos */
- }
-
-.nav-links {
-    /* [82] flex */
-    /* [82] column */
-    /* [82] center */
-    /* [82] 100% */
+    background-color: var(--white); /* Fondo blanco */
+    z-index: 1001; /* Debajo del nav-header, sobre el main */
+    transition: left var(--transition-speed, 0.3s) ease-in-out; /* Animación slide */
+    /* --- Layout Interno --- */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    /* [83] 15px */
-    /* [83] 30px */
-    /* [83] center */
-    gap: 15px;
-    margin-bottom: 30px; /* Más espacio antes del CTA */
-    text-align: center;
+    flex-direction: column; /* Links y CTA uno debajo del otro */
+    align-items: center; /* Centra los bloques de links y CTA horizontalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    padding: 80px 20px 40px 20px; /* Padding: Arriba (para no tapar header), Izq/Der, Abajo */
+    overflow-y: auto; /* Scroll si el contenido es muy largo */
+    box-sizing: border-box; /* Asegura que padding no aumente el tamaño total */
+}
+/* Estado activo: Mostrar el menú deslizándolo desde la izquierda */
+.mobile-menu-container.active {
+    left: 0; /* Mover a la posición visible */
+    display: flex; /* Asegurar que sea flex */
 }
 
+/* --- Botón de Cierre 'X' (Dentro del nav-header, visible cuando el menú está activo) --- */
+#menuClose {
+    display: none; /* Oculto por defecto (JS lo muestra) */
+    position: absolute; /* Relativo a .nav-header */
+    top: 50%; /* Centrado verticalmente */
+    right: 15px; /* Espacio desde el borde derecho (Ajustado previamente) */
+    transform: translateY(-50%); /* Ajuste fino vertical */
+    font-size: 24px; /* Tamaño del icono */
+    color: var(--text-dark); /* Color del icono */
+    cursor: pointer;
+    padding: 5px; /* Área de clic más grande */
+    z-index: 1005; /* Visible sobre otros elementos */
+    line-height: 1; /* Evitar altura extra */
+}
+
+/* --- Bloque de Enlaces dentro del Menú Móvil --- */
+.nav-links {
+    display: flex;
+    flex-direction: column; /* Enlaces uno debajo del otro */
+    align-items: center; /* Centrar los enlaces horizontalmente */
+    width: 100%; /* Ocupar el ancho disponible del contenedor */
+    max-width: 300px; /* Limitar ancho máximo de los enlaces */
+    gap: 0; /* Sin espacio extra entre links (el padding lo maneja) */
+    margin: 0 0 30px 0; /* Resetear márgenes y añadir espacio abajo */
+    padding: 0; /* Resetear padding del contenedor ul/div */
+    list-style: none; /* Si usas <ul> */
+    text-align: center; /* Centrar el texto dentro de los 'a' */
+}
+
+/* --- Estilo de cada Enlace 'a' dentro del Menú Móvil --- */
 .nav-links a {
-    /* [84] var(--text-medium) */
-    /* [84] none */
-    /* [84] 500 */
-    /* [84] 1.1rem */
-    color: var(--text-medium);
+    color: var(--text-medium); /* Color del texto */
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem; /* Ligeramente más grande en móvil */
-    /* [85] 10px 0 */
-    /* [85] color var(--transition-speed) */
-    /* [85] 100% */
-    padding: 10px 0;
-    transition: color var(--transition-speed);
-    width: 100%;
-    /* [86] 1px solid var(--border-color) */
-    border-bottom: 1px solid var(--border-color);
+    font-size: 1.1rem; /* Tamaño de fuente */
+    display: block; /* Asegurar que ocupe todo el ancho */
+    padding: 15px 10px; /* Espacio vertical y un poco horizontal */
+    width: 100%; /* Ocupar todo el ancho del .nav-links */
+    border-bottom: 1px solid var(--border-color); /* Línea divisoria */
+    transition: color var(--transition-speed, 0.3s), background-color var(--transition-speed, 0.3s);
+    box-sizing: border-box;
 }
- .nav-links a:last-child {
-    /* [86] none */
-    border-bottom: none; /* Quitar borde del último */
+.nav-links a:last-child {
+    border-bottom: none; /* Quitar borde del último enlace */
 }
-
-
 .nav-links a:hover {
-    /* [87] var(--primary-blue) */
-    color: var(--primary-blue);
+    color: var(--primary-blue); /* Color al pasar el ratón */
+    background-color: #f8f8f8; /* Ligero fondo al pasar el ratón */
 }
 
+/* --- Bloque del Botón CTA dentro del Menú Móvil --- */
 .nav-cta {
-    /* [87] 100% */
     width: 100%;
-    /* [88] center */
-    text-align: center; /* Centrar botón */
+    max-width: 300px; /* Mismo ancho que los links */
+    text-align: center;
+    margin-top: 10px; /* Espacio respecto a los links */
 }
 
-/* Hereda estilos de .cta-button de global.css */
+/* --- Estilo del Botón CTA dentro del Menú Móvil --- */
 .nav-cta .cta-button {
-   /* [88] 100% */
-   width: 100%; /* Botón ocupa todo el ancho en el menú móvil */
-   /* [89] 280px */
-   max-width: 280px; /* Pero con un máximo razonable */
+   /* Hereda estilos de .cta-button de global.css */
+   display: inline-block; /* O block si quieres que ocupe el 100% siempre */
+   width: 100%; /* Ocupar todo el ancho del .nav-cta */
+   padding: 12px 20px; /* Ajustar padding si es necesario */
+   text-align: center;
 }
+.nav-cta .cta-button i {
+    margin-right: 8px; /* Espacio entre icono y texto */
+}
+
 
 /* --- Estilos Escritorio --- */
 @media (min-width: 1024px) {
     .navbar {
-        /* [90] row */
         flex-direction: row;
-        /* [91] center */
-        /* [91] space-between */
-        /* [91] 10px 0 */
         align-items: center;
         justify-content: space-between;
         padding: 10px 0; /* Ajustar padding vertical si es necesario */
     }
 
     .nav-header {
-         /* [91] auto */
          width: auto; /* Ancho automático para logo */
-         /* [92] 0 */
          padding: 0; /* Resetear padding */
-         /* [93] transparent */
          background-color: transparent; /* Resetear fondo */
+         z-index: auto; /* Resetear z-index */
     }
 
     .menu-toggle, #menuClose {
-        /* [94] none !important */
         display: none !important; /* Ocultar hamburguesa y cierre en escritorio */
     }
 
     .mobile-menu-container {
-        /* [95] flex !important */
         display: flex !important; /* Siempre visible */
-        /* [96] row */
-        /* [96] center */
-        /* [96] static */
-        flex-direction: row;
-        align-items: center;
         position: static; /* Resetear posición */
-        /* [97] auto */
-        height: auto; /* Resetear altura */
-        /* [98] auto */
+        left: auto; /* Resetear left */
         width: auto; /* Ancho automático */
-        /* [99] 0 */
+        height: auto; /* Resetear altura */
+        flex-direction: row; /* Elementos en línea */
+        align-items: center;
         padding: 0; /* Resetear padding */
-        /* [100] transparent */
         background-color: transparent; /* Resetear fondo */
-        /* [101] visible */
         overflow: visible; /* Resetear overflow */
-        /* [102] auto */
         z-index: auto; /* Resetear z-index */
+        transition: none; /* Quitar transición en escritorio */
     }
 
     .nav-links {
-        /* [103] row */
-        flex-direction: row;
-        /* [104] 25px */
-        /* [104] 0 */
-        /* [104] auto */
-        /* [104] 30px */
+        flex-direction: row; /* Enlaces en línea */
         gap: 25px; /* Espacio entre enlaces */
-        margin-bottom: 0;
-        width: auto;
-        margin-right: 30px; /* Espacio entre enlaces y botón CTA */
+        margin: 0 30px 0 0; /* Quitar margen inferior, añadir derecho */
+        padding: 0;
+        width: auto; /* Ancho automático */
+        max-width: none; /* Resetear max-width */
     }
 
     .nav-links a {
-        /* [105] 5px 0 */
         padding: 5px 0; /* Menos padding vertical */
-        /* [106] 1rem */
         font-size: 1rem; /* Tamaño normal en escritorio */
-        /* [107] none */
         border-bottom: none; /* Sin borde */
-        /* [108] auto */
-        width: auto;
+        width: auto; /* Ancho automático */
+        display: inline-block; /* Resetear display */
+        background-color: transparent; /* Resetear hover */
     }
+     .nav-links a:hover {
+        background-color: transparent; /* Asegurar no fondo en hover desktop */
+        color: var(--primary-blue); /* Mantener cambio de color */
+    }
+
 
     .nav-cta {
-        /* [109] auto */
-        width: auto;
+        width: auto; /* Ancho automático */
+        margin: 0; /* Resetear margen */
+        max-width: none; /* Resetear max-width */
     }
      .nav-cta .cta-button {
-       /* [110] auto */
-       width: auto; /* Ancho automático */
-       /* [111] none */
-       max-width: none; /* Sin máximo */
-    }
-
+        width: auto; /* Ancho automático */
+        max-width: none; /* Sin máximo */
+        margin-top: 0; /* Resetear margen */
+     }
 }

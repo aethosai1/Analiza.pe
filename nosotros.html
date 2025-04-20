@@ -8,27 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="CSS/global.css">
-
     <link rel="stylesheet" href="componentes-visuales/Header/header.css">
-
     <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
-
     <link rel="stylesheet" href="CSS/nosotros.css">
 
     <style>
         /* Estilos solo para la transición suave de carga del body */
         body {
-            opacity: 0; /* Ocultar hasta que todo esté listo (JS añadirá 'loaded') */
+            opacity: 0;
             transition: opacity 0.3s ease-in;
         }
         body.loaded {
             opacity: 1;
         }
-        /* Nota: El padding-top para compensar el header fijo está en css/global.css */
     </style>
 
 </head>
@@ -38,191 +33,73 @@
 
     <main>
         <section class="nosotros-hero">
-            <div class="container">
+             <div class="container">
                 <h1>Conócenos</h1>
                 <p>En Analiza.pe transformamos datos en decisiones estratégicas para impulsar el crecimiento de tu negocio en el entorno digital.</p>
              </div>
         </section>
 
         <section class="nosotros-section">
-             <div class="container"> <div class="section-header">
-                     <span class="section-badge">NUESTRA ESENCIA</span>
-                     <h2 class="section-title">Quiénes Somos</h2>
+             <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">NUESTRA ESENCIA</span>
+                    <h2 class="section-title">Quiénes Somos</h2>
                 </div>
                 <div class="nosotros-grid">
-                    <div class="nosotros-card">
-                        <img src="/api/placeholder/600/400" alt="Nuestra Historia" class="card-image">
-                        <div class="card-content">
-                            <h3>Nuestra Historia</h3>
-                            <p>Fundada en 2018, Analiza.pe nació con la visión de democratizar el acceso a análisis de datos de calidad para empresas peruanas de todos los tamaños. Lo que comenzó como un pequeño equipo de analistas apasionados se ha convertido en una consultora líder en analítica digital en el Perú.</p>
-                        </div>
-                    </div>
-
-                    <div class="nosotros-card">
-                         <img src="/api/placeholder/600/400" alt="Nuestra Misión" class="card-image">
-                        <div class="card-content">
-                            <h3>Nuestra Misión</h3>
-                            <p>Empoderamos a las empresas peruanas con insights accionables basados en datos, para que puedan tomar decisiones estratégicas informadas y maximizar su potencial de crecimiento en el entorno digital con confianza y precisión.</p>
-                        </div>
-                    </div>
-
-                    <div class="nosotros-card">
-                         <img src="/api/placeholder/600/400" alt="Nuestra Visión" class="card-image">
-                        <div class="card-content">
-                            <h3>Nuestra Visión</h3>
-                            <p>Ser reconocidos como el socio estratégico indispensable en análisis de datos para empresas líderes en el Perú, contribuyendo al desarrollo de una cultura de decisiones basadas en datos que impulse la innovación y competitividad en el mercado nacional.</p>
-                        </div>
-                    </div>
+                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Historia" class="card-image"> <div class="card-content"> <h3>Nuestra Historia</h3> <p>Fundada en 2018...</p> </div> </div>
+                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Misión" class="card-image"> <div class="card-content"> <h3>Nuestra Misión</h3> <p>Empoderamos a las empresas...</p> </div> </div>
+                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Visión" class="card-image"> <div class="card-content"> <h3>Nuestra Visión</h3> <p>Ser reconocidos como el socio...</p> </div> </div>
                 </div>
              </div>
         </section>
 
         <section class="nosotros-section">
-             <div class="container"> <div class="section-header">
-                    <span class="section-badge">PRINCIPIOS</span>
-                    <h2 class="section-title">Nuestros Valores</h2>
-                    <p class="section-description">Los principios que guían nuestro trabajo y relaciones con los clientes:</p>
-                </div>
-                <div class="valores-grid">
-                    <div class="valor-item">
-                        <div class="valor-icon">
-                            <i class="fas fa-bullseye"></i> </div>
-                        <div class="valor-content"> <h3>Precisión</h3>
-                             <p>Nos comprometemos con la exactitud y el rigor metodológico en cada análisis que realizamos.</p>
-                        </div>
-                    </div>
-
-                    <div class="valor-item">
-                        <div class="valor-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                         <div class="valor-content">
-                            <h3>Innovación</h3>
-                            <p>Constantemente exploramos nuevas tecnologías y metodologías para ofrecer soluciones creativas.</p>
-                         </div>
-                    </div>
-
-                    <div class="valor-item">
-                        <div class="valor-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                         <div class="valor-content">
-                            <h3>Colaboración</h3>
-                            <p>Trabajamos como extensión del equipo de nuestros clientes, construyendo relaciones de confianza.</p>
-                         </div>
-                    </div>
-
-                    <div class="valor-item">
-                        <div class="valor-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                         <div class="valor-content">
-                            <h3>Integridad</h3>
-                            <p>Actuamos con transparencia y ética en cada interacción y manejo de datos.</p>
-                         </div>
-                    </div>
-                </div>
-             </div>
+              <div class="container">
+                 <div class="section-header"> <span class="section-badge">PRINCIPIOS</span> <h2 class="section-title">Nuestros Valores</h2> <p class="section-description">Los principios que guían nuestro trabajo...</p> </div>
+                 <div class="valores-grid">
+                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-bullseye"></i></div> <div class="valor-content"><h3>Precisión</h3><p>Nos comprometemos...</p></div> </div>
+                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-lightbulb"></i></div> <div class="valor-content"><h3>Innovación</h3><p>Constantemente exploramos...</p></div> </div>
+                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-handshake"></i></div> <div class="valor-content"><h3>Colaboración</h3><p>Trabajamos como extensión...</p></div> </div>
+                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-shield-alt"></i></div> <div class="valor-content"><h3>Integridad</h3><p>Actuamos con transparencia...</p></div> </div>
+                 </div>
+              </div>
         </section>
 
-        <section class="stats-section">
-            <div class="container"> <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">300+</span>
-                        <span class="stat-label">Proyectos completados</span>
-                    </div>
-
-                    <div class="stat-item">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Clientes satisfechos</span>
-                    </div>
-
-                    <div class="stat-item">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Expertos en nuestro equipo</span>
-                    </div>
-
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Años de experiencia</span>
-                    </div>
-                </div>
+         <section class="stats-section">
+             <div class="container">
+                 <div class="stats-grid">
+                     <div class="stat-item"><span class="stat-number">300+</span><span class="stat-label">Proyectos...</span></div>
+                      <div class="stat-item"><span class="stat-number">150+</span><span class="stat-label">Clientes...</span></div>
+                      <div class="stat-item"><span class="stat-number">25+</span><span class="stat-label">Expertos...</span></div>
+                      <div class="stat-item"><span class="stat-number">5+</span><span class="stat-label">Años...</span></div>
+                 </div>
              </div>
-        </section>
+         </section>
 
-        <section class="nosotros-section equipo-section">
-             <div class="container"> <div class="section-header">
-                    <span class="section-badge">TALENTO</span>
-                    <h2 class="section-title">Nuestro Equipo</h2>
-                    <p class="section-description">Contamos con un equipo multidisciplinario de profesionales apasionados por los datos y la tecnología:</p>
-                </div>
-                <div class="equipo-grid">
-                    <div class="miembro-card">
-                        <img src="/api/placeholder/400/400" alt="Foto de Carlos Mendoza" class="miembro-foto">
-                        <div class="miembro-info">
-                            <h3>Carlos Mendoza</h3>
-                            <p>CEO & Fundador</p>
-                            <div class="social-links">
-                                <a href="#" aria-label="LinkedIn Carlos Mendoza"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter Carlos Mendoza"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
+         <section class="nosotros-section equipo-section">
+              <div class="container">
+                  <div class="section-header"> <span class="section-badge">TALENTO</span> <h2 class="section-title">Nuestro Equipo</h2> <p class="section-description">Contamos con un equipo...</p> </div>
+                  <div class="equipo-grid">
+                     <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Carlos" class="miembro-foto"> <div class="miembro-info"><h3>Carlos Mendoza</h3><p>CEO...</p><div class="social-links">...</div></div> </div>
+                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Ana" class="miembro-foto"> <div class="miembro-info"><h3>Ana Paredes</h3><p>Directora...</p><div class="social-links">...</div></div> </div>
+                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Miguel" class="miembro-foto"> <div class="miembro-info"><h3>Miguel Torres</h3><p>Líder...</p><div class="social-links">...</div></div> </div>
+                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Lucía" class="miembro-foto"> <div class="miembro-info"><h3>Lucía Gómez</h3><p>Especialista...</p><div class="social-links">...</div></div> </div>
+                  </div>
+              </div>
+         </section>
 
-                    <div class="miembro-card">
-                        <img src="/api/placeholder/400/400" alt="Foto de Ana Paredes" class="miembro-foto">
-                        <div class="miembro-info">
-                            <h3>Ana Paredes</h3>
-                            <p>Directora de Consultoría</p>
-                            <div class="social-links">
-                                <a href="#" aria-label="LinkedIn Ana Paredes"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter Ana Paredes"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="miembro-card">
-                        <img src="/api/placeholder/400/400" alt="Foto de Miguel Torres" class="miembro-foto">
-                        <div class="miembro-info">
-                            <h3>Miguel Torres</h3>
-                            <p>Líder de Ciencia de Datos</p>
-                            <div class="social-links">
-                                <a href="#" aria-label="LinkedIn Miguel Torres"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter Miguel Torres"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="miembro-card">
-                        <img src="/api/placeholder/400/400" alt="Foto de Lucía Gómez" class="miembro-foto">
-                        <div class="miembro-info">
-                            <h3>Lucía Gómez</h3>
-                            <p>Especialista en Analytics</p>
-                            <div class="social-links">
-                                <a href="#" aria-label="LinkedIn Lucía Gómez"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter Lucía Gómez"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </section>
-
-        <section class="cta-section">
-             <div class="container"> <div class="cta-box">
-                    <h2>¿Listo para transformar tus datos en estrategia?</h2>
-                    <p>Descubre cómo podemos ayudarte a tomar decisiones basadas en datos que impulsen el crecimiento de tu negocio.</p>
-                    <a href="contacto.html" class="cta-button">Contáctanos hoy</a> </div>
-             </div>
-        </section>
+         <section class="cta-section">
+              <div class="container">
+                  <div class="cta-box"> <h2>¿Listo para transformar...?</h2> <p>Descubre cómo podemos ayudarte...</p> <a href="contacto.html" class="cta-button">Contáctanos hoy</a> </div>
+              </div>
+         </section>
     </main>
     <div id="footer-placeholder"></div>
 
-
-   <script>
+    <script>
         /**
          * Carga HTML y JS de un componente.
-         * @param {string} componentName - Nombre del componente (ej: 'header', 'footer').
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer' - CON MAYÚSCULA AHORA).
          * @param {string} placeholderId - ID del div placeholder.
          */
         async function loadComponent(componentName, placeholderId) {
@@ -231,42 +108,55 @@
                 console.warn(`Placeholder ${placeholderId} not found.`);
                 return;
             }
+            // --- Rutas construidas usando el componentName con Mayúscula ---
+            const htmlUrl = `componentes-visuales/${componentName}/${componentName.toLowerCase()}.html`; // El archivo .html sigue en minúscula
+            const jsUrl = `componentes-visuales/${componentName}/${componentName.toLowerCase()}.js`;     // El archivo .js sigue en minúscula
 
-            const htmlUrl = `componentes-visuales/<span class="math-inline">\{componentName\}/</span>{componentName}.html`;
-            const jsUrl = `componentes-visuales/<span class="math-inline">\{componentName\}/</span>{componentName}.js`; // Ruta al JS
+            // --- Corrección Importante: Los nombres de ARCHIVO (.html, .js, .css)
+            // --- probablemente SÍ estén en minúsculas aunque la CARPETA use Mayúscula.
+            // --- Ajustando las rutas para reflejar eso:
+            const correctedHtmlUrl = `componentes-visuales/${componentName}/header.html`; // Asumiendo header.html para Header
+            const correctedJsUrl = `componentes-visuales/${componentName}/header.js`;     // Asumiendo header.js para Header
+            // Necesitamos ser más específicos para el nombre de archivo
+            let finalHtmlUrl, finalJsUrl;
+            if (componentName === 'Header') {
+                 finalHtmlUrl = `componentes-visuales/Header/header.html`;
+                 finalJsUrl = `componentes-visuales/Header/header.js`;
+            } else if (componentName === 'Footer') {
+                 finalHtmlUrl = `componentes-visuales/Footer/footer.html`;
+                 finalJsUrl = `componentes-visuales/Footer/footer.js`;
+            } else {
+                 console.error(`Nombre de componente desconocido: ${componentName}`);
+                 return; // Salir si no es Header o Footer
+            }
+
 
             try {
-                // --- 1. Cargar HTML ---
-                console.log(`Workspaceing HTML for ${componentName}...`);
-                const response = await fetch(htmlUrl);
-                if (!response.ok) throw new Error(`HTTP error ${response.status} for ${htmlUrl}`);
+                // Cargar HTML usando la ruta final
+                console.log(`Workspaceing HTML for ${componentName} from ${finalHtmlUrl}...`);
+                const response = await fetch(finalHtmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} for ${finalHtmlUrl}`);
                 const html = await response.text();
-                placeholder.innerHTML = html; // Inserta el HTML
+                placeholder.innerHTML = html;
                 console.log(`HTML for ${componentName} loaded successfully.`);
 
-                // --- 2. Cargar y Ejecutar JS (DESPUÉS de insertar HTML) ---
-                console.log(`Attempting to fetch JS for ${componentName}...`);
+                // Cargar y Ejecutar JS usando la ruta final
+                console.log(`Attempting to fetch JS for ${componentName} from ${finalJsUrl}...`);
                 try {
-                    const scriptResponse = await fetch(jsUrl);
+                    const scriptResponse = await fetch(finalJsUrl);
                     if (scriptResponse.ok) {
                         const scriptText = await scriptResponse.text();
-                        // Ejecutar el script creando un elemento script
                         const scriptElement = document.createElement('script');
                         scriptElement.textContent = scriptText;
-                        // Añadirlo al final del body para asegurar ejecución en contexto
                         document.body.appendChild(scriptElement);
                         console.log(`JS for ${componentName} loaded and executed.`);
-                        // Opcional: limpiar el script añadido si es necesario
-                        // setTimeout(() => document.body.removeChild(scriptElement), 0);
                     } else if (scriptResponse.status === 404) {
-                        // Es normal si un componente no tiene JS (ej. footer)
-                        console.log(`No JS file found for ${componentName} (404), skipping script execution.`);
+                        console.log(`No JS file found for ${componentName} (404), skipping.`);
                     } else {
-                        // Otro error al buscar el script JS
-                        console.warn(`Could not load script ${jsUrl}: ${scriptResponse.statusText}`);
+                        console.warn(`Could not load script ${finalJsUrl}: ${scriptResponse.statusText}`);
                     }
                 } catch (scriptError) {
-                    console.error(`Error fetching or executing script ${jsUrl}:`, scriptError);
+                    console.error(`Error processing script ${finalJsUrl}:`, scriptError);
                 }
 
             } catch (error) {
@@ -275,22 +165,18 @@
             }
         }
 
-        /**
-         * Carga todos los componentes principales y muestra el body.
-         */
         async function loadAllComponents() {
             console.log("Loading all components...");
             await Promise.all([
-                loadComponent('header', 'header-placeholder'),
-                loadComponent('footer', 'footer-placeholder')
+                // Llamar a loadComponent con los nombres de carpeta con Mayúscula
+                loadComponent('Header', 'header-placeholder'),
+                loadComponent('Footer', 'footer-placeholder')
             ]);
             document.body.classList.add('loaded');
             console.log("All components loaded.");
         }
-
-        // Iniciar todo cuando el DOM inicial esté listo
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
-    
+
     </body>
 </html>

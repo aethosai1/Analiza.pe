@@ -1,153 +1,149 @@
-console.log("Executing header.js...");
+// Contenido de: componentes-visuales/Header/header.js
 
-const header = document.querySelector('header'); // El header ya debería estar en el DOM
+function inicializarMenuHeader() {
+    console.log("Inicializando lógica del menú header...");
 
-if (!header) {
-    // [8] CRITICAL: Header element not found when header.js executed!
-    console.error("CRITICAL: Header element not found when header.js executed!");
-} else {
-    // [8] Header element found: ...
-    console.log("Header element found:", header);
+    // MODIFICADO: Buscar el header DENTRO del placeholder
+    const header = document.querySelector('#header-placeholder header');
+
+    if (!header) {
+        console.error("CRÍTICO: Elemento <header> no encontrado dentro de #header-placeholder después de la carga dinámica.");
+        return; // Salir si no se encuentra el header
+    }
+
+    console.log("Elemento <header> encontrado para inicialización:", header);
+
+    // --- INICIO DEL CÓDIGO ORIGINAL DE header.js ---
+    // (Todo el código que tenías antes, desde la definición de menuToggle hasta el final,
+    // EXCEPTO la línea original "const header = document.querySelector('header');"
+    // y el console.log inicial que movimos arriba)
 
     const menuToggle = header.querySelector('#menuToggle');
     const mobileMenuContainer = header.querySelector('#mobileMenuContainer');
     let closeButton = header.querySelector('#menuClose');
 
     // --- Verificar elementos esenciales ---
-    // [8] CRITICAL: #menuToggle not found inside header!
-    if (!menuToggle) console.error("CRITICAL: #menuToggle not found inside header!");
-    // [8] Warning: #mobileMenuContainer not found inside header.
-    if (!mobileMenuContainer) console.warn("Warning: #mobileMenuContainer not found inside header.");
-    // [8] Info: #menuClose not found in initial HTML, will attempt to create.
-    if (!closeButton) console.log("Info: #menuClose not found in initial HTML, will attempt to create.");
+    if (!menuToggle) console.error("CRITICAL: #menuToggle not found inside loaded header!");
+    if (!mobileMenuContainer) console.warn("Warning: #mobileMenuContainer not found inside loaded header.");
+    if (!closeButton) console.log("Info: #menuClose not found in loaded header HTML, will attempt to create.");
 
     // --- Solo proceder si tenemos lo mínimo (menuToggle y container) ---
     if (menuToggle && mobileMenuContainer) {
 
         // --- Crear botón de cierre si no existe ---
         if (!closeButton) {
-            // [9] .nav-header not found, cannot create close button.
             const navHeader = header.querySelector('.nav-header');
             if (navHeader) {
-                // [10] Close button created and appended.
                 closeButton = document.createElement('div');
-                // [11] <i class="fas fa-times"></i>
                 closeButton.id = 'menuClose';
                 closeButton.innerHTML = '<i class="fas fa-times"></i>';
-                closeButton.classList.add('menu-close'); // Asegúrate que esta clase coincida con CSS si la usas
+                closeButton.classList.add('menu-close'); // Clase CSS para el botón
                 closeButton.style.display = 'none';
+                // Aplicar estilos CSS via JS si es necesario o confiar en header.css
+                 closeButton.style.position = 'absolute';
+                 closeButton.style.top = '50%';
+                 closeButton.style.right = '15px'; // Asegúrate que coincida con tu CSS
+                 closeButton.style.transform = 'translateY(-50%)';
+                 closeButton.style.fontSize = '24px';
+                 closeButton.style.color = 'var(--text-dark)'; // Usa tu variable CSS
+                 closeButton.style.cursor = 'pointer';
+                 closeButton.style.padding = '5px';
+                 closeButton.style.zIndex = '1005';
+
                 navHeader.appendChild(closeButton);
-                console.log("Close button created and appended.");
+                console.log("Botón de cierre creado y añadido dinámicamente.");
             } else {
-                // [12] .nav-header not found, cannot create close button.
-                console.warn(".nav-header not found, cannot create close button.");
+                console.warn(".nav-header not found inside loaded header, cannot create close button.");
             }
         } else {
-            // [13] Asegurar que esté oculto si ya existía
-            closeButton.style.display = 'none';
+             // Si ya existía (quizás en el HTML del componente), asegurar que esté oculto inicialmente
+             closeButton.style.display = 'none';
         }
+
 
         // --- Funciones Open/Close ---
         function openMobileMenu() {
-            // [14] openMobileMenu function called!
-            console.log("openMobileMenu function called!");
-            // [15] active
+            console.log("Abriendo menú móvil...");
             mobileMenuContainer.classList.add('active');
             menuToggle.style.display = 'none';
-            // [15] menu-open
             if (closeButton) closeButton.style.display = 'flex';
             document.body.classList.add('menu-open');
         }
 
         function closeMobileMenu() {
-            // [16] closeMobileMenu function called!
-            console.log("closeMobileMenu function called!");
-            // [17] active
+             console.log("Cerrando menú móvil...");
             mobileMenuContainer.classList.remove('active');
-            // Solo mostrar toggle si estamos en vista móvil (check display)
-            if (window.getComputedStyle(menuToggle).display !== 'none') {
-                // [17] flex
+             // Solo mostrar toggle si estamos en vista móvil (check display o media query match)
+             if (window.innerWidth < 1024) { // O usa matchMedia si prefieres
                 menuToggle.style.display = 'flex';
-            }
-            // [18] menu-open
+            } else {
+                 menuToggle.style.display = 'none'; // Asegurar que esté oculto en desktop
+             }
             if (closeButton) closeButton.style.display = 'none';
             document.body.classList.remove('menu-open');
         }
 
         // --- Listeners ---
-        // [19] Attempting to add click listener to menuToggle: ...
-        console.log("Attempting to add click listener to menuToggle:", menuToggle);
-        // [20] click
-        menuToggle.addEventListener('click', openMobileMenu);
+        if (menuToggle) {
+             menuToggle.addEventListener('click', openMobileMenu);
+        }
 
         if (closeButton) {
-            // [20] Attempting to add click listener to closeButton: ...
-            console.log("Attempting to add click listener to closeButton:", closeButton);
-            // [21] click
-            closeButton.addEventListener('click', closeMobileMenu);
+             closeButton.addEventListener('click', closeMobileMenu);
         } else {
-            // [21] Cannot add listener to closeButton because it wasn't found or created.
-            console.warn("Cannot add listener to closeButton because it wasn't found or created.");
+            console.warn("No se pudo añadir listener al botón de cierre porque no existe.");
         }
 
         // Cerrar al hacer clic en enlaces/CTA dentro del menú
-        // [22] #navLinks a, #navCta a
         const linksAndCtas = mobileMenuContainer.querySelectorAll('#navLinks a, #navCta a');
-        // [23] click
         linksAndCtas.forEach(link => {
             link.addEventListener('click', () => {
-                // [23] active
                 if (mobileMenuContainer.classList.contains('active')) {
                     closeMobileMenu();
                 }
             });
         });
-        // [24] Added close listeners to ... links/CTAs inside menu.
-        console.log(`Added close listeners to ${linksAndCtas.length} links/CTAs inside menu.`);
 
         // --- Listener de Resize ---
-        // [24] resize
         window.addEventListener('resize', function() {
             const isDesktop = window.innerWidth >= 1024;
-            // [24] active
             if (isDesktop && mobileMenuContainer.classList.contains('active')) {
-                closeMobileMenu();
+                closeMobileMenu(); // Cerrar si se redimensiona a desktop con el menú abierto
             }
-            // (Resto de la lógica de resize...)
+            // Actualizar visibilidad de iconos en resize
             if(isDesktop) {
-                // [25] menu-open
                 menuToggle.style.display = 'none';
                 if (closeButton) closeButton.style.display = 'none';
                  document.body.classList.remove('menu-open');
             } else {
-                 // Si volvemos a móvil y el menú no está activo, mostrar hamburguesa
-                 if (!mobileMenuContainer.classList.contains('active')) {
-                      // [26] flex
+                 // Si volvemos a móvil: mostrar hamburguesa si menú cerrado, o X si menú abierto
+                 if (mobileMenuContainer.classList.contains('active')) {
+                      menuToggle.style.display = 'none';
+                      if (closeButton) closeButton.style.display = 'flex';
+                 } else {
                       menuToggle.style.display = 'flex';
                       if (closeButton) closeButton.style.display = 'none';
                  }
             }
         });
 
-        // --- Estado inicial (se ejecuta inmediatamente) ---
+        // --- Estado inicial (basado en el ancho actual) ---
         if (window.innerWidth < 1024) {
-            // [27] flex
             menuToggle.style.display = 'flex';
-            // [28] none
             if (closeButton) closeButton.style.display = 'none';
         } else {
-            // [28] none
             menuToggle.style.display = 'none';
-            // [29] none
             if (closeButton) closeButton.style.display = 'none';
         }
-        // [29] Initial state set based on window width.
-        console.log("Initial state set based on window width.");
-        // [30] header.js finished execution successfully.
-        console.log("header.js finished execution successfully.");
+        console.log("Estado inicial del menú header configurado.");
 
-    } else { // Fin del if (menuToggle && mobileMenuContainer)
-        // [30] Could not proceed with header.js setup because menuToggle or mobileMenuContainer is missing.
-        console.error("Could not proceed with header.js setup because menuToggle or mobileMenuContainer is missing.");
+    } else { // Fin if (menuToggle && mobileMenuContainer)
+        console.error("No se pudo configurar el menú header porque faltan #menuToggle o #mobileMenuContainer en el HTML cargado.");
     }
-} // Fin del else (!header)
+
+    console.log("Inicialización del menú header completada.");
+
+} // --- FIN DE LA FUNCIÓN inicializarMenuHeader ---
+
+// IMPORTANTE: No llames a inicializarMenuHeader() aquí fuera.
+// Se llamará desde template.html después de cargar el componente.

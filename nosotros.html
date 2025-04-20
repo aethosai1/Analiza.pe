@@ -1,105 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - Analiza.pe</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
-    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
-    <link rel="stylesheet" href="CSS/nosotros.css">
-
-    <style>
-        /* Estilos solo para la transición suave de carga del body */
-        body {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-        body.loaded {
-            opacity: 1;
-        }
-    </style>
-
-</head>
-<body>
-
-    <div id="header-placeholder"></div>
-
-    <main>
-        <section class="nosotros-hero">
-             <div class="container">
-                <h1>Conócenos</h1>
-                <p>En Analiza.pe transformamos datos en decisiones estratégicas para impulsar el crecimiento de tu negocio en el entorno digital.</p>
-             </div>
-        </section>
-
-        <section class="nosotros-section">
-             <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">NUESTRA ESENCIA</span>
-                    <h2 class="section-title">Quiénes Somos</h2>
-                </div>
-                <div class="nosotros-grid">
-                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Historia" class="card-image"> <div class="card-content"> <h3>Nuestra Historia</h3> <p>Fundada en 2018...</p> </div> </div>
-                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Misión" class="card-image"> <div class="card-content"> <h3>Nuestra Misión</h3> <p>Empoderamos a las empresas...</p> </div> </div>
-                     <div class="nosotros-card"> <img src="/api/placeholder/600/400" alt="Nuestra Visión" class="card-image"> <div class="card-content"> <h3>Nuestra Visión</h3> <p>Ser reconocidos como el socio...</p> </div> </div>
-                </div>
-             </div>
-        </section>
-
-        <section class="nosotros-section">
-              <div class="container">
-                 <div class="section-header"> <span class="section-badge">PRINCIPIOS</span> <h2 class="section-title">Nuestros Valores</h2> <p class="section-description">Los principios que guían nuestro trabajo...</p> </div>
-                 <div class="valores-grid">
-                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-bullseye"></i></div> <div class="valor-content"><h3>Precisión</h3><p>Nos comprometemos...</p></div> </div>
-                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-lightbulb"></i></div> <div class="valor-content"><h3>Innovación</h3><p>Constantemente exploramos...</p></div> </div>
-                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-handshake"></i></div> <div class="valor-content"><h3>Colaboración</h3><p>Trabajamos como extensión...</p></div> </div>
-                     <div class="valor-item"> <div class="valor-icon"><i class="fas fa-shield-alt"></i></div> <div class="valor-content"><h3>Integridad</h3><p>Actuamos con transparencia...</p></div> </div>
-                 </div>
-              </div>
-        </section>
-
-         <section class="stats-section">
-             <div class="container">
-                 <div class="stats-grid">
-                     <div class="stat-item"><span class="stat-number">300+</span><span class="stat-label">Proyectos...</span></div>
-                      <div class="stat-item"><span class="stat-number">150+</span><span class="stat-label">Clientes...</span></div>
-                      <div class="stat-item"><span class="stat-number">25+</span><span class="stat-label">Expertos...</span></div>
-                      <div class="stat-item"><span class="stat-number">5+</span><span class="stat-label">Años...</span></div>
-                 </div>
-             </div>
-         </section>
-
-         <section class="nosotros-section equipo-section">
-              <div class="container">
-                  <div class="section-header"> <span class="section-badge">TALENTO</span> <h2 class="section-title">Nuestro Equipo</h2> <p class="section-description">Contamos con un equipo...</p> </div>
-                  <div class="equipo-grid">
-                     <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Carlos" class="miembro-foto"> <div class="miembro-info"><h3>Carlos Mendoza</h3><p>CEO...</p><div class="social-links">...</div></div> </div>
-                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Ana" class="miembro-foto"> <div class="miembro-info"><h3>Ana Paredes</h3><p>Directora...</p><div class="social-links">...</div></div> </div>
-                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Miguel" class="miembro-foto"> <div class="miembro-info"><h3>Miguel Torres</h3><p>Líder...</p><div class="social-links">...</div></div> </div>
-                      <div class="miembro-card"> <img src="/api/placeholder/400/400" alt="Foto Lucía" class="miembro-foto"> <div class="miembro-info"><h3>Lucía Gómez</h3><p>Especialista...</p><div class="social-links">...</div></div> </div>
-                  </div>
-              </div>
-         </section>
-
-         <section class="cta-section">
-              <div class="container">
-                  <div class="cta-box"> <h2>¿Listo para transformar...?</h2> <p>Descubre cómo podemos ayudarte...</p> <a href="contacto.html" class="cta-button">Contáctanos hoy</a> </div>
-              </div>
-         </section>
-    </main>
-    <div id="footer-placeholder"></div>
-
-    <script>
+<script>
         /**
-         * Carga HTML y JS de un componente.
-         * @param {string} componentName - Nombre del componente ('Header', 'Footer' - CON MAYÚSCULA AHORA).
+         * Carga HTML y JS de un componente usando rutas explícitas.
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer').
          * @param {string} placeholderId - ID del div placeholder.
          */
         async function loadComponent(componentName, placeholderId) {
@@ -108,55 +10,58 @@
                 console.warn(`Placeholder ${placeholderId} not found.`);
                 return;
             }
-            // --- Rutas construidas usando el componentName con Mayúscula ---
-            const htmlUrl = `componentes-visuales/${componentName}/${componentName.toLowerCase()}.html`; // El archivo .html sigue en minúscula
-            const jsUrl = `componentes-visuales/${componentName}/${componentName.toLowerCase()}.js`;     // El archivo .js sigue en minúscula
 
-            // --- Corrección Importante: Los nombres de ARCHIVO (.html, .js, .css)
-            // --- probablemente SÍ estén en minúsculas aunque la CARPETA use Mayúscula.
-            // --- Ajustando las rutas para reflejar eso:
-            const correctedHtmlUrl = `componentes-visuales/${componentName}/header.html`; // Asumiendo header.html para Header
-            const correctedJsUrl = `componentes-visuales/${componentName}/header.js`;     // Asumiendo header.js para Header
-            // Necesitamos ser más específicos para el nombre de archivo
-            let finalHtmlUrl, finalJsUrl;
+            let htmlUrl;
+            let jsUrl;
+
+            // --- Definición explícita de rutas ---
             if (componentName === 'Header') {
-                 finalHtmlUrl = `componentes-visuales/Header/header.html`;
-                 finalJsUrl = `componentes-visuales/Header/header.js`;
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
             } else if (componentName === 'Footer') {
-                 finalHtmlUrl = `componentes-visuales/Footer/footer.html`;
-                 finalJsUrl = `componentes-visuales/Footer/footer.js`;
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
             } else {
-                 console.error(`Nombre de componente desconocido: ${componentName}`);
-                 return; // Salir si no es Header o Footer
+                console.error(`Nombre de componente desconocido para carga: ${componentName}`);
+                placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
+                return; // Salir si no es un componente conocido
             }
-
+            // --- Fin definición explícita ---
 
             try {
-                // Cargar HTML usando la ruta final
-                console.log(`Workspaceing HTML for ${componentName} from ${finalHtmlUrl}...`);
-                const response = await fetch(finalHtmlUrl);
-                if (!response.ok) throw new Error(`HTTP error ${response.status} for ${finalHtmlUrl}`);
+                // --- 1. Cargar HTML ---
+                console.log(`Workspaceing HTML for ${componentName} from ${htmlUrl}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
                 const html = await response.text();
-                placeholder.innerHTML = html;
+                placeholder.innerHTML = html; // Inserta el HTML
                 console.log(`HTML for ${componentName} loaded successfully.`);
 
-                // Cargar y Ejecutar JS usando la ruta final
-                console.log(`Attempting to fetch JS for ${componentName} from ${finalJsUrl}...`);
-                try {
-                    const scriptResponse = await fetch(finalJsUrl);
-                    if (scriptResponse.ok) {
-                        const scriptText = await scriptResponse.text();
-                        const scriptElement = document.createElement('script');
-                        scriptElement.textContent = scriptText;
-                        document.body.appendChild(scriptElement);
-                        console.log(`JS for ${componentName} loaded and executed.`);
-                    } else if (scriptResponse.status === 404) {
-                        console.log(`No JS file found for ${componentName} (404), skipping.`);
-                    } else {
-                        console.warn(`Could not load script ${finalJsUrl}: ${scriptResponse.statusText}`);
+                // --- 2. Cargar y Ejecutar JS (DESPUÉS de insertar HTML) ---
+                // Solo intentar cargar JS si la URL fue definida (para el caso de error anterior)
+                if (jsUrl) {
+                    console.log(`Attempting to fetch JS for ${componentName} from ${jsUrl}...`);
+                    try {
+                        const scriptResponse = await fetch(jsUrl);
+                        if (scriptResponse.ok) {
+                            const scriptText = await scriptResponse.text();
+                            const scriptElement = document.createElement('script');
+                            scriptElement.textContent = scriptText;
+                            document.body.appendChild(scriptElement); // Ejecutar en contexto global
+                            console.log(`JS for ${componentName} loaded and executed.`);
+                            // Considera remover el script después si es necesario:
+                            // setTimeout(() => document.body.removeChild(scriptElement), 0);
+                        } else if (scriptResponse.status === 404) {
+                            // No es un error si un componente no tiene JS asociado
+                            console.log(`No JS file found at ${jsUrl} (404), skipping script execution for ${componentName}.`);
+                        } else {
+                            // Otro error al buscar el script JS
+                            console.warn(`Could not load script ${jsUrl}: ${scriptResponse.statusText}`);
+                        }
+                    } catch (scriptError) {
+                        // Error al hacer fetch o al procesar el script
+                        console.error(`Error fetching or executing script ${jsUrl}:`, scriptError);
                     }
-                } catch (scriptError) {
-                    console.error(`Error processing script ${finalJsUrl}:`, scriptError);
                 }
 
             } catch (error) {
@@ -165,16 +70,21 @@
             }
         }
 
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
         async function loadAllComponents() {
             console.log("Loading all components...");
             await Promise.all([
-                // Llamar a loadComponent con los nombres de carpeta con Mayúscula
+                // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
                 loadComponent('Header', 'header-placeholder'),
                 loadComponent('Footer', 'footer-placeholder')
             ]);
             document.body.classList.add('loaded');
             console.log("All components loaded.");
         }
+
+        // Iniciar todo cuando el DOM inicial esté listo
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
 

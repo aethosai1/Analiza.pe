@@ -1,107 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página - Analiza.pe</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="CSS/global.css">
-
     <link rel="stylesheet" href="componentes-visuales/Header/header.css">
-
     <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
-
     <style>
-        /* Estilos solo para la transición suave de carga del body */
-        body {
-            opacity: 0; /* Ocultar hasta que todo esté listo (JS añadirá 'loaded') */
-            transition: opacity 0.3s ease-in;
-        }
-        body.loaded {
-            opacity: 1;
-        }
-        /* Nota: El padding-top para compensar el header fijo
-           AHORA está definido en css/global.css */
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
     </style>
-
 </head>
 <body>
 
-    <div id="header-placeholder">
-        </div>
+    <div id="header-placeholder"></div>
 
     <main>
-        <h1>Contenido Principal de la Página</h1>
-        <p>Este es el área donde desarrollarás el contenido específico para esta página (por ejemplo, para la página de "Servicios", "Nosotros", etc.).</p>
-        </main>
-    <div id="footer-placeholder">
-        </div>
+        <h1>Contenido de la Plantilla</h1>
+    </main>
 
+    <div id="footer-placeholder"></div>
 
     <script>
-        /**
-         * Carga el contenido HTML de una URL en un elemento placeholder.
-         * @param {string} url - La URL del archivo HTML del componente.
-         * @param {string} placeholderId - El ID del elemento donde se insertará el HTML.
-         */
+        // Función para cargar un componente HTML en un placeholder
         async function loadComponent(url, placeholderId) {
-            const placeholder = document.getElementById(placeholderId);
-            if (!placeholder) {
-                console.warn(`Placeholder con ID "${placeholderId}" no encontrado.`);
-                return; // Salir si el placeholder no existe
-            }
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
-                    // Lanza un error si la respuesta HTTP no es exitosa (ej. 404 Not Found)
-                    throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
+                    throw new Error(`Error al cargar ${url}: ${response.statusText}`);
                 }
                 const html = await response.text();
-                placeholder.innerHTML = html; // Inserta el HTML cargado
+                const placeholder = document.getElementById(placeholderId);
+                if (placeholder) {
+                    placeholder.innerHTML = html;
+                    console.log(`Componente ${url} cargado en #${placeholderId}`);
+                } else {
+                    console.error(`Placeholder #${placeholderId} no encontrado.`);
+                }
             } catch (error) {
-                // Captura errores de red o errores lanzados arriba
-                console.error(`No se pudo cargar el componente desde ${url}:`, error);
-                // Muestra un mensaje de error en el placeholder para feedback visual
-                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error al cargar componente (${placeholderId}). Revisa la consola.</p>`;
+                console.error(`Falló la carga del componente ${url}:`, error);
+                const placeholder = document.getElementById(placeholderId);
+                 if(placeholder) placeholder.innerHTML = `<p style="color:red;">Error al cargar componente: ${url}</p>`;
             }
         }
 
-        /**
-         * Carga todos los componentes principales (Header, Footer) y luego muestra el body.
-         */
+        // Función principal para cargar todos los componentes e inicializar JS
         async function loadAllComponents() {
-            // Carga header y footer. Promise.all espera a que ambas cargas terminen.
+            // Carga HTML de header y footer en paralelo
             await Promise.all([
                 loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'),
                 loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')
             ]);
 
-            // IMPORTANTE: Los scripts específicos de los componentes (header.js, footer.js)
-            // se incluyen abajo con <script src="..." defer>. El atributo 'defer'
-            // asegura que se ejecuten DESPUÉS de que el HTML completo de la página
-            // (incluyendo el HTML inyectado aquí) haya sido analizado por el navegador,
-            // pero ANTES del evento DOMContentLoaded. Esto permite que esos scripts
-            // encuentren los elementos que necesitan dentro de los componentes cargados.
+            // --- ¡NUEVO! ---
+            // Ahora que el HTML del header está cargado, llamamos a su función de inicialización
+            if (typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader(); // Llama a la función definida en header.js
+            } else {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente y define esta función.");
+            }
 
-            // Una vez cargado el HTML y listos los scripts deferidos para ejecutarse,
-            // hacemos visible el body.
+            // (Opcional) Haz lo mismo si tienes un footer.js con una función inicializarFooter()
+            // if (typeof inicializarFooter === 'function') {
+            //     inicializarFooter();
+            // }
+
+            // Hacemos visible el body una vez todo cargado e inicializado
             document.body.classList.add('loaded');
+            console.log("Todos los componentes cargados y scripts inicializados.");
         }
 
-        // Iniciar la carga de componentes tan pronto como el DOM esté listo.
-        // Usar DOMContentLoaded es bueno porque no espera a que carguen todas las imágenes o CSS.
+        // Iniciar la carga cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
 
     <script src="componentes-visuales/Header/header.js" defer></script>
-
-    <script src="componentes-visuales/Footer/footer.js" defer></script>
-
     </body>
 </html>

@@ -1,5 +1,9 @@
-/* Estilos Específicos del Header */
+/* Prevenir transiciones durante la carga inicial */
+.no-transition * {
+    transition: none !important;
+}
 
+/* Estilos Específicos del Header */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -48,7 +52,6 @@ header {
 }
 
 /* --- Estilos Menú Móvil --- */
-
 .menu-toggle {
     display: flex; /* Mostrar en móvil */
     flex-direction: column;
@@ -122,6 +125,7 @@ header {
     width: 100%;
     border-bottom: 1px solid var(--border-color);
 }
+
 .nav-links a:last-child {
     border-bottom: none; /* Quitar borde del último */
 }
@@ -139,6 +143,11 @@ header {
 .nav-cta .cta-button {
    width: 100%; /* Botón ocupa todo el ancho en el menú móvil */
    max-width: 280px; /* Pero con un máximo razonable */
+}
+
+/* Clase para evitar scroll del body cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
 }
 
 /* --- Estilos Escritorio --- */
@@ -194,5 +203,10 @@ header {
     .nav-cta .cta-button {
        width: auto; /* Ancho automático */
        max-width: none; /* Sin máximo */
+    }
+    
+    /* Reestablecer overflow para el body en desktop */
+    body.menu-open {
+        overflow: auto;
     }
 }

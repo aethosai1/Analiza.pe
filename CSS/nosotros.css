@@ -1,44 +1,35 @@
 /* --- ESTILOS ESPECÍFICOS PARA NOSOTROS.HTML --- */
 
-/* Estilos Hero Section - REDISEÑADO */
+/* Estilos Hero Section - REDISEÑADO CON IMAGEN */
 .nosotros-hero {
-    background-color: var(--white); /* Fondo blanco en lugar de celeste */
     color: var(--text-dark);
     text-align: center;
-    padding: 80px 0 80px; /* Más padding vertical */
+    padding: 120px 0 120px; /* Más padding vertical */
     margin-bottom: 60px;
     position: relative;
-    overflow: hidden; /* Para elementos decorativos */
+    overflow: hidden;
+    /* Imagen de fondo */
+    background-image: url('https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//Gemini_Generated_Image_badt0ybadt0ybadt.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* Elementos decorativos para el hero */
+/* Capa de superposición para controlar contraste */
 .nosotros-hero::before {
     content: '';
     position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: rgba(37, 99, 235, 0.05); /* Azul muy tenue */
-    z-index: 0;
-}
-
-.nosotros-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-color: rgba(37, 99, 235, 0.03); /* Azul muy tenue */
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 100%);
+    z-index: 1;
 }
 
 .nosotros-hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Aseguramos que el contenido esté sobre la capa de superposición */
 }
 
 .nosotros-hero h1 {
@@ -379,6 +370,10 @@
     .equipo-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 columnas */
     }
+    
+    .nosotros-hero {
+        padding: 140px 0 140px; /* Más espacio en dispositivos más grandes */
+    }
 }
 
 @media (min-width: 768px) { /* Tablets */
@@ -414,6 +409,15 @@
     .miembro-card {
         max-width: none; /* Quitar limitación de ancho */
     }
+    
+    .nosotros-hero {
+        padding: 160px 0 160px; /* Aún más espacio en tablets */
+    }
+    
+    /* Ajustar overlay para que se vea mejor la imagen en pantallas más grandes */
+    .nosotros-hero::before {
+        background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.80) 100%);
+    }
 }
 
 @media (min-width: 992px) { /* Laptops pequeñas */
@@ -427,6 +431,15 @@
     
     .valores-grid {
         grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
+    }
+    
+    .nosotros-hero {
+        padding: 180px 0 180px; /* Espacio máximo en pantallas grandes */
+    }
+    
+    /* Overlay aún más sutil para apreciar mejor la imagen */
+    .nosotros-hero::before {
+        background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.75) 100%);
     }
 }
 

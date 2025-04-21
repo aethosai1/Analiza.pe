@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("Executing header.js...");
+// Definimos la función inicializarMenuHeader que será llamada desde template.html
+function inicializarMenuHeader() {
+    console.log("Inicializando menú header...");
+    
+    // Añadir clase para desactivar transiciones inicialmente
+    document.body.classList.add('no-transition');
 
     const header = document.querySelector('header');
 
     if (!header) {
-        console.error("CRITICAL: Header element not found when header.js executed!");
+        console.error("CRITICAL: Header element not found when initializing menu!");
         return;
     }
-
-    console.log("Header element found:", header);
 
     // Buscar elementos esenciales dentro del header
     const menuToggle = document.getElementById('menuToggle');
@@ -132,5 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (closeButton) closeButton.style.display = 'none';
     }
 
-    console.log("header.js finished execution successfully.");
+    // Reactivar transiciones después de la configuración inicial
+    setTimeout(() => {
+        document.body.classList.remove('no-transition');
+    }, 100);
+
+    console.log("Header menu initialization complete.");
+}
+
+// También mantener la inicialización automática como respaldo
+// en caso de que alguna página no use el template pattern
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificamos si estamos en template.html (que llama a inicializarMenuHeader explícitamente)
+    // o en una página normal donde necesitamos inicializar automáticamente
+    if (!document.getElementById('header-placeholder')) {
+        console.log("No header-placeholder found. Initializing header directly.");
+        inicializarMenuHeader();
+    } else {
+        console.log("Found header-placeholder. Header will be initialized by template.html");
+    }
 });

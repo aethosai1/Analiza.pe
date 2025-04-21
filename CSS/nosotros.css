@@ -1,61 +1,203 @@
 /* --- ESTILOS ESPECÍFICOS PARA NOSOTROS.HTML --- */
 
-/* Estilos Hero Section - REDISEÑADO CON IMAGEN */
+/* Animaciones para elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos Hero Section - REDISEÑADO CON GRADIENTE ANIMADO */
 .nosotros-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 50%, #e8efff 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
     color: var(--text-dark);
     text-align: center;
-    padding: 120px 0 120px; /* Más padding vertical */
+    padding: 150px 0 150px;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
-    /* Imagen de fondo */
-    background-image: url('https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//Gemini_Generated_Image_badt0ybadt0ybadt.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* Capa de superposición para controlar contraste */
-.nosotros-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 100%);
-    z-index: 1;
 }
 
 .nosotros-hero .container {
     position: relative;
-    z-index: 2; /* Aseguramos que el contenido esté sobre la capa de superposición */
+    z-index: 2;
+    max-width: 900px;
 }
 
-.nosotros-hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--text-dark); /* Negro para "Analiza" */
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease forwards;
+    animation-delay: 0.3s;
 }
 
-.nosotros-hero h1 span {
-    color: var(--primary-blue); /* Azul para ".pe" */
+.hero-title .highlight {
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
 }
 
-.nosotros-hero p {
-    font-size: 1.2rem; /* Ligeramente más grande */
+.hero-description {
+    font-size: 1.4rem;
     max-width: 750px;
     margin: 0 auto;
     color: var(--text-medium);
     line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
 }
 
-/* Estructura Común de Secciones */
+/* Elementos decorativos */
+.hero-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, 
+        rgba(37, 99, 235, 0.1) 0%, 
+        rgba(37, 99, 235, 0.4) 25%, 
+        rgba(37, 99, 235, 0.6) 50%,
+        rgba(37, 99, 235, 0.4) 75%,
+        rgba(37, 99, 235, 0.1) 100%);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.hero-shape-1 {
+    top: 20%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(37, 99, 235, 0.03);
+    animation: fadeInRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.hero-shape-2 {
+    bottom: 15%;
+    left: 5%;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(37, 99, 235, 0.04);
+    animation: fadeInLeft 1s ease forwards;
+    animation-delay: 0.9s;
+}
+
+.hero-shape-3 {
+    top: 35%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(37, 99, 235, 0.02);
+    animation: scaleIn 1s ease forwards;
+    animation-delay: 1.1s;
+}
+
+.hero-line {
+    position: absolute;
+    height: 1px;
+    opacity: 0;
+}
+
+.hero-line-1 {
+    top: 30%;
+    right: 0;
+    width: 20%;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0), rgba(37, 99, 235, 0.2));
+    animation: fadeInLeft 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.hero-line-2 {
+    bottom: 25%;
+    left: 0;
+    width: 25%;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0));
+    animation: fadeInRight 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+/* Resto de los estilos para las demás secciones */
 .nosotros-section {
-    padding: 70px 0; /* Más padding */
-    position: relative; /* Para posibles elementos decorativos */
+    padding: 70px 0;
+    position: relative;
 }
 
 .nosotros-section:nth-child(odd) {
@@ -69,13 +211,13 @@
 /* Estilos para Cabecera de Sección (Reutilizable) */
 .section-header {
     text-align: center;
-    margin: 0 auto 60px; /* Mayor margen inferior */
+    margin: 0 auto 60px;
     max-width: 800px;
 }
 
 .section-badge {
     display: inline-block;
-    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
+    background-color: rgba(37, 99, 235, 0.1);
     color: var(--primary-blue);
     padding: 6px 15px;
     border-radius: 20px;
@@ -94,7 +236,7 @@
 }
 
 .section-description {
-    font-size: 1.05rem; /* Ligeramente más grande */
+    font-size: 1.05rem;
     color: var(--text-medium);
     margin: 0 auto;
     line-height: 1.6;
@@ -103,19 +245,19 @@
 /* Grid y Tarjetas "Quiénes Somos" */
 .nosotros-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Base móvil */
+    grid-template-columns: 1fr;
     gap: 30px;
 }
 
 .nosotros-card {
     background-color: var(--white);
-    border-radius: 12px; /* Más redondeado */
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Altura completa */
+    height: 100%;
 }
 
 .nosotros-card:hover {
@@ -124,7 +266,7 @@
 }
 
 .card-image {
-    height: 220px; /* Altura fija para la imagen */
+    height: 220px;
     width: 100%;
     object-fit: cover;
     display: block;
@@ -139,7 +281,7 @@
 }
 
 .card-content h3 {
-    font-size: 1.3rem; /* Ligeramente más grande */
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 15px;
     color: var(--text-dark);
@@ -154,7 +296,7 @@
 /* Grid y Tarjetas "Valores" */
 .valores-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Base móvil */
+    grid-template-columns: 1fr;
     gap: 25px;
     margin-top: 30px;
 }
@@ -163,9 +305,9 @@
     display: flex;
     align-items: flex-start;
     background-color: var(--white);
-    border-radius: 12px; /* Más redondeado */
+    border-radius: 12px;
     padding: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.04); /* Borde muy sutil */
+    border: 1px solid rgba(0, 0, 0, 0.04);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -175,14 +317,14 @@
 }
 
 .valor-icon {
-    width: 52px; /* Ligeramente más grande */
+    width: 52px;
     height: 52px;
-    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
+    background-color: rgba(37, 99, 235, 0.1);
     color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px; /* Más redondeado */
+    border-radius: 12px;
     margin-right: 20px;
     flex-shrink: 0;
     font-size: 1.3rem;
@@ -207,7 +349,7 @@
 
 /* Sección Estadísticas - REDISEÑADA */
 .stats-section {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(37, 99, 235, 0.02) 100%); /* Degradado muy sutil */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(37, 99, 235, 0.02) 100%);
     padding: 70px 0;
     margin: 0;
     border-top: 1px solid rgba(37, 99, 235, 0.05);
@@ -216,8 +358,8 @@
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 40px 20px; /* Gap vertical y horizontal */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
 }
 
 .stat-item {
@@ -255,20 +397,20 @@
 
 .equipo-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 columna en móvil más pequeño */
-    gap: 40px; /* Más espacio entre tarjetas */
+    grid-template-columns: 1fr;
+    gap: 40px;
     margin-top: 40px;
 }
 
 .miembro-card {
     background-color: var(--white);
-    border-radius: 12px; /* Más redondeado */
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    max-width: 320px; /* Limitar ancho en móvil */
-    margin: 0 auto; /* Centrar en móvil */
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .miembro-card:hover {
@@ -278,14 +420,14 @@
 
 .miembro-foto {
     width: 100%;
-    height: 280px; /* Más altura para fotos */
+    height: 280px;
     object-fit: cover;
     object-position: center top;
     display: block;
 }
 
 .miembro-info {
-    padding: 25px 15px; /* Más padding vertical */
+    padding: 25px 15px;
 }
 
 .miembro-info h3 {
@@ -299,20 +441,20 @@
     color: var(--primary-blue);
     font-size: 0.95rem;
     font-weight: 500;
-    margin-bottom: 20px; /* Más espacio */
+    margin-bottom: 20px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 12px; /* Espacio uniforme */
+    gap: 12px;
 }
 
 .social-links a {
-    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
+    background-color: rgba(37, 99, 235, 0.1);
     color: var(--primary-blue);
     border-radius: 50%;
-    width: 36px; /* Ligeramente más grande */
+    width: 36px;
     height: 36px;
     display: inline-flex;
     align-items: center;
@@ -329,15 +471,15 @@
 
 /* Sección CTA (Call to Action) */
 .cta-section {
-    padding: 90px 0; /* Mayor padding */
+    padding: 90px 0;
     background-color: var(--white);
 }
 
 .cta-box {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.06) 100%); /* Degradado sutil */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.06) 100%);
     border: none;
-    border-radius: 16px; /* Más redondeado */
-    padding: 60px 40px; /* Más padding vertical */
+    border-radius: 16px;
+    padding: 60px 40px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
 }
@@ -351,7 +493,7 @@
 
 .cta-box p {
     font-size: 1.1rem;
-    margin-bottom: 35px; /* Más espacio antes del botón */
+    margin-bottom: 35px;
     color: var(--text-medium);
     max-width: 600px;
     margin-left: auto;
@@ -359,29 +501,28 @@
     line-height: 1.6;
 }
 
-/* El botón .cta-button hereda estilos globales */
 .cta-box .cta-button {
-    padding: 12px 28px; /* Botón ligeramente más grande */
+    padding: 12px 28px;
     font-size: 1.05rem;
 }
 
 /* Media Queries Específicas para Nosotros */
-@media (min-width: 576px) { /* Móviles más grandes */
+@media (min-width: 576px) {
     .equipo-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .nosotros-hero {
-        padding: 140px 0 140px; /* Más espacio en dispositivos más grandes */
+        padding: 140px 0 140px;
     }
 }
 
-@media (min-width: 768px) { /* Tablets */
-    .nosotros-hero h1 {
-        font-size: 3rem; /* Más grande */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
     }
     
-    .nosotros-hero p {
+    .hero-description {
         font-size: 1.25rem;
     }
     
@@ -403,24 +544,23 @@
     
     .equipo-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px; /* Ajuste de gap */
+        gap: 30px;
     }
 
     .miembro-card {
-        max-width: none; /* Quitar limitación de ancho */
+        max-width: none;
     }
     
     .nosotros-hero {
-        padding: 160px 0 160px; /* Aún más espacio en tablets */
-    }
-    
-    /* Ajustar overlay para que se vea mejor la imagen en pantallas más grandes */
-    .nosotros-hero::before {
-        background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.80) 100%);
+        padding: 160px 0 160px;
     }
 }
 
-@media (min-width: 992px) { /* Laptops pequeñas */
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    
     .nosotros-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -430,29 +570,23 @@
     }
     
     .valores-grid {
-        grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .nosotros-hero {
-        padding: 180px 0 180px; /* Espacio máximo en pantallas grandes */
-    }
-    
-    /* Overlay aún más sutil para apreciar mejor la imagen */
-    .nosotros-hero::before {
-        background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.75) 100%);
+        padding: 180px 0 180px;
     }
 }
 
-@media (min-width: 1200px) { /* Escritorio grande */
-    .nosotros-hero h1 {
-        font-size: 3.5rem; /* Aún más grande en escritorio */
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: 4.5rem;
     }
     
     .valores-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas para Valores */
+        grid-template-columns: repeat(4, 1fr);
     }
     
-    /* Añadimos hover effects más pronunciados en desktop */
     .nosotros-card:hover {
         transform: translateY(-10px);
     }

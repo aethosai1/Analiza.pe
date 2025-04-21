@@ -1,95 +1,130 @@
 /* --- ESTILOS ESPECÍFICOS PARA NOSOTROS.HTML --- */
 
-/* Estilos Hero Section */
+/* Estilos Hero Section - REDISEÑADO */
 .nosotros-hero {
-    background-color: var(--bg-light);
+    background-color: var(--white); /* Fondo blanco en lugar de celeste */
     color: var(--text-dark);
     text-align: center;
-    /* Padding top ajustado para header fijo ya está en body (global.css) */
-    /* Mantenemos padding vertical considerable */
-    padding: 60px 0 60px;
-    margin-bottom: 60px; /* Espacio después del hero */
+    padding: 80px 0 80px; /* Más padding vertical */
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden; /* Para elementos decorativos */
+}
+
+/* Elementos decorativos para el hero */
+.nosotros-hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.05); /* Azul muy tenue */
+    z-index: 0;
+}
+
+.nosotros-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.03); /* Azul muy tenue */
+    z-index: 0;
+}
+
+.nosotros-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .nosotros-hero h1 {
-    font-size: 2.5rem; /* ~40px */
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
+    color: var(--text-dark); /* Negro para "Analiza" */
 }
 
-.nosotros-hero h1 span { /* Si usaras un span coloreado en el h1 */
-    color: var(--primary-blue);
+.nosotros-hero h1 span {
+    color: var(--primary-blue); /* Azul para ".pe" */
 }
 
 .nosotros-hero p {
-    font-size: 1.1rem; /* ~18px */
-    max-width: 750px; /* Ancho máximo del párrafo */
-    margin: 0 auto 0; /* Centrado, sin margen inferior aquí */
+    font-size: 1.2rem; /* Ligeramente más grande */
+    max-width: 750px;
+    margin: 0 auto;
     color: var(--text-medium);
+    line-height: 1.6;
 }
 
 /* Estructura Común de Secciones */
 .nosotros-section {
-    padding: 60px 0;
+    padding: 70px 0; /* Más padding */
+    position: relative; /* Para posibles elementos decorativos */
 }
 
-.nosotros-section:nth-child(odd) { /* Invertido respecto a tu código */
-    background-color: var(--white); /* Fondo blanco por defecto */
+.nosotros-section:nth-child(odd) {
+    background-color: var(--white);
 }
+
 .nosotros-section:nth-child(even) {
-     background-color: var(--bg-light); /* Fondo claro para secciones pares */
+    background-color: var(--bg-light);
 }
 
 /* Estilos para Cabecera de Sección (Reutilizable) */
 .section-header {
     text-align: center;
-    margin: 0 auto 50px; /* Mayor margen inferior */
-    max-width: 800px; /* Ancho máximo para centrar */
+    margin: 0 auto 60px; /* Mayor margen inferior */
+    max-width: 800px;
 }
 
 .section-badge {
     display: inline-block;
-    background-color: #e0f2fe; /* Azul muy claro */
+    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
     color: var(--primary-blue);
     padding: 6px 15px;
     border-radius: 20px;
-    font-size: 0.8rem; /* 12-13px */
-    font-weight: 600; /* Más peso */
+    font-size: 0.8rem;
+    font-weight: 600;
     margin-bottom: 15px;
-    text-transform: uppercase; /* Mayúsculas */
+    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .section-title {
-    font-size: 2rem; /* ~32px */
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: var(--text-dark);
 }
 
 .section-description {
-    font-size: 1rem; /* 16px */
+    font-size: 1.05rem; /* Ligeramente más grande */
     color: var(--text-medium);
-    /* max-width ya aplicado en .section-header */
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 /* Grid y Tarjetas "Quiénes Somos" */
 .nosotros-grid {
     display: grid;
     grid-template-columns: 1fr; /* Base móvil */
-    gap: 30px; /* Más espacio */
+    gap: 30px;
 }
 
 .nosotros-card {
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 12px; /* Más redondeado */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Sombra más suave */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Usar flex para mejor control */
-    flex-direction: column; /* Asegurar que el contenido esté debajo de la imagen */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Altura completa */
 }
 
 .nosotros-card:hover {
@@ -98,27 +133,30 @@
 }
 
 .card-image {
-    height: 200px; /* Altura fija para la imagen */
+    height: 220px; /* Altura fija para la imagen */
     width: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
-    display: block; /* Asegurar que sea bloque */
+    object-fit: cover;
+    display: block;
 }
 
 .card-content {
-    padding: 25px; /* Más padding */
-    flex-grow: 1; /* Permite que el contenido crezca si las tarjetas tienen alturas diferentes */
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .card-content h3 {
-    font-size: 1.25rem; /* ~20px */
+    font-size: 1.3rem; /* Ligeramente más grande */
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     color: var(--text-dark);
 }
 
 .card-content p {
     color: var(--text-medium);
-    font-size: 0.9rem; /* ~14px */
+    font-size: 0.95rem;
     line-height: 1.7;
 }
 
@@ -127,38 +165,36 @@
     display: grid;
     grid-template-columns: 1fr; /* Base móvil */
     gap: 25px;
-    margin-top: 30px; /* Espacio después del header de la sección */
+    margin-top: 30px;
 }
 
 .valor-item {
     display: flex;
-    align-items: flex-start; /* Alinear items arriba */
+    align-items: flex-start;
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 12px; /* Más redondeado */
     padding: 25px;
-    /* Quitamos sombra y borde por defecto, lo añadimos en hover si se desea */
-     border: 1px solid transparent; /* Borde transparente para mantener tamaño */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04); /* Borde muy sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .valor-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    border-color: var(--border-color); /* Borde visible en hover */
 }
 
 .valor-icon {
-    width: 48px; /* Ligeramente más grande */
-    height: 48px;
-    background-color: #e0f2fe; /* Mismo azul claro que el badge */
+    width: 52px; /* Ligeramente más grande */
+    height: 52px;
+    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
     color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    margin-right: 20px; /* Más espacio */
-    flex-shrink: 0; /* Evitar que se encoja */
-    font-size: 1.3rem; /* Icono más grande */
+    border-radius: 12px; /* Más redondeado */
+    margin-right: 20px;
+    flex-shrink: 0;
+    font-size: 1.3rem;
 }
 
 .valor-content {
@@ -166,30 +202,31 @@
 }
 
 .valor-content h3 {
-    font-size: 1.1rem; /* ~18px */
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: var(--text-dark);
 }
 
 .valor-content p {
     color: var(--text-medium);
-    font-size: 0.9rem; /* ~14px */
+    font-size: 0.95rem;
     line-height: 1.6;
 }
 
-/* Sección Estadísticas */
+/* Sección Estadísticas - REDISEÑADA */
 .stats-section {
-    background-color: #f0f9ff; /* Azul muy pálido */
-    padding: 60px 0;
-    margin: 0; /* Sin margen vertical */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(37, 99, 235, 0.02) 100%); /* Degradado muy sutil */
+    padding: 70px 0;
+    margin: 0;
+    border-top: 1px solid rgba(37, 99, 235, 0.05);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.05);
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 30px 20px; /* Gap vertical y horizontal */
-    /* max-width y padding ya vienen del .container */
+    gap: 40px 20px; /* Gap vertical y horizontal */
 }
 
 .stat-item {
@@ -197,43 +234,50 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 15px 10px; /* Padding interno */
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
 }
 
 .stat-number {
-    font-size: 2.25rem; /* ~36px */
+    font-size: 2.25rem;
     font-weight: 700;
     color: var(--primary-blue);
     line-height: 1.1;
-    margin-bottom: 8px; /* Más espacio */
+    margin-bottom: 10px;
     display: block;
 }
 
 .stat-label {
-    font-size: 0.9rem; /* ~14px */
+    font-size: 0.95rem;
     color: var(--text-medium);
     font-weight: 500;
 }
 
-/* Sección Equipo */
+/* Sección Equipo - MEJORADA PARA MÓVIL */
 .equipo-section {
     /* padding ya definido en .nosotros-section */
 }
 
 .equipo-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 30px;
-    margin-top: 30px;
+    grid-template-columns: 1fr; /* 1 columna en móvil más pequeño */
+    gap: 40px; /* Más espacio entre tarjetas */
+    margin-top: 40px;
 }
 
 .miembro-card {
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 12px; /* Más redondeado */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Centrar contenido */
+    text-align: center;
+    max-width: 320px; /* Limitar ancho en móvil */
+    margin: 0 auto; /* Centrar en móvil */
 }
 
 .miembro-card:hover {
@@ -243,134 +287,166 @@
 
 .miembro-foto {
     width: 100%;
-    height: 240px; /* Más altura para fotos */
+    height: 280px; /* Más altura para fotos */
     object-fit: cover;
-    object-position: center top; /* Enfocar en la parte superior */
+    object-position: center top;
     display: block;
 }
 
 .miembro-info {
-    padding: 20px 15px;
+    padding: 25px 15px; /* Más padding vertical */
 }
 
 .miembro-info h3 {
-    font-size: 1.15rem; /* ~18px */
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 5px;
     color: var(--text-dark);
 }
 
-.miembro-info p { /* Cargo */
-    color: var(--primary-blue); /* Cargo en azul */
-    font-size: 0.9rem; /* ~14px */
+.miembro-info p {
+    color: var(--primary-blue);
+    font-size: 0.95rem;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Más espacio */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Espacio uniforme */
 }
 
 .social-links a {
-    /* display: inline-block; */ /* ya es inline-flex */
-    margin: 0 5px; /* Menos margen */
-    background-color: #e0f2fe; /* Fondo azul claro */
-    color: var(--primary-blue); /* Icono azul */
+    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
+    color: var(--primary-blue);
     border-radius: 50%;
-    width: 34px; /* Ligeramente más grande */
-    height: 34px;
+    width: 36px; /* Ligeramente más grande */
+    height: 36px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    font-size: 0.9rem; /* Tamaño icono */
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .social-links a:hover {
     background-color: var(--primary-blue);
-    color: var(--white); /* Icono blanco en hover */
+    color: var(--white);
     transform: scale(1.1);
 }
 
 /* Sección CTA (Call to Action) */
 .cta-section {
-    padding: 80px 0; /* Mayor padding */
-    background-color: var(--white); /* Fondo blanco */
+    padding: 90px 0; /* Mayor padding */
+    background-color: var(--white);
 }
 
 .cta-box {
-    background-color: #f0f9ff; /* Fondo azul pálido */
-    border: none; /* Sin borde */
-    border-radius: 12px; /* Más redondeado */
-    padding: 50px 40px; /* Más padding vertical */
-    /* max-width ya viene de .container */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.06) 100%); /* Degradado sutil */
+    border: none;
+    border-radius: 16px; /* Más redondeado */
+    padding: 60px 40px; /* Más padding vertical */
     text-align: center;
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1); /* Sombra azulada */
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
 }
 
 .cta-box h2 {
-    font-size: 1.75rem; /* ~28px */
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: var(--text-dark);
 }
 
 .cta-box p {
-    font-size: 1.1rem; /* ~18px */
-    margin-bottom: 30px; /* Más espacio antes del botón */
+    font-size: 1.1rem;
+    margin-bottom: 35px; /* Más espacio antes del botón */
     color: var(--text-medium);
-    max-width: 600px; /* Limitar ancho del párrafo */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
 /* El botón .cta-button hereda estilos globales */
-
+.cta-box .cta-button {
+    padding: 12px 28px; /* Botón ligeramente más grande */
+    font-size: 1.05rem;
+}
 
 /* Media Queries Específicas para Nosotros */
+@media (min-width: 576px) { /* Móviles más grandes */
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    }
+}
 
 @media (min-width: 768px) { /* Tablets */
-     .nosotros-hero h1 {
-         font-size: 2.8rem; /* ~45px - Corrección: tu valor era 'this.42px' */
-     }
-     .nosotros-hero p {
-         font-size: 1.15rem; /* ~18px */
-     }
-     .section-title {
-         font-size: 2.25rem; /* ~36px */
-     }
-     .nosotros-grid { /* 2 columnas para Historia, Misión, Visión */
-         grid-template-columns: repeat(2, 1fr);
-     }
-     .valores-grid { /* 2 columnas para Valores */
-         grid-template-columns: repeat(2, 1fr);
-     }
-     .stats-grid { /* 4 columnas para Estadísticas */
-         grid-template-columns: repeat(4, 1fr);
-     }
-     .equipo-grid { /* 2 columnas para Equipo */
-         grid-template-columns: repeat(2, 1fr);
-     }
+    .nosotros-hero h1 {
+        font-size: 3rem; /* Más grande */
+    }
+    
+    .nosotros-hero p {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 2.25rem;
+    }
+    
+    .nosotros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px; /* Ajuste de gap */
+    }
 
-    /* Ajuste para items de stats en tablet (si se veían mal antes) */
-     .stat-item {
-         /* Puede que no necesites flex-direction row aquí */
-     }
+    .miembro-card {
+        max-width: none; /* Quitar limitación de ancho */
+    }
 }
 
 @media (min-width: 992px) { /* Laptops pequeñas */
-     .nosotros-grid { /* 3 columnas para H, M, V */
-         grid-template-columns: repeat(3, 1fr);
-     }
-     .equipo-grid { /* 4 columnas para Equipo */
-         grid-template-columns: repeat(4, 1fr);
-     }
-     /* Valores ya está a 2 columnas, podría pasar a 4 si se quiere */
-     /* .valores-grid { grid-template-columns: repeat(4, 1fr); } */
+    .nosotros-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .equipo-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
+    }
 }
 
 @media (min-width: 1200px) { /* Escritorio grande */
-     /* Podrías aumentar gaps o tamaños de fuente si es necesario */
-      .valores-grid { /* 4 columnas para Valores */
-         grid-template-columns: repeat(4, 1fr);
-     }
+    .nosotros-hero h1 {
+        font-size: 3.5rem; /* Aún más grande en escritorio */
+    }
+    
+    .valores-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas para Valores */
+    }
+    
+    /* Añadimos hover effects más pronunciados en desktop */
+    .nosotros-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .miembro-card:hover {
+        transform: translateY(-10px);
+    }
 }
-
 
 /* --- FIN ESTILOS NOSOTROS.HTML --- */

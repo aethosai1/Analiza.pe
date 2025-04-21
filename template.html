@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza.pe - Plantilla</title>
+    
+    <!-- CSS Principal -->
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="componentes-visuales/Header/header.css">
     <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilo para la carga inicial -->
     <style>
         body { opacity: 0; transition: opacity 0.3s ease-in-out; }
         body.loaded { opacity: 1; }
     </style>
+    
+    <!-- Precarga de scripts críticos -->
+    <script src="componentes-visuales/Header/header.js" defer></script>
 </head>
-<body>
+<body class="no-transition">
 
     <div id="header-placeholder"></div>
 
     <main>
         <h1>Contenido de la Plantilla</h1>
+        <!-- Aquí va el contenido específico de cada página -->
     </main>
 
     <div id="footer-placeholder"></div>
@@ -32,34 +46,36 @@
                 if (placeholder) {
                     placeholder.innerHTML = html;
                     console.log(`Componente ${url} cargado en #${placeholderId}`);
+                    return true; // Indicar que se cargó correctamente
                 } else {
                     console.error(`Placeholder #${placeholderId} no encontrado.`);
+                    return false;
                 }
             } catch (error) {
                 console.error(`Falló la carga del componente ${url}:`, error);
                 const placeholder = document.getElementById(placeholderId);
-                 if(placeholder) placeholder.innerHTML = `<p style="color:red;">Error al cargar componente: ${url}</p>`;
+                if(placeholder) placeholder.innerHTML = `<p style="color:red;">Error al cargar componente: ${url}</p>`;
+                return false;
             }
         }
 
         // Función principal para cargar todos los componentes e inicializar JS
         async function loadAllComponents() {
             // Carga HTML de header y footer en paralelo
-            await Promise.all([
+            const results = await Promise.all([
                 loadComponent('componentes-visuales/Header/header.html', 'header-placeholder'),
                 loadComponent('componentes-visuales/Footer/footer.html', 'footer-placeholder')
             ]);
-
-            // --- ¡NUEVO! ---
-            // Ahora que el HTML del header está cargado, llamamos a su función de inicialización
-            if (typeof inicializarMenuHeader === 'function') {
-                inicializarMenuHeader(); // Llama a la función definida en header.js
-            } else {
-                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente y define esta función.");
+            
+            // Si el header se cargó correctamente, inicializar su JavaScript
+            if (results[0] && typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader();
+            } else if (results[0]) {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente.");
             }
 
-            // (Opcional) Haz lo mismo si tienes un footer.js con una función inicializarFooter()
-            // if (typeof inicializarFooter === 'function') {
+            // También podríamos inicializar footer.js si fuera necesario
+            // if (results[1] && typeof inicializarFooter === 'function') {
             //     inicializarFooter();
             // }
 
@@ -71,7 +87,5 @@
         // Iniciar la carga cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', loadAllComponents);
     </script>
-
-    <script src="componentes-visuales/Header/header.js" defer></script>
-    </body>
+</body>
 </html>

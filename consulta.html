@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Gratuita - Analiza.pe</title>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    <link rel="stylesheet" href="CSS/consulta.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilo para la carga inicial -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+    
+    <!-- Precarga de scripts críticos -->
+    <script src="componentes-visuales/Header/header.js" defer></script>
+</head>
+<body class="no-transition">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="consulta-hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Tu <span>Consulta Gratuita</span> con Expertos</h1>
+                        <p>Agenda 30 minutos con nuestros especialistas y descubre cómo podemos transformar tus datos en resultados tangibles para tu negocio.</p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/consulta/hero-analytics.jpg" alt="Consulta con expertos en analítica" class="analytics-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Beneficios -->
+        <section class="beneficios-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Beneficios</span>
+                    <h2 class="section-title">¿Qué obtendrás en tu consulta?</h2>
+                    <p class="section-description">Durante tu sesión gratuita de 30 minutos con uno de nuestros expertos, recibirás:</p>
+                </div>
+
+                <div class="beneficios-grid">
+                    <!-- Beneficio 1 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Diagnóstico Inicial</h3>
+                            <p>Evaluaremos tu situación actual y las oportunidades de mejora en tu gestión de datos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 2 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Ideas Personalizadas</h3>
+                            <p>Recomendaciones específicas para tu industria y necesidades particulares.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 3 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Estrategia Preliminar</h3>
+                            <p>Un esquema inicial de cómo podríamos ayudarte a mejorar tu toma de decisiones con datos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 4 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Estimación de Valor</h3>
+                            <p>Una aproximación del impacto potencial en tu negocio al implementar soluciones analíticas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Consulta -->
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2>Agenda tu consulta ahora</h2>
+                        <p>Completa el formulario y nos pondremos en contacto en menos de 24 horas para confirmar tu cita.</p>
+                    </div>
+                    
+                    <form id="consulta-form" class="consulta-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa <span class="required">*</span></label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Correo electrónico <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefono">Teléfono <span class="required">*</span></label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+52 123 456 7890" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="industria">Industria <span class="required">*</span></label>
+                            <select id="industria" name="industria" required>
+                                <option value="" selected disabled>Selecciona tu industria</option>
+                                <option value="tecnologia">Tecnología</option>
+                                <option value="finanzas">Servicios Financieros</option>
+                                <option value="comercio">Comercio Minorista</option>
+                                <option value="salud">Salud</option>
+                                <option value="educacion">Educación</option>
+                                <option value="manufactura">Manufactura</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">¿Cuál es tu principal desafío con los datos? <span class="required">*</span></label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente sobre tus necesidades o desafíos actuales" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="horario">Horario preferido para la consulta</label>
+                            <select id="horario" name="horario">
+                                <option value="manana">Mañana (9:00 - 12:00)</option>
+                                <option value="tarde">Tarde (12:00 - 17:00)</option>
+                                <option value="noche">Noche (17:00 - 20:00)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a> <span class="required">*</span></label>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="cta-button submit-button">
+                                <i class="fas fa-calendar-check"></i> Agendar Consulta Gratuita
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Mensaje de éxito (oculto por defecto) -->
+                    <div id="success-message" class="success-message" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>¡Solicitud enviada con éxito!</h3>
+                        <p>Hemos recibido tu solicitud. Un miembro de nuestro equipo te contactará en breve para confirmar tu consulta gratuita.</p>
+                        <a href="index.html" class="cta-button">Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Testimonios -->
+        <section class="testimonios-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Testimonios</span>
+                    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                    <p class="section-description">Empresas que han transformado su enfoque de datos trabajando con nosotros.</p>
+                </div>
+
+                <div class="testimonios-grid">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"La consulta inicial nos abrió los ojos a oportunidades de análisis que no habíamos contemplado. Hoy tenemos un dashboard que nos permite tomar decisiones informadas en tiempo real."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio1.jpg" alt="Retrato de Ana Martínez">
+                                <div class="autor-info">
+                                    <h4>Ana Martínez</h4>
+                                    <p>CEO, TechSolutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Increíble lo que logramos descubrir en solo 30 minutos de consulta. El equipo de Analiza.pe entendió rápidamente nuestras necesidades y nos ofreció soluciones que implementamos de inmediato."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio2.jpg" alt="Retrato de Luis Gómez">
+                                <div class="autor-info">
+                                    <h4>Luis Gómez</h4>
+                                    <p>Director de Marketing, Fashion Retail</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Pasamos de tomar decisiones basadas en intuición a tener una estrategia impulsada por datos. La consulta inicial nos mostró el potencial de nuestra información y cómo aprovecharla."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio3.jpg" alt="Retrato de Carolina Herrera">
+                                <div class="autor-info">
+                                    <h4>Carolina Herrera</h4>
+                                    <p>CFO, HealthPlus</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Preguntas Frecuentes</span>
+                    <h2 class="section-title">Respuestas a tus dudas</h2>
+                    <p class="section-description">Todo lo que necesitas saber sobre nuestra consulta gratuita.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Realmente es gratuita la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, la consulta inicial de 30 minutos es completamente gratuita y sin compromiso. Nuestro objetivo es entender tus necesidades y mostrarte cómo podemos ayudarte.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cómo se realiza la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La consulta se realiza por videoconferencia (Zoom o Google Meet). También podemos hacerla por teléfono si lo prefieres. En casos especiales, y si estás en una de nuestras ciudades sede, podemos coordinar una reunión presencial.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué debo preparar para la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Te recomendamos tener claros los desafíos o preguntas principales que quieres resolver con tus datos. No es necesario preparar presentaciones o documentos elaborados, pero si tienes ejemplos de reportes actuales o procesos, pueden ser útiles para la discusión.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Me harán una propuesta comercial durante la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El objetivo principal es entender tu situación y ofrecerte recomendaciones útiles. Si identificamos formas en que podemos ayudarte más allá de la consulta, te lo mencionaremos, pero enviamos cualquier propuesta formal después de la reunión, solo si estás interesado.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué pasa después de la consulta gratuita?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Después de la consulta, recibirás un correo con un resumen de los puntos discutidos y recomendaciones iniciales. Si deseas continuar trabajando con nosotros, te presentaremos opciones adaptadas a tus necesidades específicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /**
+         * Carga HTML y JS de un componente usando rutas explícitas.
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer').
+         * @param {string} placeholderId - ID del div placeholder.
+         */
+        async function loadComponent(componentName, placeholderId) {
+            const placeholder = document.getElementById(placeholderId);
+            if (!placeholder) {
+                console.warn(`Placeholder ${placeholderId} not found.`);
+                return false;
+            }
+
+            let htmlUrl;
+            let jsUrl;
+
+            // --- Definición explícita de rutas ---
+            if (componentName === 'Header') {
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
+            } else if (componentName === 'Footer') {
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
+            } else {
+                console.error(`Nombre de componente desconocido para carga: ${componentName}`);
+                placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
+                return false; // Salir si no es un componente conocido
+            }
+            // --- Fin definición explícita ---
+
+            try {
+                // --- 1. Cargar HTML ---
+                console.log(`Cargando HTML para ${componentName} desde ${htmlUrl}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
+                const html = await response.text();
+                placeholder.innerHTML = html; // Inserta el HTML
+                console.log(`HTML para ${componentName} cargado correctamente.`);
+
+                return true; // Retornar true si se cargó correctamente
+            } catch (error) {
+                console.error(`Error al cargar componente ${componentName}:`, error);
+                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
+                return false;
+            }
+        }
+
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
+        async function loadAllComponents() {
+            console.log("Cargando todos los componentes...");
+            
+            // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
+            const results = await Promise.all([
+                loadComponent('Header', 'header-placeholder'),
+                loadComponent('Footer', 'footer-placeholder')
+            ]);
+            
+            // Inicializar el menú del header si se cargó correctamente y la función existe
+            if (results[0] && typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader();
+            } else if (results[0]) {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente.");
+            }
+            
+            document.body.classList.add('loaded');
+            console.log("Todos los componentes cargados.");
+            
+            // Inicializar interactividad del formulario
+            initFormHandling();
+            
+            // Inicializar FAQs
+            initFaqs();
+        }
+        
+        /**
+         * Inicializa el manejo del formulario
+         */
+        function initFormHandling() {
+            const form = document.getElementById('consulta-form');
+            const successMessage = document.getElementById('success-message');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simular envío de formulario (aquí se conectaría con backend real)
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+                        
+                        // Scroll hacia el mensaje de éxito
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    }, 800);
+                });
+            }
+        }
+        
+        /**
+         * Inicializa la funcionalidad de las FAQs
+         */
+        function initFaqs() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.toggle-icon i');
+                
+                // Inicialmente ocultar las respuestas
+                answer.style.display = 'none';
+                
+                question.addEventListener('click', () => {
+                    // Toggle respuesta
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Cerrar todas las respuestas
+                    document.querySelectorAll('.faq-answer').forEach(a => {
+                        a.style.display = 'none';
+                    });
+                    
+                    // Restablecer todos los iconos
+                    document.querySelectorAll('.toggle-icon i').forEach(i => {
+                        i.className = 'fas fa-plus';
+                    });
+                    
+                    // Si no estaba abierta, abrirla
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                        icon.className = 'fas fa-minus';
+                    }
+                });
+            });
+        }
+
+        // Iniciar todo cuando el DOM inicial esté listo
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+</body>
+</html>

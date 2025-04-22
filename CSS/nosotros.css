@@ -295,27 +295,31 @@
     font-weight: 500;
 }
 
-/* Sección Equipo - MEJORADA PARA MÓVIL */
+/* Sección Equipo - OPTIMIZADA */
 .equipo-section {
     /* padding ya definido en .nosotros-section */
 }
 
 .equipo-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 columna en móvil más pequeño */
-    gap: 40px; /* Más espacio entre tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ancho mínimo adaptativo */
+    gap: 30px; /* Espacio uniforme entre tarjetas */
     margin-top: 40px;
+    justify-items: center; /* Centrar tarjetas horizontalmente */
 }
 
 .miembro-card {
     background-color: var(--white);
-    border-radius: 12px; /* Más redondeado */
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    max-width: 320px; /* Limitar ancho en móvil */
-    margin: 0 auto; /* Centrar en móvil */
+    width: 100%; /* Usar ancho completo del espacio disponible */
+    max-width: 320px; /* Limitar el ancho máximo */
+    display: flex;
+    flex-direction: column; /* Estructura en columna */
+    height: 100%; /* Altura completa del contenedor */
 }
 
 .miembro-card:hover {
@@ -325,14 +329,18 @@
 
 .miembro-foto {
     width: 100%;
-    height: 280px; /* Más altura para fotos */
+    height: 280px; /* Altura fija para fotos */
     object-fit: cover;
     object-position: center top;
     display: block;
 }
 
 .miembro-info {
-    padding: 25px 15px; /* Más padding vertical */
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Que ocupe el espacio restante */
+    justify-content: space-between; /* Distribuir contenido */
 }
 
 .miembro-info h3 {
@@ -346,13 +354,14 @@
     color: var(--primary-blue);
     font-size: 0.95rem;
     font-weight: 500;
-    margin-bottom: 20px; /* Más espacio */
+    margin-bottom: 20px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 12px; /* Espacio uniforme */
+    gap: 12px;
+    margin-top: auto; /* Empujar hacia abajo */
 }
 
 .social-links a {
@@ -413,13 +422,49 @@
 }
 
 /* Media Queries Específicas para Nosotros */
-@media (min-width: 576px) { /* Móviles más grandes */
+@media (max-width: 575px) {
     .equipo-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        grid-template-columns: 1fr; /* Una sola columna en móviles muy pequeños */
+        gap: 25px; /* Reducir espacio en móviles */
+    }
+    
+    .miembro-card {
+        max-width: 100%; /* Utilizar todo el ancho disponible */
+    }
+    
+    .miembro-foto {
+        height: 250px; /* Altura ligeramente menor en móviles */
+    }
+    
+    .nosotros-hero {
+        padding: 50px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
     }
 }
 
-@media (min-width: 768px) { /* Tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles más grandes */
+        gap: 20px; /* Espaciado más compacto */
+    }
+    
+    .nosotros-hero {
+        padding: 60px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
     .nosotros-hero h1 {
         font-size: 3rem; /* Más grande */
     }
@@ -443,18 +488,16 @@
     .stats-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
-    .equipo-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px; /* Ajuste de gap */
-    }
+}
 
-    .miembro-card {
-        max-width: none; /* Quitar limitación de ancho */
+@media (min-width: 768px) and (max-width: 991px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas en tablets */
+        gap: 30px;
     }
 }
 
-@media (min-width: 992px) { /* Laptops pequeñas */
+@media (min-width: 992px) {
     .hero-content {
         flex-direction: row;
         justify-content: space-between;
@@ -474,46 +517,28 @@
         grid-template-columns: repeat(3, 1fr);
     }
     
-    .equipo-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    
     .valores-grid {
         grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
     }
 }
 
-@media (max-width: 991px) {
-    .nosotros-hero {
-        padding: 60px 0;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
+@media (min-width: 992px) and (max-width: 1199px) {
+    .equipo-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en laptops pequeñas */
     }
 }
 
-@media (max-width: 767px) {
-    .nosotros-hero {
-        padding: 50px 0;
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    .hero-text p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (min-width: 1200px) { /* Escritorio grande */
+@media (min-width: 1200px) {
     .nosotros-hero h1 {
         font-size: 3.5rem; /* Aún más grande en escritorio */
     }
     
     .valores-grid {
         grid-template-columns: repeat(4, 1fr); /* 4 columnas para Valores */
+    }
+    
+    .equipo-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorios grandes */
     }
     
     /* Añadimos hover effects más pronunciados en desktop */

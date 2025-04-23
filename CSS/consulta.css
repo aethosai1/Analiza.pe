@@ -330,42 +330,39 @@
     }
 }
 
-/* Estilos para el mensaje de carga y feedback */
-.loading-spinner {
-    animation: spin 1s linear infinite;
+/* Estilos para el contenedor del formulario de GoHighLevel */
+.ghl-form-container {
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.ghl-form-container:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Indicador visual para campos inválidos */
-.form-group input:invalid:focus,
-.form-group select:invalid:focus,
-.form-group textarea:invalid:focus {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+/* Hacemos el iframe responsive para móvil */
+@media (max-width: 576px) {
+    .ghl-form-container iframe {
+        height: 650px !important; /* Altura adicional en móvil */
+    }
 }
 
-/* Estilos para mensajes de error */
-.error-message {
-    color: var(--accent-red);
-    font-size: 0.85rem;
-    margin-top: 4px;
-    display: none;
+/* Ajustar padding del form-container */
+.form-container {
+    padding: 25px 15px;
 }
 
-/* Botón deshabilitado */
-.submit-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.submit-button:disabled:hover {
-    transform: none;
-    box-shadow: none;
+@media (min-width: 768px) {
+    .form-container {
+        padding: 30px;
+    }
+    
+    .ghl-form-container iframe {
+        height: 550px !important;
+    }
 }
 
 /* --- FIN ESTILOS CONSULTA.HTML --- */bg-light);

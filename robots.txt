@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /componentes-visuales/
+Disallow: /CSS/
+Sitemap: https://analiza.pe/sitemap.xml

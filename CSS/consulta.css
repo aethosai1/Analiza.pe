@@ -1,25 +1,259 @@
-/* --- ESTILOS ESPECÍFICOS PARA CONSULTA.HTML --- */
+/* ===== ESTILOS GENERALES PARA LA PÁGINA DE CONSULTA ===== */
+body, html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
 
-/* Estilos para el Hero */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* ===== SECCIÓN HERO ===== */
 .consulta-hero {
     position: relative;
     padding: 80px 0;
-    background-color: var(--bg-white);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 800;
+}
+
+.hero-text h1 span {
+    color: #4a90e2;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.analytics-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== SECCIÓN DE BENEFICIOS ===== */
+.beneficios-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.beneficio-icon {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.beneficio-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #222;
+    font-weight: 600;
+}
+
+.beneficio-content p {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
+}
+
+/* ===== SECCIÓN DEL FORMULARIO ===== */
+.form-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-header h2 {
+    color: #222;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el iframe de GoHighLevel */
+#inline-WJNOT5UtUYrdFkc7TZh1 {
+    display: block;
+    min-height: 500px;
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+/* Mensaje de carga mientras el iframe se inicializa */
+#form-container::before {
+    content: "Cargando formulario...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#form-container.loading::before {
+    opacity: 1;
+}
+
+/* Estilo para el formulario de respaldo */
+#backup-form {
+    padding: 20px 0;
+}
+
+.consulta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: #4a90e2;
     outline: none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-light);
-    opacity: 0.7;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
 
 .checkbox-group {
@@ -30,564 +264,251 @@
 
 .checkbox-group input[type="checkbox"] {
     width: auto;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .checkbox-group label {
     margin-bottom: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-weight: normal;
 }
 
-.checkbox-group label a {
-    color: var(--primary-blue);
-    text-decoration: underline;
+.required {
+    color: #e74c3c;
+    margin-left: 2px;
 }
 
-.checkbox-group label a:hover {
-    color: var(--dark-blue);
+/* Botón de envío */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background-color: #4a90e2;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.cta-button:hover {
+    background-color: #3a7bc8;
+    transform: translateY(-2px);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button i {
+    margin-right: at 8px;
 }
 
 .form-submit {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.submit-button {
-    padding: 14px 30px;
-    font-size: 1.05rem;
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Estilo para mensaje de éxito */
+/* Mensaje de éxito */
 .success-message {
     text-align: center;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
 }
 
 .success-icon {
-    font-size: 4rem;
-    color: #10B981; /* Verde */
+    font-size: 60px;
+    color: #2ecc71;
     margin-bottom: 20px;
 }
 
 .success-message h3 {
-    color: var(--text-dark);
-    font-size: 1.8rem;
+    font-size: 24px;
     margin-bottom: 15px;
+    color: #333;
 }
 
 .success-message p {
-    color: var(--text-medium);
-    font-size: 1.1rem;
+    font-size: 16px;
+    color: #666;
     margin-bottom: 25px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.success-message .cta-button {
-    display: inline-flex;
-    margin-top: 10px;
+/* Estilos para estados de error en el formulario */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #e74c3c;
 }
 
-/* Sección de testimonios eliminada para simplificar la página */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin: 15px 0;
+    padding: 10px 15px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+    border-radius: 3px;
+}
 
-/* Estilos para sección FAQs */
+/* ===== SECCIÓN DE PREGUNTAS FRECUENTES ===== */
 .faq-section {
     padding: 80px 0;
-    background-color: var(--bg-light);
+    background-color: #fff;
 }
 
 .faq-container {
     max-width: 800px;
-    margin: 50px auto 0;
+    margin: 0 auto;
 }
 
 .faq-item {
-    background-color: var(--white);
-    border-radius: 12px;
     margin-bottom: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    border-radius: 8px;
     overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     transition: box-shadow 0.3s ease;
 }
 
 .faq-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .faq-question {
+    padding: 20px;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px;
-    cursor: pointer;
-    user-select: none;
+    background-color: #fff;
+    position: relative;
 }
 
 .faq-question h3 {
     margin: 0;
-    font-size: 1.1rem;
-    color: var(--text-dark);
+    font-size: 18px;
     font-weight: 600;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.faq-question:hover h3 {
+    color: #4a90e2;
 }
 
 .toggle-icon {
-    color: var(--primary-blue);
-    font-size: 1rem;
-    width: 24px;
-    height: 24px;
+    color: #4a90e2;
+    transition: transform 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
 }
 
 .faq-answer {
-    padding: 0 25px 20px;
-    color: var(--text-medium);
-    font-size: 1rem;
+    padding: 0 20px 20px;
+    border-top: 1px solid #f0f0f0;
+    color: #666;
+    display: none;
+}
+
+.faq-answer p {
+    margin: 0;
     line-height: 1.6;
 }
 
-/* Media Queries Específicas para Consulta */
-@media (max-width: 575px) {
-    .consulta-hero {
-        padding: 40px 0; /* Reducido de 50px a 40px */
-    }
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 991px) {
     .hero-text h1 {
-        font-size: 1.8rem; /* Reducido de 2rem a 1.8rem */
-    }
-
-    .hero-text p {
-        font-size: 1rem; /* Reducido de 1.1rem a 1rem */
-    }
-    
-    .form-container {
-        padding: 25px 15px; /* Reducido de 30px 20px a 25px 15px */
-    }
-    
-    .form-header h2 {
-        font-size: 1.6rem; /* Reducido de 1.8rem a 1.6rem */
-    }
-    
-    /* Ajustes para mejorar la visualización en móvil */
-    body {
-        overflow-x: hidden;
-    }
-    
-    #header-placeholder,
-    header {
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
-    }
-    
-    .analytics-image {
-        height: auto;
-        max-height: 200px;
-        object-fit: cover;
-    }
-    
-    .beneficio-item {
-        padding: 20px 15px; /* Reducir padding en móvil */
-    }
-    
-    .beneficio-icon {
-        width: 50px; /* Reducir tamaño del icono */
-        height: 50px;
-        margin-right: 15px;
-    }
-    
-    .faq-question h3 {
-        font-size: 1rem; /* Texto más pequeño en móvil */
-    }
-    
-    /* Reducir espacio vertical en general */
-    .section-header {
-        margin-bottom: 25px;
+        font-size: 36px;
     }
     
     .section-title {
-        font-size: 1.6rem;
-    }
-    
-    /* Ajustes para formato de formulario */
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-        font-size: 16px; /* Previene zoom en iOS */
-        padding: 10px 12px; /* Campos más compactos */
-    }
-    
-    /* Hacer el botón de envío más compacto */
-    .submit-button {
-        padding: 12px 25px;
-        font-size: 1rem;
+        font-size: 28px;
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 768px) {
     .consulta-hero {
         padding: 60px 0;
     }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
     }
     
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .consulta-hero h1 {
-        font-size: 2.8rem; /* Reducido de 3rem a 2.8rem */
-    }
-    
-    .consulta-hero p {
-        font-size: 1.1rem; /* Reducido de 1.25rem a 1.1rem */
-    }
-    
-    .beneficios-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px; /* Reducido para que las tarjetas estén más juntas */
-    }
-    
-    .form-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Para mejores proporciones */
-    .form-container {
-        padding: 30px; /* Padding uniforme */
-    }
-    
-    /* Ajustes de proporciones para dispositivos medianos */
-    #header-placeholder {
-        width: 100%;
+    .hero-text {
         max-width: 100%;
     }
-}
-
-@media (min-width: 992px) {
-    .hero-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .hero-text {
-        text-align: left;
-        flex: 1;
-    }
-
-    .hero-image {
-        flex: 1;
-    }
-    
-    .submit-button {
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    
-    .submit-button:hover {
-        transform: translateY(-3px);
-    }
-}
-
-@media (min-width: 1200px) {
-    .consulta-hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    /* Añadimos animaciones más pronunciadas en desktop */
-    .beneficio-item:hover {
-        transform: translateY(-8px);
-    }
-    
-    .testimonio-card:hover {
-        transform: translateY(-10px);
-    }
     
     .form-container {
-        transform: translateY(0);
-        transition: transform 0.5s ease;
+        padding: 30px 20px;
     }
     
-    .form-section:hover .form-container {
-        transform: translateY(-5px);
-    }
-}
-
-/* Estilos para el contenedor del formulario de GoHighLevel */
-.ghl-form-container {
-    width: 100%;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    margin: 0 auto;
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.ghl-form-container:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Hacemos el iframe responsive para móvil */
-@media (max-width: 576px) {
-    .ghl-form-container iframe {
-        height: 650px !important; /* Altura adicional en móvil */
-    }
-}
-
-/* Ajustar padding del form-container */
-.form-container {
-    padding: 25px 15px;
-}
-
-@media (min-width: 768px) {
-    .form-container {
-        padding: 30px;
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
     }
     
-    .ghl-form-container iframe {
-        height: 550px !important;
+    .beneficios-section,
+    .form-section,
+    .faq-section {
+        padding: 60px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 30px;
+    }
+    
+    .beneficio-item {
+        padding: 20px;
     }
 }
 
-/* --- FIN ESTILOS CONSULTA.HTML --- */bg-light);
-    overflow: hidden;
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
+    
+    .hero-text p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .beneficio-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .beneficio-content h3 {
+        font-size: 18px;
+    }
+    
+    .form-header h2 {
+        font-size: 24px;
+    }
+    
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
 }
-
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-    opacity: 0.05;
-    z-index: 1;
-}
-
-.consulta-hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px; /* Reducido de 40px a 30px */
-}
-
-.hero-text {
-    max-width: 600px;
-    text-align: center;
-}
-
-.hero-text h1 {
-    font-size: 2.5rem; /* Reducido de 3rem a 2.5rem */
-    color: var(--text-dark);
-    margin-bottom: 15px; /* Reducido de 20px a 15px */
-    line-height: 1.2;
-}
-
-.hero-text h1 span {
-    color: var(--primary-blue);
-    font-weight: 700;
-}
-
-.hero-text p {
-    font-size: 1.1rem; /* Reducido de 1.2rem a 1.1rem */
-    color: var(--text-medium);
-    margin-bottom: 20px; /* Reducido de 30px a 20px */
-    line-height: 1.5; /* Reducido de 1.6 a 1.5 */
-}
-
-.hero-image {
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-}
-
-.analytics-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.analytics-image:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Estilos para sección de beneficios */
-.beneficios-section {
-    padding: 60px 0; /* Reducido de 70px a 60px */
-    background-color: var(--white);
-}
-
-.beneficios-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 30px; /* Reducido de 40px a 30px */
-    max-width: 900px; /* Limita el ancho máximo */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.beneficio-item {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--bg-light);
-    border-radius: 12px;
-    padding: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; 
-}
-
-.beneficio-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.beneficio-icon {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--primary-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    margin-right: 20px;
-    flex-shrink: 0;
-    font-size: 1.5rem;
-}
-
-.beneficio-content {
-    flex: 1;
-}
-
-.beneficio-content h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--text-dark);
-}
-
-.beneficio-content p {
-    color: var(--text-medium);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Estilos para sección de formulario */
-.form-section {
-    padding: 70px 0;
-    background-color: var(--bg-light);
-    position: relative;
-}
-
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: rgba(37, 99, 235, 0.05);
-    z-index: 0;
-}
-
-.form-section::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-color: rgba(37, 99, 235, 0.03);
-    z-index: 0;
-}
-
-.form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    padding: 40px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 30px; /* Reducido de 40px a 30px */
-}
-
-.form-header h2 {
-    color: var(--text-dark);
-    font-size: 1.8rem; /* Reducido de 2rem a 1.8rem */
-    font-weight: 700;
-    margin-bottom: 0; /* Eliminado el margen ya que no hay párrafo debajo */
-}
-
-.consulta-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    margin-bottom: 5px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-dark);
-    font-size: 0.95rem;
-}
-
-.required {
-    color: var(--accent-red);
-    margin-left: 3px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    font-size: 1rem;
-    color: var(--text-dark);
-    background-color: var(--

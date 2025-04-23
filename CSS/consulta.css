@@ -330,6 +330,44 @@
     }
 }
 
+/* Estilos para el mensaje de carga y feedback */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Indicador visual para campos inválidos */
+.form-group input:invalid:focus,
+.form-group select:invalid:focus,
+.form-group textarea:invalid:focus {
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: none;
+}
+
+/* Botón deshabilitado */
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 /* --- FIN ESTILOS CONSULTA.HTML --- */bg-light);
     overflow: hidden;
 }

@@ -120,61 +120,6 @@
                           title="Form 2"
                           onload="this.style.height='500px';"
                           onerror="handleIframeError()"
-                        >
-                        </iframe>
-                        <script src="https://vor.analiza.pe/js/form_embed.js"></script>
-                        
-                        <!-- Formulario de respaldo que se mostrará si el iframe falla -->
-                        <div id="backup-form" style="display: none;">
-                            <form id="consulta-form" class="consulta-form">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre completo <span class="required">*</span></label>
-                                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="empresa">Empresa <span class="required">*</span></label>
-                                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Correo electrónico <span class="required">*</span></label>
-                                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="telefono">Teléfono <span class="required">*</span></label>
-                                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="mensaje">¿Cuál es tu principal desafío con los datos? <span class="required">*</span></label>
-                                    <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente sobre tus necesidades" required></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="horario">Horario preferido para la consulta</label>
-                                    <select id="horario" name="horario">
-                                        <option value="manana">Mañana (9:00 - 12:00)</option>
-                                        <option value="tarde">Tarde (12:00 - 17:00)</option>
-                                        <option value="noche">Noche (17:00 - 20:00)</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group checkbox-group">
-                                    <input type="checkbox" id="terminos" name="terminos" required>
-                                    <label for="terminos">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a> <span class="required">*</span></label>
-                                </div>
-                                
-                                <div class="form-submit">
-                                    <button type="submit" class="cta-button submit-button">
-                                        <i class="fas fa-calendar-check"></i> Agendar Consulta Gratuita
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                     
                     <!-- Mensaje de éxito (oculto por defecto) -->

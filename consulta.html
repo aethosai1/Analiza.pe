@@ -14,10 +14,24 @@
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
-    <!-- Estilo para la carga inicial -->
+    <!-- Estilos adicionales para corregir el header en móvil -->
     <style>
         body { opacity: 0; transition: opacity 0.3s ease-in-out; }
         body.loaded { opacity: 1; }
+        
+        @media (max-width: 767px) {
+            body, html {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+            
+            #header-placeholder, header {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+        }
     </style>
     
     <!-- Precarga de scripts críticos -->
@@ -44,13 +58,12 @@
             </div>
         </section>
 
-        <!-- Sección de Beneficios -->
+        <!-- Sección de Beneficios (Simplificada) -->
         <section class="beneficios-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-badge">Beneficios</span>
                     <h2 class="section-title">¿Qué obtendrás en tu consulta?</h2>
-                    <p class="section-description">Durante tu sesión gratuita de 30 minutos con uno de nuestros expertos, recibirás:</p>
                 </div>
 
                 <div class="beneficios-grid">
@@ -75,28 +88,6 @@
                             <p>Recomendaciones específicas para tu industria y necesidades particulares.</p>
                         </div>
                     </div>
-
-                    <!-- Beneficio 3 -->
-                    <div class="beneficio-item">
-                        <div class="beneficio-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="beneficio-content">
-                            <h3>Estrategia Preliminar</h3>
-                            <p>Un esquema inicial de cómo podríamos ayudarte a mejorar tu toma de decisiones con datos.</p>
-                        </div>
-                    </div>
-
-                    <!-- Beneficio 4 -->
-                    <div class="beneficio-item">
-                        <div class="beneficio-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <div class="beneficio-content">
-                            <h3>Estimación de Valor</h3>
-                            <p>Una aproximación del impacto potencial en tu negocio al implementar soluciones analíticas.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -107,7 +98,6 @@
                 <div class="form-container">
                     <div class="form-header">
                         <h2>Agenda tu consulta ahora</h2>
-                        <p>Completa el formulario y nos pondremos en contacto en menos de 24 horas para confirmar tu cita.</p>
                     </div>
                     
                     <form id="consulta-form" class="consulta-form">
@@ -129,27 +119,13 @@
                             
                             <div class="form-group">
                                 <label for="telefono">Teléfono <span class="required">*</span></label>
-                                <input type="tel" id="telefono" name="telefono" placeholder="+52 123 456 7890" required>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="industria">Industria <span class="required">*</span></label>
-                            <select id="industria" name="industria" required>
-                                <option value="" selected disabled>Selecciona tu industria</option>
-                                <option value="tecnologia">Tecnología</option>
-                                <option value="finanzas">Servicios Financieros</option>
-                                <option value="comercio">Comercio Minorista</option>
-                                <option value="salud">Salud</option>
-                                <option value="educacion">Educación</option>
-                                <option value="manufactura">Manufactura</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="mensaje">¿Cuál es tu principal desafío con los datos? <span class="required">*</span></label>
-                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente sobre tus necesidades o desafíos actuales" required></textarea>
+                            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente sobre tus necesidades" required></textarea>
                         </div>
                         
                         <div class="form-group">
@@ -179,84 +155,21 @@
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <h3>¡Solicitud enviada con éxito!</h3>
-                        <p>Hemos recibido tu solicitud. Un miembro de nuestro equipo te contactará en breve para confirmar tu consulta gratuita.</p>
+                        <p>Hemos recibido tu solicitud. Te contactaremos muy pronto.</p>
                         <a href="index.html" class="cta-button">Volver al inicio</a>
-                    </div>
+                    
                 </div>
             </div>
         </section>
 
-        <!-- Sección Testimonios -->
-        <section class="testimonios-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Testimonios</span>
-                    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-                    <p class="section-description">Empresas que han transformado su enfoque de datos trabajando con nosotros.</p>
-                </div>
+        <!-- Sección de testimonios eliminada para simplificar la página -->
 
-                <div class="testimonios-grid">
-                    <!-- Testimonio 1 -->
-                    <div class="testimonio-card">
-                        <div class="testimonio-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>"La consulta inicial nos abrió los ojos a oportunidades de análisis que no habíamos contemplado. Hoy tenemos un dashboard que nos permite tomar decisiones informadas en tiempo real."</p>
-                            <div class="testimonio-autor">
-                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio1.jpg" alt="Retrato de Ana Martínez">
-                                <div class="autor-info">
-                                    <h4>Ana Martínez</h4>
-                                    <p>CEO, TechSolutions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonio 2 -->
-                    <div class="testimonio-card">
-                        <div class="testimonio-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>"Increíble lo que logramos descubrir en solo 30 minutos de consulta. El equipo de Analiza.pe entendió rápidamente nuestras necesidades y nos ofreció soluciones que implementamos de inmediato."</p>
-                            <div class="testimonio-autor">
-                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio2.jpg" alt="Retrato de Luis Gómez">
-                                <div class="autor-info">
-                                    <h4>Luis Gómez</h4>
-                                    <p>Director de Marketing, Fashion Retail</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonio 3 -->
-                    <div class="testimonio-card">
-                        <div class="testimonio-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>"Pasamos de tomar decisiones basadas en intuición a tener una estrategia impulsada por datos. La consulta inicial nos mostró el potencial de nuestra información y cómo aprovecharla."</p>
-                            <div class="testimonio-autor">
-                                <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/testimonios/testimonio3.jpg" alt="Retrato de Carolina Herrera">
-                                <div class="autor-info">
-                                    <h4>Carolina Herrera</h4>
-                                    <p>CFO, HealthPlus</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQs Section -->
+        <!-- FAQs Section (Simplificada) -->
         <section class="faq-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-badge">Preguntas Frecuentes</span>
                     <h2 class="section-title">Respuestas a tus dudas</h2>
-                    <p class="section-description">Todo lo que necesitas saber sobre nuestra consulta gratuita.</p>
                 </div>
 
                 <div class="faq-container">
@@ -276,27 +189,7 @@
                             <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>La consulta se realiza por videoconferencia (Zoom o Google Meet). También podemos hacerla por teléfono si lo prefieres. En casos especiales, y si estás en una de nuestras ciudades sede, podemos coordinar una reunión presencial.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>¿Qué debo preparar para la consulta?</h3>
-                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Te recomendamos tener claros los desafíos o preguntas principales que quieres resolver con tus datos. No es necesario preparar presentaciones o documentos elaborados, pero si tienes ejemplos de reportes actuales o procesos, pueden ser útiles para la discusión.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>¿Me harán una propuesta comercial durante la consulta?</h3>
-                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>El objetivo principal es entender tu situación y ofrecerte recomendaciones útiles. Si identificamos formas en que podemos ayudarte más allá de la consulta, te lo mencionaremos, pero enviamos cualquier propuesta formal después de la reunión, solo si estás interesado.</p>
+                            <p>La consulta se realiza por videoconferencia (Zoom o Google Meet). También podemos hacerla por teléfono si lo prefieres.</p>
                         </div>
                     </div>
 
@@ -413,6 +306,28 @@
                     }, 800);
                 });
             }
+            
+            // Ajustar tamaño para header en móvil
+            const adjustMobileHeader = function() {
+                const header = document.querySelector('header');
+                const headerPlaceholder = document.getElementById('header-placeholder');
+                if (window.innerWidth < 768) {
+                    if (header) {
+                        header.style.width = '100%';
+                        header.style.maxWidth = '100vw';
+                        header.style.overflowX = 'hidden';
+                    }
+                    if (headerPlaceholder) {
+                        headerPlaceholder.style.width = '100%'; 
+                        headerPlaceholder.style.maxWidth = '100vw';
+                        headerPlaceholder.style.overflowX = 'hidden';
+                    }
+                }
+            };
+            
+            // Ejecutar al cargar y al cambiar tamaño
+            adjustMobileHeader();
+            window.addEventListener('resize', adjustMobileHeader);
         }
         
         /**

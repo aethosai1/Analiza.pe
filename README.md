@@ -119,22 +119,106 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-### Integración de Menús Personalizados (GoHighLevel)
+### Integración elementos de CEO
 
-Script para añadir enlaces personalizados al menú de GoHighLevel:
+Reemplaza el head en cada página del sitio con esto
 
-```javascript
-$(document).ready(function () {
-    $(\"body\").on('DOMSubtreeModified', \"#app header\", function () {
-        var linkId = \"someLinkId\"
-        var linkIcon = 'icon-play'
-        var linkURL = 'https://google.com'
-        var linkName = 'Some Link'
-        
-        // Lógica para insertar el nuevo enlace en el menú
-    });
-});
-```
+<head>
+    <!-- META BÁSICO (No modificar) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Analiza.pe">
+    
+    <!-- META SEO ESPECÍFICO DE PÁGINA (Personalizar para cada página) -->
+    <title><!-- EDITAR -->Analiza.pe - Soluciones de Inteligencia Financiera | Página Principal<!-- /EDITAR --></title>
+    <meta name="description" content="<!-- EDITAR -->Transforma tus datos financieros en ventajas competitivas con dashboards personalizados, análisis predictivos e inteligencia artificial para empresas en Perú.<!-- /EDITAR -->">
+    <meta name="keywords" content="<!-- EDITAR -->analítica de datos, inteligencia financiera, dashboards, análisis predictivo, big data, Perú<!-- /EDITAR -->">
+    
+    <!-- URL CANÓNICA (Actualizar para cada página) -->
+    <link rel="canonical" href="<!-- EDITAR -->https://analiza.pe/<!-- /EDITAR -->">
+    
+    <!-- OPEN GRAPH - REDES SOCIALES (Personalizar para cada página) -->
+    <meta property="og:title" content="<!-- EDITAR -->Analiza.pe - Soluciones de Inteligencia Financiera<!-- /EDITAR -->">
+    <meta property="og:description" content="<!-- EDITAR -->Transforma tus datos financieros en ventajas competitivas reales con nuestras soluciones personalizadas.<!-- /EDITAR -->">
+    <meta property="og:image" content="<!-- EDITAR -->https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//logo.svg<!-- /EDITAR -->">
+    <meta property="og:url" content="<!-- EDITAR -->https://analiza.pe/<!-- /EDITAR -->">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- TWITTER CARDS (Personalizar para cada página) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<!-- EDITAR -->Analiza.pe - Inteligencia Financiera<!-- /EDITAR -->">
+    <meta name="twitter:description" content="<!-- EDITAR -->Soluciones de análisis de datos financieros para empresas en Perú.<!-- /EDITAR -->">
+    <meta name="twitter:image" content="<!-- EDITAR -->https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//logo.svg<!-- /EDITAR -->">
+    
+    <!-- CSS GLOBAL (No modificar) -->
+    <link rel="stylesheet" href="/CSS/global.css">
+    <link rel="stylesheet" href="/componentes-visuales/Header/header.css">
+    <link rel="stylesheet" href="/componentes-visuales/Footer/footer.css">
+    
+    <!-- CSS ESPECÍFICO DE PÁGINA (Personalizar si es necesario) -->
+    <link rel="stylesheet" href="<!-- EDITAR -->/CSS/index.css<!-- /EDITAR -->">
+    
+    <!-- FONTS (No modificar) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ÍCONOS (No modificar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- FAVICON (Agregar cuando estén disponibles - Descomenta cuando tengas los archivos) -->
+    <!--
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    -->
+    
+    <!-- GOOGLE ANALYTICS (No modificar una vez configurado) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- OPTIMIZACIÓN DE CARGA (No modificar) -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+    
+    <!-- SCRIPTS COMUNES (No modificar) -->
+    <script src="/componentes-visuales/Header/header.js" defer></script>
+    
+    <!-- SCHEMA.ORG DATOS ESTRUCTURADOS (Descomenta y personaliza cuando esté listo) -->
+    <!--
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Analiza.pe",
+      "description": "Soluciones de inteligencia para transformar datos corporativos en ventajas competitivas reales.",
+      "url": "https://analiza.pe",
+      "logo": "https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+5115555555",
+        "contactType": "customer service",
+        "email": "info@analiza.pe"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Isidro",
+        "addressRegion": "Lima",
+        "addressCountry": "PE"
+      }
+    }
+    </script>
+    -->
+</head>
 
 ## 🚀 Instalación y Uso
 

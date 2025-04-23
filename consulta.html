@@ -286,112 +286,12 @@
         }
         
         /**
-         * Inicializa el manejo del formulario y lo conecta con GoHighLevel CRM
+         * Inicializa funcionalidades de la página
          */
         function initFormHandling() {
-            const form = document.getElementById('consulta-form');
-            const successMessage = document.getElementById('success-message');
+            // Solo necesitamos manejar los ajustes de tamaño para el header móvil
+            // ya que el formulario ahora es gestionado por GoHighLevel
             
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Recopilar datos del formulario
-                    const nombre = document.getElementById('nombre').value;
-                    const empresa = document.getElementById('empresa').value;
-                    const email = document.getElementById('email').value;
-                    const telefono = document.getElementById('telefono').value;
-                    const mensaje = document.getElementById('mensaje').value;
-                    const horario = document.getElementById('horario').value;
-                    const aceptaTerminos = document.getElementById('terminos').checked;
-                    
-                    // Validar que los términos estén aceptados
-                    if (!aceptaTerminos) {
-                        alert('Debes aceptar los términos y condiciones para continuar.');
-                        return;
-                    }
-                    
-                    // Crear el objeto de datos para enviar a GoHighLevel
-                    const formData = {
-                        contact: {
-                            firstName: nombre.split(' ')[0],
-                            lastName: nombre.split(' ').slice(1).join(' '),
-                            email: email,
-                            phone: telefono,
-                            companyName: empresa,
-                            customField: {
-                                'mensaje': mensaje,
-                                'horario_preferido': horario
-                            },
-                            tags: ['consulta_gratuita', 'web_form']
-                        }
-                    };
-                    
-                    // Configuración para la petición a GoHighLevel
-                    const locationId = 'EIVby1OxhOtjLFlAGiuV';
-                    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IkVJVmJ5MU94aE90akxGbEFHaXVWIiwidmVyc2lvbiI6MSwiaWF0IjoxNzQ1NDI3MjM0NTcxLCJzdWIiOiJLZmF5eVBTSmZOcFUwTjhXS3VwdSJ9.7ZtQ0NkuI9aPYy6IQvcqlIHtUrVD84INwWdN8ulKGUs';
-                    
-                    // Mostrar indicador de carga
-                    const submitButton = form.querySelector('button[type="submit"]');
-                    const originalText = submitButton.innerHTML;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                    submitButton.disabled = true;
-                    
-                    // Realizar la petición a la API de GoHighLevel
-                    fetch(`https://rest.gohighlevel.com/v1/contacts/`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${apiKey}`
-                        },
-                        body: JSON.stringify(formData)
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error en la respuesta del servidor');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Contacto creado exitosamente:', data);
-                        
-                        // Opcional: Crear un pipeline o oportunidad
-                        return fetch(`https://rest.gohighlevel.com/v1/pipelines/opportunities/`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${apiKey}`
-                            },
-                            body: JSON.stringify({
-                                name: `Consulta gratuita - ${nombre}`,
-                                pipelineId: 'pipeline_id', // Reemplazar con el ID del pipeline correcto
-                                stageId: 'stage_id', // Reemplazar con el ID de la etapa correcta
-                                contactId: data.contact.id,
-                                monetaryValue: 0,
-                                note: `Solicitud de consulta gratuita:\n${mensaje}\nHorario preferido: ${horario}`
-                            })
-                        });
-                    })
-                    .then(() => {
-                        // Mostrar mensaje de éxito
-                        form.style.display = 'none';
-                        successMessage.style.display = 'block';
-                        
-                        // Scroll hacia el mensaje de éxito
-                        successMessage.scrollIntoView({ behavior: 'smooth' });
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo más tarde.');
-                        
-                        // Restaurar el botón
-                        submitButton.innerHTML = originalText;
-                        submitButton.disabled = false;
-                    });
-                });
-            }
-            
-            // Ajustar tamaño para header en móvil
             const adjustMobileHeader = function() {
                 const header = document.querySelector('header');
                 const headerPlaceholder = document.getElementById('header-placeholder');
@@ -412,6 +312,18 @@
             // Ejecutar al cargar y al cambiar tamaño
             adjustMobileHeader();
             window.addEventListener('resize', adjustMobileHeader);
+            
+            // Verificamos si el mensaje de confirmación del formulario de GoHighLevel aparece
+            // y ocultamos el contenedor del iframe si es necesario
+            window.addEventListener('message', function(event) {
+                // Verificar si el mensaje viene del iframe de GoHighLevel
+                if (event.data && event.data.type === 'form-submit-success') {
+                    console.log('Formulario enviado con éxito');
+                    // Podríamos mostrar nuestro propio mensaje de éxito si fuera necesario
+                    // document.querySelector('.ghl-form-container').style.display = 'none';
+                    // document.getElementById('success-message').style.display = 'block';
+                }
+            });
         }
         
         /**

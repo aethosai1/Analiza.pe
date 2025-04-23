@@ -52,6 +52,60 @@
                         <p>Agenda 30 minutos con nuestros especialistas y descubre cómo podemos transformar tus datos en resultados tangibles para tu negocio.</p>
                     </div>
                     <div class="hero-image">
+                        <img src="<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Gratuita - Analiza.pe</title>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    <link rel="stylesheet" href="CSS/consulta.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilos adicionales para corregir el header en móvil -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+        
+        @media (max-width: 767px) {
+            body, html {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+            
+            #header-placeholder, header {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+        }
+    </style>
+    
+    <!-- Precarga de scripts críticos -->
+    <script src="componentes-visuales/Header/header.js" defer></script>
+</head>
+<body class="no-transition">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="consulta-hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Tu <span>Consulta Gratuita</span> con Expertos</h1>
+                        <p>Agenda 30 minutos con nuestros especialistas y descubre cómo podemos transformar tus datos en resultados tangibles para tu negocio.</p>
+                    </div>
+                    <div class="hero-image">
                         <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/consulta/hero-analytics.jpg" alt="Consulta con expertos en analítica" class="analytics-image">
                     </div>
                 </div>
@@ -100,54 +154,26 @@
                         <h2>Agenda tu consulta ahora</h2>
                     </div>
                     
-                    <form id="consulta-form" class="consulta-form">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo <span class="required">*</span></label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="empresa">Empresa <span class="required">*</span></label>
-                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Correo electrónico <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telefono">Teléfono <span class="required">*</span></label>
-                                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">¿Cuál es tu principal desafío con los datos? <span class="required">*</span></label>
-                            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente sobre tus necesidades" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="horario">Horario preferido para la consulta</label>
-                            <select id="horario" name="horario">
-                                <option value="manana">Mañana (9:00 - 12:00)</option>
-                                <option value="tarde">Tarde (12:00 - 17:00)</option>
-                                <option value="noche">Noche (17:00 - 20:00)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="terminos" name="terminos" required>
-                            <label for="terminos">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a> <span class="required">*</span></label>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="cta-button submit-button">
-                                <i class="fas fa-calendar-check"></i> Agendar Consulta Gratuita
-                            </button>
-                        </div>
-                    </form>
+                    <!-- Reemplazo del formulario original por el iframe de Go High Level -->
+                    <iframe
+                      src="https://var.analiza.pe/widget/form/WJNOT5UtUYrdFkc7TZh1"
+                      style="width:100%;height:100%;border:none;border-radius:3px"
+                      id="inline-WJNOT5UtUYrdFkc7TZh1" 
+                      data-layout="{'id':'INLINE'}"
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="Form 2"
+                      data-height="481"
+                      data-layout-iframe-id="inline-WJNOT5UtUYrdFkc7TZh1"
+                      data-form-id="WJNOT5UtUYrdFkc7TZh1"
+                      title="Form 2"
+                    >
+                    </iframe>
+                    <script src="https://var.analiza.pe/js/form_embed.js"></script>
                     
                     <!-- Mensaje de éxito (oculto por defecto) -->
                     <div id="success-message" class="success-message" style="display: none;">
@@ -157,7 +183,7 @@
                         <h3>¡Solicitud enviada con éxito!</h3>
                         <p>Hemos recibido tu solicitud. Te contactaremos muy pronto.</p>
                         <a href="index.html" class="cta-button">Volver al inicio</a>
-                    
+                    </div>
                 </div>
             </div>
         </section>
@@ -314,14 +340,299 @@
             window.addEventListener('resize', adjustMobileHeader);
             
             // Verificamos si el mensaje de confirmación del formulario de GoHighLevel aparece
-            // y ocultamos el contenedor del iframe si es necesario
+            // y mostramos nuestro mensaje de éxito si es necesario
             window.addEventListener('message', function(event) {
                 // Verificar si el mensaje viene del iframe de GoHighLevel
                 if (event.data && event.data.type === 'form-submit-success') {
                     console.log('Formulario enviado con éxito');
-                    // Podríamos mostrar nuestro propio mensaje de éxito si fuera necesario
-                    // document.querySelector('.ghl-form-container').style.display = 'none';
-                    // document.getElementById('success-message').style.display = 'block';
+                    // Mostrar nuestro propio mensaje de éxito
+                    document.getElementById('success-message').style.display = 'block';
+                }
+            });
+        }
+        
+        /**
+         * Inicializa la funcionalidad de las FAQs
+         */
+        function initFaqs() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.toggle-icon i');
+                
+                // Inicialmente ocultar las respuestas
+                answer.style.display = 'none';
+                
+                question.addEventListener('click', () => {
+                    // Toggle respuesta
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Cerrar todas las respuestas
+                    document.querySelectorAll('.faq-answer').forEach(a => {
+                        a.style.display = 'none';
+                    });
+                    
+                    // Restablecer todos los iconos
+                    document.querySelectorAll('.toggle-icon i').forEach(i => {
+                        i.className = 'fas fa-plus';
+                    });
+                    
+                    // Si no estaba abierta, abrirla
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                        icon.className = 'fas fa-minus';
+                    }
+                });
+            });
+        }
+
+        // Iniciar todo cuando el DOM inicial esté listo
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+</body>
+</html>" alt="Consulta con expertos en analítica" class="analytics-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Beneficios (Simplificada) -->
+        <section class="beneficios-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Beneficios</span>
+                    <h2 class="section-title">¿Qué obtendrás en tu consulta?</h2>
+                </div>
+
+                <div class="beneficios-grid">
+                    <!-- Beneficio 1 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Diagnóstico Inicial</h3>
+                            <p>Evaluaremos tu situación actual y las oportunidades de mejora en tu gestión de datos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 2 -->
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="beneficio-content">
+                            <h3>Ideas Personalizadas</h3>
+                            <p>Recomendaciones específicas para tu industria y necesidades particulares.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Consulta -->
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2>Agenda tu consulta ahora</h2>
+                    </div>
+                    
+                    <!-- Reemplazo del formulario original por el iframe de Go High Level -->
+                    <iframe
+                      src="https://var.analiza.pe/widget/form/WJNOT5UtUYrdFkc7TZh1"
+                      style="width:100%;height:100%;border:none;border-radius:3px"
+                      id="inline-WJNOT5UtUYrdFkc7TZh1" 
+                      data-layout="{'id':'INLINE'}"
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="Form 2"
+                      data-height="481"
+                      data-layout-iframe-id="inline-WJNOT5UtUYrdFkc7TZh1"
+                      data-form-id="WJNOT5UtUYrdFkc7TZh1"
+                      title="Form 2"
+                    >
+                    </iframe>
+                    <script src="https://var.analiza.pe/js/form_embed.js"></script>
+                    
+                    <!-- Mensaje de éxito (oculto por defecto) -->
+                    <div id="success-message" class="success-message" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>¡Solicitud enviada con éxito!</h3>
+                        <p>Hemos recibido tu solicitud. Te contactaremos muy pronto.</p>
+                        <a href="index.html" class="cta-button">Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de testimonios eliminada para simplificar la página -->
+
+        <!-- FAQs Section (Simplificada) -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Preguntas Frecuentes</span>
+                    <h2 class="section-title">Respuestas a tus dudas</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Realmente es gratuita la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, la consulta inicial de 30 minutos es completamente gratuita y sin compromiso. Nuestro objetivo es entender tus necesidades y mostrarte cómo podemos ayudarte.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cómo se realiza la consulta?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La consulta se realiza por videoconferencia (Zoom o Google Meet). También podemos hacerla por teléfono si lo prefieres.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué pasa después de la consulta gratuita?</h3>
+                            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Después de la consulta, recibirás un correo con un resumen de los puntos discutidos y recomendaciones iniciales. Si deseas continuar trabajando con nosotros, te presentaremos opciones adaptadas a tus necesidades específicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /**
+         * Carga HTML y JS de un componente usando rutas explícitas.
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer').
+         * @param {string} placeholderId - ID del div placeholder.
+         */
+        async function loadComponent(componentName, placeholderId) {
+            const placeholder = document.getElementById(placeholderId);
+            if (!placeholder) {
+                console.warn(`Placeholder ${placeholderId} not found.`);
+                return false;
+            }
+
+            let htmlUrl;
+            let jsUrl;
+
+            // --- Definición explícita de rutas ---
+            if (componentName === 'Header') {
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
+            } else if (componentName === 'Footer') {
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
+            } else {
+                console.error(`Nombre de componente desconocido para carga: ${componentName}`);
+                placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
+                return false; // Salir si no es un componente conocido
+            }
+            // --- Fin definición explícita ---
+
+            try {
+                // --- 1. Cargar HTML ---
+                console.log(`Cargando HTML para ${componentName} desde ${htmlUrl}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
+                const html = await response.text();
+                placeholder.innerHTML = html; // Inserta el HTML
+                console.log(`HTML para ${componentName} cargado correctamente.`);
+
+                return true; // Retornar true si se cargó correctamente
+            } catch (error) {
+                console.error(`Error al cargar componente ${componentName}:`, error);
+                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
+                return false;
+            }
+        }
+
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
+        async function loadAllComponents() {
+            console.log("Cargando todos los componentes...");
+            
+            // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
+            const results = await Promise.all([
+                loadComponent('Header', 'header-placeholder'),
+                loadComponent('Footer', 'footer-placeholder')
+            ]);
+            
+            // Inicializar el menú del header si se cargó correctamente y la función existe
+            if (results[0] && typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader();
+            } else if (results[0]) {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente.");
+            }
+            
+            document.body.classList.add('loaded');
+            console.log("Todos los componentes cargados.");
+            
+            // Inicializar interactividad del formulario
+            initFormHandling();
+            
+            // Inicializar FAQs
+            initFaqs();
+        }
+        
+        /**
+         * Inicializa funcionalidades de la página
+         */
+        function initFormHandling() {
+            // Solo necesitamos manejar los ajustes de tamaño para el header móvil
+            // ya que el formulario ahora es gestionado por GoHighLevel
+            
+            const adjustMobileHeader = function() {
+                const header = document.querySelector('header');
+                const headerPlaceholder = document.getElementById('header-placeholder');
+                if (window.innerWidth < 768) {
+                    if (header) {
+                        header.style.width = '100%';
+                        header.style.maxWidth = '100vw';
+                        header.style.overflowX = 'hidden';
+                    }
+                    if (headerPlaceholder) {
+                        headerPlaceholder.style.width = '100%'; 
+                        headerPlaceholder.style.maxWidth = '100vw';
+                        headerPlaceholder.style.overflowX = 'hidden';
+                    }
+                }
+            };
+            
+            // Ejecutar al cargar y al cambiar tamaño
+            adjustMobileHeader();
+            window.addEventListener('resize', adjustMobileHeader);
+            
+            // Verificamos si el mensaje de confirmación del formulario de GoHighLevel aparece
+            // y mostramos nuestro mensaje de éxito si es necesario
+            window.addEventListener('message', function(event) {
+                // Verificar si el mensaje viene del iframe de GoHighLevel
+                if (event.data && event.data.type === 'form-submit-success') {
+                    console.log('Formulario enviado con éxito');
+                    // Mostrar nuestro propio mensaje de éxito
+                    document.getElementById('success-message').style.display = 'block';
                 }
             });
         }

@@ -1,1 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Analiza.pe</title>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    <link rel="stylesheet" href="CSS/contacto.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilo para la carga inicial -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+    
+    <!-- Precarga de scripts críticos -->
+    <script src="componentes-visuales/Header/header.js" defer></script>
+</head>
+<body class="no-transition">
 
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="contacto-hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Contacta con <span>Analiza.pe</span></h1>
+                        <p>Estamos listos para ayudarte a transformar tus datos en decisiones estratégicas. Ponte en contacto con nuestro equipo de expertos.</p>
+                        <a href="#formulario-contacto" class="cta-button"><i class="fas fa-envelope"></i> Escríbenos ahora</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/analiza_pe/ChatGPT%20Image%2025%20de%20abr.%20de%202025%2009_28_56.png" alt="Contacto Analiza.pe" class="contact-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Información de Contacto -->
+        <section class="contacto-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Contacto</span>
+                    <h2 class="section-title">Varias formas de conectar</h2>
+                    <p class="section-description">Selecciona el método que más te convenga para comunicarte con nuestro equipo.</p>
+                </div>
+
+                <div class="contacto-grid">
+                    <!-- Tarjeta 1: Correo Electrónico -->
+                    <div class="contacto-card">
+                        <div class="contacto-icon">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="contacto-content">
+                            <h3>Correo Electrónico</h3>
+                            <p>Escríbenos directamente a nuestro equipo de atención al cliente.</p>
+                            <a href="mailto:contacto@analiza.pe" class="contacto-link">contacto@analiza.pe</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Teléfono -->
+                    <div class="contacto-card">
+                        <div class="contacto-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contacto-content">
+                            <h3>Teléfono</h3>
+                            <p>Llámanos de lunes a viernes de 9:00 a 18:00 (GMT-5).</p>
+                            <a href="tel:+51995123456" class="contacto-link">+51 995 123 456</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Dirección -->
+                    <div class="contacto-card">
+                        <div class="contacto-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contacto-content">
+                            <h3>Oficina Principal</h3>
+                            <p>Visítanos en nuestra sede central en Lima.</p>
+                            <address class="contacto-address">
+                                Av. El Derby 055, Santiago de Surco<br>
+                                Lima, Perú
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Formulario de Contacto -->
+        <section class="formulario-section" id="formulario-contacto">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Formulario</span>
+                    <h2 class="section-title">Envíanos un mensaje</h2>
+                    <p class="section-description">Completa el siguiente formulario y nos pondremos en contacto contigo a la brevedad.</p>
+                </div>
+
+                <div class="form-container">
+                    <form id="contactForm" class="contacto-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono (opcional)</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+51 999 999 999">
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacidad" name="privacidad" required>
+                                <label for="privacidad">Acepto la <a href="privacidad.html">política de privacidad</a> y el procesamiento de mis datos.</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i> Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Mapa -->
+        <section class="mapa-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Ubicación</span>
+                    <h2 class="section-title">Encuéntranos</h2>
+                    <p class="section-description">Visita nuestras oficinas para conocer más sobre nuestros servicios.</p>
+                </div>
+                
+                <div class="mapa-container">
+                    <!-- Aquí iría un iframe con el mapa de Google Maps -->
+                    <div class="mapa-placeholder">
+                        <p>Mapa de ubicación - Av. El Derby 055, Santiago de Surco, Lima</p>
+                        <!-- Reemplazar esto con un iframe real de Google Maps en producción -->
+                        <div class="mapa-imagen"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA Final -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>¿Prefieres una atención personalizada?</h2>
+                    <p>Agenda una videollamada con uno de nuestros consultores para discutir tu proyecto en detalle y recibir recomendaciones personalizadas.</p>
+                    <a href="agenda.html" class="cta-button"><i class="fas fa-video"></i> Agendar videollamada</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /**
+         * Carga HTML y JS de un componente usando rutas explícitas.
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer').
+         * @param {string} placeholderId - ID del div placeholder.
+         */
+        async function loadComponent(componentName, placeholderId) {
+            const placeholder = document.getElementById(placeholderId);
+            if (!placeholder) {
+                console.warn(`Placeholder ${placeholderId} not found.`);
+                return false;
+            }
+
+            let htmlUrl;
+            let jsUrl;
+
+            // --- Definición explícita de rutas ---
+            if (componentName === 'Header') {
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
+            } else if (componentName === 'Footer') {
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
+            } else {
+                console.error(`Nombre de componente desconocido para carga: ${componentName}`);
+                placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
+                return false; // Salir si no es un componente conocido
+            }
+            // --- Fin definición explícita ---
+
+            try {
+                // --- 1. Cargar HTML ---
+                console.log(`Cargando HTML para ${componentName} desde ${htmlUrl}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
+                const html = await response.text();
+                placeholder.innerHTML = html; // Inserta el HTML
+                console.log(`HTML para ${componentName} cargado correctamente.`);
+
+                return true; // Retornar true si se cargó correctamente
+            } catch (error) {
+                console.error(`Error al cargar componente ${componentName}:`, error);
+                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
+                return false;
+            }
+        }
+
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
+        async function loadAllComponents() {
+            console.log("Cargando todos los componentes...");
+            
+            // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
+            const results = await Promise.all([
+                loadComponent('Header', 'header-placeholder'),
+                loadComponent('Footer', 'footer-placeholder')
+            ]);
+            
+            // Inicializar el menú del header si se cargó correctamente y la función existe
+            if (results[0] && typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader();
+            } else if (results[0]) {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente.");
+            }
+            
+            // Validación del formulario
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Aquí se implementaría la lógica de envío del formulario
+                    alert('Formulario enviado correctamente. Te contactaremos pronto.');
+                    contactForm.reset();
+                });
+            }
+            
+            document.body.classList.add('loaded');
+            console.log("Todos los componentes cargados.");
+        }
+
+        // Iniciar todo cuando el DOM inicial esté listo
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+</body>
+</html>

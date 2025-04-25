@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios - Analiza.pe</title>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="componentes-visuales/Header/header.css">
+    <link rel="stylesheet" href="componentes-visuales/Footer/footer.css">
+    <link rel="stylesheet" href="CSS/servicios.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilo para la carga inicial -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+    
+    <!-- Precarga de scripts críticos -->
+    <script src="componentes-visuales/Header/header.js" defer></script>
+</head>
+<body class="no-transition">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="servicios-hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Nuestros Servicios en Analiza<span>.pe</span></h1>
+                        <p>Transformamos tus datos en soluciones de valor, impulsando la toma de decisiones estratégicas con tecnología de vanguardia e inteligencia artificial.</p>
+                        <a href="consulta.html" class="cta-button"><i class="fas fa-rocket"></i> Impulsa tu negocio ahora</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/analiza_pe/ChatGPT%20Image%2025%20de%20abr.%20de%202025%2009_28_56.png" alt="Servicios de análisis de datos" class="analytics-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Nuestros Servicios -->
+        <section class="servicios-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Soluciones</span>
+                    <h2 class="section-title">Servicios que transforman datos en resultados</h2>
+                    <p class="section-description">Ofrecemos soluciones integrales de analítica para empresas latinoamericanas que buscan potenciar su crecimiento basado en datos.</p>
+                </div>
+
+                <div class="servicios-grid">
+                    <!-- Servicio 1 -->
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="servicio-content">
+                            <h3>Business Intelligence</h3>
+                            <p>Transformamos sus datos empresariales en dashboards interactivos y reportes automáticos que facilitan la toma de decisiones estratégicas en tiempo real.</p>
+                            <ul class="servicio-features">
+                                <li><i class="fas fa-check"></i> Dashboards interactivos</li>
+                                <li><i class="fas fa-check"></i> KPIs personalizados</li>
+                                <li><i class="fas fa-check"></i> Integración multifuente</li>
+                            </ul>
+                            <a href="bi.html" class="servicio-link">Conocer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="servicio-content">
+                            <h3>Inteligencia Artificial</h3>
+                            <p>Implementamos soluciones de IA adaptadas a su negocio, desde modelos predictivos hasta chatbots y sistemas de recomendación para optimizar sus operaciones.</p>
+                            <ul class="servicio-features">
+                                <li><i class="fas fa-check"></i> Modelos predictivos</li>
+                                <li><i class="fas fa-check"></i> Procesamiento de lenguaje natural</li>
+                                <li><i class="fas fa-check"></i> Visión computacional</li>
+                            </ul>
+                            <a href="ai.html" class="servicio-link">Conocer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="servicio-content">
+                            <h3>Data Engineering</h3>
+                            <p>Diseñamos e implementamos arquitecturas de datos robustas, asegurando que su información esté accesible, organizada y lista para el análisis.</p>
+                            <ul class="servicio-features">
+                                <li><i class="fas fa-check"></i> ETL y pipelines de datos</li>
+                                <li><i class="fas fa-check"></i> Data warehousing</li>
+                                <li><i class="fas fa-check"></i> Automatización de procesos</li>
+                            </ul>
+                            <a href="data-eng.html" class="servicio-link">Conocer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 4 -->
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="servicio-content">
+                            <h3>Consultoría Analítica</h3>
+                            <p>Acompañamos a su organización en la transformación hacia una cultura basada en datos, brindando orientación estratégica y capacitación.</p>
+                            <ul class="servicio-features">
+                                <li><i class="fas fa-check"></i> Estrategia de datos</li>
+                                <li><i class="fas fa-check"></i> Formación y capacitación</li>
+                                <li><i class="fas fa-check"></i> Optimización de procesos</li>
+                            </ul>
+                            <a href="consultoria.html" class="servicio-link">Conocer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Metodología -->
+        <section class="metodologia-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Metodología</span>
+                    <h2 class="section-title">Cómo trabajamos para ti</h2>
+                    <p class="section-description">Nuestra metodología eficiente asegura resultados de calidad y un proceso transparente en cada proyecto.</p>
+                </div>
+
+                <div class="metodologia-timeline">
+                    <!-- Paso 1 -->
+                    <div class="metodologia-item">
+                        <div class="metodologia-numero">1</div>
+                        <div class="metodologia-content">
+                            <h3>Diagnóstico y Objetivos</h3>
+                            <p>Analizamos su situación actual y definimos objetivos claros y medibles para su proyecto de análisis de datos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="metodologia-item">
+                        <div class="metodologia-numero">2</div>
+                        <div class="metodologia-content">
+                            <h3>Diseño de Solución</h3>
+                            <p>Creamos una solución personalizada que se alinea con sus necesidades específicas y objetivos de negocio.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="metodologia-item">
+                        <div class="metodologia-numero">3</div>
+                        <div class="metodologia-content">
+                            <h3>Implementación</h3>
+                            <p>Desarrollamos e implementamos la solución con un enfoque ágil, permitiendo ajustes y mejoras continuas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="metodologia-item">
+                        <div class="metodologia-numero">4</div>
+                        <div class="metodologia-content">
+                            <h3>Capacitación y Transferencia</h3>
+                            <p>Capacitamos a su equipo para aprovechar al máximo las herramientas implementadas y fomentar la autonomía.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 5 -->
+                    <div class="metodologia-item">
+                        <div class="metodologia-numero">5</div>
+                        <div class="metodologia-content">
+                            <h3>Soporte Continuo</h3>
+                            <p>Ofrecemos acompañamiento y mejora continua para asegurar que su solución evolucione con su negocio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Casos de Éxito -->
+        <section class="casos-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Casos de Éxito</span>
+                    <h2 class="section-title">Transformaciones reales con datos</h2>
+                    <p class="section-description">Conoce cómo hemos ayudado a diversas empresas a potenciar su crecimiento con nuestras soluciones analíticas.</p>
+                </div>
+
+                <div class="casos-slider">
+                    <!-- Caso 1 -->
+                    <div class="caso-card">
+                        <div class="caso-imagen">
+                            <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/analiza_pe/caso1.jpg" alt="Caso de éxito retail">
+                        </div>
+                        <div class="caso-content">
+                            <h3>RetailPro: Aumento de ventas con IA</h3>
+                            <p class="caso-industria">Industria: Retail</p>
+                            <p>Implementamos un sistema de recomendación que incrementó las ventas cruzadas en un 32% y mejoró la experiencia del cliente.</p>
+                            <div class="caso-resultados">
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">32%</span>
+                                    <span class="resultado-texto">Aumento en ventas</span>
+                                </div>
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">45%</span>
+                                    <span class="resultado-texto">Mejora en conversión</span>
+                                </div>
+                            </div>
+                            <a href="casos/retailpro.html" class="caso-link">Ver caso completo</a>
+                        </div>
+                    </div>
+
+                    <!-- Caso 2 -->
+                    <div class="caso-card">
+                        <div class="caso-imagen">
+                            <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/analiza_pe/caso2.jpg" alt="Caso de éxito finanzas">
+                        </div>
+                        <div class="caso-content">
+                            <h3>FinTech Leader: Detección de fraude</h3>
+                            <p class="caso-industria">Industria: Servicios Financieros</p>
+                            <p>Desarrollamos modelos predictivos que redujeron en un 65% los casos de fraude, ahorrando millones en pérdidas potenciales.</p>
+                            <div class="caso-resultados">
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">65%</span>
+                                    <span class="resultado-texto">Reducción de fraude</span>
+                                </div>
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">$2.8M</span>
+                                    <span class="resultado-texto">Ahorro anual</span>
+                                </div>
+                            </div>
+                            <a href="casos/fintech.html" class="caso-link">Ver caso completo</a>
+                        </div>
+                    </div>
+
+                    <!-- Caso 3 -->
+                    <div class="caso-card">
+                        <div class="caso-imagen">
+                            <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/analiza_pe/caso3.jpg" alt="Caso de éxito logística">
+                        </div>
+                        <div class="caso-content">
+                            <h3>LogiExpress: Optimización de rutas</h3>
+                            <p class="caso-industria">Industria: Logística</p>
+                            <p>Implementamos un sistema de optimización de rutas que redujo los costos operativos en un 28% y mejoró los tiempos de entrega.</p>
+                            <div class="caso-resultados">
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">28%</span>
+                                    <span class="resultado-texto">Reducción de costos</span>
+                                </div>
+                                <div class="resultado-item">
+                                    <span class="resultado-numero">40%</span>
+                                    <span class="resultado-texto">Mejora en tiempos</span>
+                                </div>
+                            </div>
+                            <a href="casos/logiexpress.html" class="caso-link">Ver caso completo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="casos-navegacion">
+                    <a href="casos.html" class="casos-ver-todos">Ver todos los casos <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Preguntas Frecuentes -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">FAQ</span>
+                    <h2 class="section-title">Preguntas frecuentes</h2>
+                    <p class="section-description">Resolvemos tus dudas sobre nuestros servicios y soluciones de análisis de datos.</p>
+                </div>
+
+                <div class="faq-container">
+                    <!-- Pregunta 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué tamaño debe tener mi empresa para trabajar con ustedes?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Trabajamos con empresas de todos los tamaños, desde startups hasta grandes corporaciones. Nuestras soluciones son escalables y se adaptan a las necesidades específicas de cada cliente, independientemente de su tamaño o sector.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cuánto tiempo toma implementar una solución de análisis de datos?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El tiempo de implementación varía según la complejidad del proyecto. Proyectos sencillos pueden tomar de 2 a 4 semanas, mientras que soluciones más complejas pueden requerir entre 2 y 4 meses. Durante la fase de diagnóstico, estableceremos un cronograma detallado para su proyecto específico.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Necesito tener un equipo técnico para aprovechar sus servicios?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No es necesario. Diseñamos nuestras soluciones para ser accesibles a usuarios de todos los niveles técnicos. Además, proporcionamos capacitación completa para que su equipo pueda utilizar eficazmente las herramientas implementadas, independientemente de su conocimiento técnico previo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cómo garantizan la seguridad de nuestros datos?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La seguridad es nuestra prioridad. Implementamos protocolos de seguridad de nivel empresarial, incluyendo cifrado de datos, acceso restringido, y cumplimiento de normativas como GDPR y regulaciones locales de protección de datos. Firmamos acuerdos de confidencialidad y trabajamos siguiendo las mejores prácticas de la industria en materia de seguridad.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Ofrecen servicios de mantenimiento post-implementación?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, ofrecemos diferentes niveles de soporte y mantenimiento continuo para asegurar que su solución siga funcionando óptimamente y evolucione con su negocio. Nuestros planes de soporte incluyen actualizaciones, optimizaciones y asistencia técnica según las necesidades de cada cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA Final -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>¿Listo para potenciar tu negocio con datos?</h2>
+                    <p>Agenda una consulta gratuita con uno de nuestros expertos y descubre cómo nuestras soluciones de análisis pueden transformar tu empresa.</p>
+                    <a href="consulta.html" class="cta-button"><i class="fas fa-calendar-check"></i> Consulta Gratuita</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /**
+         * Carga HTML y JS de un componente usando rutas explícitas.
+         * @param {string} componentName - Nombre del componente ('Header', 'Footer').
+         * @param {string} placeholderId - ID del div placeholder.
+         */
+        async function loadComponent(componentName, placeholderId) {
+            const placeholder = document.getElementById(placeholderId);
+            if (!placeholder) {
+                console.warn(`Placeholder ${placeholderId} not found.`);
+                return false;
+            }
+
+            let htmlUrl;
+            let jsUrl;
+
+            // --- Definición explícita de rutas ---
+            if (componentName === 'Header') {
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
+            } else if (componentName === 'Footer') {
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
+            } else {
+                console.error(`Nombre de componente desconocido para carga: ${componentName}`);
+                placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
+                return false; // Salir si no es un componente conocido
+            }
+            // --- Fin definición explícita ---
+
+            try {
+                // --- 1. Cargar HTML ---
+                console.log(`Cargando HTML para ${componentName} desde ${htmlUrl}...`);
+                const response = await fetch(htmlUrl);
+                if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
+                const html = await response.text();
+                placeholder.innerHTML = html; // Inserta el HTML
+                console.log(`HTML para ${componentName} cargado correctamente.`);
+
+                return true; // Retornar true si se cargó correctamente
+            } catch (error) {
+                console.error(`Error al cargar componente ${componentName}:`, error);
+                placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
+                return false;
+            }
+        }
+
+        /**
+         * Carga todos los componentes principales y muestra el body.
+         */
+        async function loadAllComponents() {
+            console.log("Cargando todos los componentes...");
+            
+            // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
+            const results = await Promise.all([
+                loadComponent('Header', 'header-placeholder'),
+                loadComponent('Footer', 'footer-placeholder')
+            ]);
+            
+            // Inicializar el menú del header si se cargó correctamente y la función existe
+            if (results[0] && typeof inicializarMenuHeader === 'function') {
+                inicializarMenuHeader();
+            } else if (results[0]) {
+                console.error("La función inicializarMenuHeader no está definida. Verifica que header.js se cargó correctamente.");
+            }
+            
+            // Inicializar los elementos FAQ con toggle
+            initFAQ();
+            
+            document.body.classList.add('loaded');
+            console.log("Todos los componentes cargados.");
+        }
+
+        /**
+         * Inicializa la funcionalidad de las preguntas frecuentes
+         */
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Toggle active class
+                    item.classList.toggle('active');
+                    
+                    // Change icon
+                    const icon = question.querySelector('.faq-icon i');
+                    if (item.classList.contains('active')) {
+                        icon.classList.replace('fa-plus', 'fa-minus');
+                    } else {
+                        icon.classList.replace('fa-minus', 'fa-plus');
+                    }
+                });
+            });
+        }
+
+        // Iniciar todo cuando el DOM inicial esté listo
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+/* --- ESTILOS ESPECÍFICOS PARA CONTACTO.HTML --- */
+
+/* Estilos para el Hero */
+.contacto-hero {
+    position: relative;
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.contacto-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text h1 span {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+}
+
+.contact-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Elementos decorativos para el hero */
+.contacto-hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.05); /* Azul muy tenue */
+    z-index: 0;
+}
+
+.contacto-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.03); /* Azul muy tenue */
+    z-index: 0;
+}
+
+/* Estructura Común de Secciones */
+.contacto-section {
+    padding: 70px 0; /* Más padding */
+    position: relative; /* Para posibles elementos decorativos */
+}
+
+.contacto-section:nth-child(odd) {
+    background-color: var(--white);
+}
+
+.contacto-section:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+/* Estilos para Cabecera de Sección (Reutilizable) */
+.section-header {
+    text-align: center;
+    margin: 0 auto 60px; /* Mayor margen inferior */
+    max-width: 800px;
+}
+
+.section-badge {
+    display: inline-block;
+    background-color: rgba(37, 99, 235, 0.1); /* Azul más sutil */
+    color: var(--primary-blue);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.section-description {
+    font-size: 1.05rem; /* Ligeramente más grande */
+    color: var(--text-medium);
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Estilos para la sección de Información de Contacto */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Base móvil */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contacto-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contacto-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+}
+
+.contacto-content {
+    flex: 1;
+}
+
+.contacto-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.contacto-content p {
+    color: var(--text-medium);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contacto-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.contacto-link:hover {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+.contacto-address {
+    font-style: normal;
+    color: var(--text-medium);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Estilos para el Formulario de Contacto */
+.formulario-section {
+    background-color: var(--bg-light);
+    padding: 80px 0;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+.checkbox-group label a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+.submit-button {
+    align-self: flex-start;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    border-radius: var(--border-radius-sm);
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.submit-button i {
+    font-size: 0.9rem;
+}
+
+/* Estilos para la sección de Mapa */
+.mapa-section {
+    padding: 70px 0;
+    background-color: var(--white);
+}
+
+.mapa-container {
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.mapa-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-medium);
+    border-radius: var(--border-radius-md);
+}
+
+.mapa-placeholder p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.mapa-imagen {
+    width: 80%;
+    height: 300px;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+}
+
+.mapa-imagen::after {
+    content: 'Mapa de Google Maps';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Sección CTA */
+.cta-section {
+    padding: 90px 0; /* Mayor padding */
+    background-color: var(--bg-light);
+}
+
+.cta-box {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.06) 100%); /* Degradado sutil */
+    border: none;
+    border-radius: 16px; /* Más redondeado */
+    padding: 60px 40px; /* Más padding vertical */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+.cta-box h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    margin-bottom: 35px; /* Más espacio antes del botón */
+    color: var(--text-medium);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* El botón .cta-button hereda estilos globales */
+.cta-box .cta-button {
+    padding: 12px 28px; /* Botón ligeramente más grande */
+    font-size: 1.05rem;
+}
+
+/* Media Queries */
+@media (min-width: 576px) {
+    .form-row {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .contacto-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .contacto-hero p {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hero-text {
+        text-align: left;
+        flex: 1;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+    
+    .form-container {
+        padding: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contacto-hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* --- FIN ESTILOS CONTACTO.HTML --- */

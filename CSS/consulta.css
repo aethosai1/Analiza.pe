@@ -1,373 +1,11 @@
 /* --- ESTILOS ESPECÍFICOS PARA CONSULTA.HTML --- */
 
-/* Estilos para el Hero */
+/* 1. Sección Hero 
+----------------------------------------------------- */
 .consulta-hero {
     position: relative;
     padding: 80px 0;
-    background-color: var(--bg-white);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    outline: none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-light);
-    opacity: 0.7;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: auto;
-    margin-top: 3px;
-}
-
-.checkbox-group label {
-    margin-bottom: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.checkbox-group label a {
-    color: var(--primary-blue);
-    text-decoration: underline;
-}
-
-.checkbox-group label a:hover {
-    color: var(--dark-blue);
-}
-
-.form-submit {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-}
-
-.submit-button {
-    padding: 14px 30px;
-    font-size: 1.05rem;
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Estilo para mensaje de éxito */
-.success-message {
-    text-align: center;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.success-icon {
-    font-size: 4rem;
-    color: #10B981; /* Verde */
-    margin-bottom: 20px;
-}
-
-.success-message h3 {
-    color: var(--text-dark);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.success-message p {
-    color: var(--text-medium);
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.success-message .cta-button {
-    display: inline-flex;
-    margin-top: 10px;
-}
-
-/* Sección de testimonios eliminada para simplificar la página */
-
-/* Estilos para sección FAQs */
-.faq-section {
-    padding: 80px 0;
     background-color: var(--bg-light);
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 50px auto 0;
-}
-
-.faq-item {
-    background-color: var(--white);
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 25px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.faq-question h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    font-weight: 600;
-}
-
-.toggle-icon {
-    color: var(--primary-blue);
-    font-size: 1rem;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.faq-answer {
-    padding: 0 25px 20px;
-    color: var(--text-medium);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* Media Queries Específicas para Consulta */
-@media (max-width: 575px) {
-    .consulta-hero {
-        padding: 40px 0; /* Reducido de 50px a 40px */
-    }
-
-    .hero-text h1 {
-        font-size: 1.8rem; /* Reducido de 2rem a 1.8rem */
-    }
-
-    .hero-text p {
-        font-size: 1rem; /* Reducido de 1.1rem a 1rem */
-    }
-    
-    .form-container {
-        padding: 25px 15px; /* Reducido de 30px 20px a 25px 15px */
-    }
-    
-    .form-header h2 {
-        font-size: 1.6rem; /* Reducido de 1.8rem a 1.6rem */
-    }
-    
-    /* Ajustes para mejorar la visualización en móvil */
-    body {
-        overflow-x: hidden;
-    }
-    
-    #header-placeholder,
-    header {
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
-    }
-    
-    .analytics-image {
-        height: auto;
-        max-height: 200px;
-        object-fit: cover;
-    }
-    
-    .beneficio-item {
-        padding: 20px 15px; /* Reducir padding en móvil */
-    }
-    
-    .beneficio-icon {
-        width: 50px; /* Reducir tamaño del icono */
-        height: 50px;
-        margin-right: 15px;
-    }
-    
-    .faq-question h3 {
-        font-size: 1rem; /* Texto más pequeño en móvil */
-    }
-    
-    /* Reducir espacio vertical en general */
-    .section-header {
-        margin-bottom: 25px;
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-    }
-    
-    /* Ajustes para formato de formulario */
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-        font-size: 16px; /* Previene zoom en iOS */
-        padding: 10px 12px; /* Campos más compactos */
-    }
-    
-    /* Hacer el botón de envío más compacto */
-    .submit-button {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-    .consulta-hero {
-        padding: 60px 0;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .consulta-hero h1 {
-        font-size: 2.8rem; /* Reducido de 3rem a 2.8rem */
-    }
-    
-    .consulta-hero p {
-        font-size: 1.1rem; /* Reducido de 1.25rem a 1.1rem */
-    }
-    
-    .beneficios-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px; /* Reducido para que las tarjetas estén más juntas */
-    }
-    
-    .form-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Para mejores proporciones */
-    .form-container {
-        padding: 30px; /* Padding uniforme */
-    }
-    
-    /* Ajustes de proporciones para dispositivos medianos */
-    #header-placeholder {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .hero-text {
-        text-align: left;
-        flex: 1;
-    }
-
-    .hero-image {
-        flex: 1;
-    }
-    
-    .submit-button {
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    
-    .submit-button:hover {
-        transform: translateY(-3px);
-    }
-}
-
-@media (min-width: 1200px) {
-    .consulta-hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    /* Añadimos animaciones más pronunciadas en desktop */
-    .beneficio-item:hover {
-        transform: translateY(-8px);
-    }
-    
-    .testimonio-card:hover {
-        transform: translateY(-10px);
-    }
-    
-    .form-container {
-        transform: translateY(0);
-        transition: transform 0.5s ease;
-    }
-    
-    .form-section:hover .form-container {
-        transform: translateY(-5px);
-    }
-}
-
-/* Estilos para el contenedor del calendario */
-.contenedor-calendario {
-    width: 100%;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    margin: 0 auto;
-    transition: box-shadow 0.3s ease-in-out;
-    background-color: var(--white);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-}
-
-.contenedor-calendario:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Hacemos el iframe responsive para móvil */
-@media (max-width: 576px) {
-    .contenedor-calendario iframe {
-        height: 650px !important; /* Altura adicional en móvil */
-    }
-}
-
-/* Ajustar padding del form-container */
-.form-container {
-    padding: 25px 15px;
-}
-
-@media (min-width: 768px) {
-    .form-container {
-        padding: 30px;
-    }
-    
-    .contenedor-calendario iframe {
-        height: 600px !important;
-    }
-}
-
-/* --- FIN ESTILOS CONSULTA.HTML --- */bg-light);
     overflow: hidden;
 }
 
@@ -377,8 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-    opacity: 0.05;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0.1) 100%);
     z-index: 1;
 }
 
@@ -390,65 +27,79 @@
 .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px; /* Reducido de 40px a 30px */
+    gap: 40px;
 }
 
 .hero-text {
-    max-width: 600px;
-    text-align: center;
+    flex: 1;
 }
 
 .hero-text h1 {
-    font-size: 2.5rem; /* Reducido de 3rem a 2.5rem */
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 15px; /* Reducido de 20px a 15px */
-    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .hero-text h1 span {
     color: var(--primary-blue);
-    font-weight: 700;
 }
 
 .hero-text p {
-    font-size: 1.1rem; /* Reducido de 1.2rem a 1.1rem */
+    font-size: 1.125rem;
     color: var(--text-medium);
-    margin-bottom: 20px; /* Reducido de 30px a 20px */
-    line-height: 1.5; /* Reducido de 1.6 a 1.5 */
+    margin-bottom: 1.5rem;
+    max-width: 600px;
 }
 
 .hero-image {
-    max-width: 600px;
-    width: 100%;
-    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .analytics-image {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.analytics-image:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Estilos para sección de beneficios */
+/* 2. Sección de Beneficios
+----------------------------------------------------- */
 .beneficios-section {
-    padding: 60px 0; /* Reducido de 70px a 60px */
-    background-color: var(--white);
+    padding: 80px 0;
+    background-color: var(--bg-white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
 }
 
 .beneficios-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 30px; /* Reducido de 40px a 30px */
-    max-width: 900px; /* Limita el ancho máximo */
+    gap: 30px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -456,27 +107,28 @@
 .beneficio-item {
     display: flex;
     align-items: flex-start;
-    background-color: var(--bg-light);
-    border-radius: 12px;
-    padding: 25px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; 
+    padding: 30px;
+    height: 100%;
 }
 
 .beneficio-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .beneficio-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 60px;
     height: 60px;
     background-color: rgba(37, 99, 235, 0.1);
     color: var(--primary-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
+    border-radius: 50%;
     margin-right: 20px;
     flex-shrink: 0;
     font-size: 1.5rem;
@@ -487,10 +139,10 @@
 }
 
 .beneficio-content h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
     color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .beneficio-content p {
@@ -499,9 +151,10 @@
     line-height: 1.6;
 }
 
-/* Estilos para sección de formulario */
+/* 3. Sección de Formulario/Calendario
+----------------------------------------------------- */
 .form-section {
-    padding: 70px 0;
+    padding: 80px 0;
     background-color: var(--bg-light);
     position: relative;
 }
@@ -534,8 +187,8 @@
     max-width: 800px;
     margin: 0 auto;
     background-color: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     padding: 40px;
     position: relative;
     z-index: 1;
@@ -544,52 +197,288 @@
 
 .form-header {
     text-align: center;
-    margin-bottom: 30px; /* Reducido de 40px a 30px */
+    margin-bottom: 30px;
 }
 
 .form-header h2 {
     color: var(--text-dark);
-    font-size: 1.8rem; /* Reducido de 2rem a 1.8rem */
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0; /* Eliminado el margen ya que no hay párrafo debajo */
+    margin-bottom: 0;
 }
 
-.consulta-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    margin-bottom: 5px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-dark);
-    font-size: 0.95rem;
-}
-
-.required {
-    color: var(--accent-red);
-    margin-left: 3px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
+/* Estilos para el contenedor del calendario */
+.contenedor-calendario {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    font-size: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: var(--white);
+    min-height: 1200px;
+}
+
+.contenedor-calendario:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-calendario iframe {
+    width: 100% !important;
+    min-height: 650px !important;
+    border: none !important;
+    border-radius: 10px !important;
+}
+
+/* 4. Sección FAQ
+----------------------------------------------------- */
+.faq-section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(37, 99, 235, 0.05);
+}
+
+.faq-question h3 {
+    font-size: 1.125rem;
+    margin: 0;
     color: var(--text-dark);
-    background-color: var(--
+    font-weight: 600;
+}
+
+.toggle-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    transition: max-height 0.5s ease;
+    padding: 0 20px 20px;
+}
+
+.faq-answer p {
+    color: var(--text-medium);
+}
+
+/* 5. Mensaje de éxito */
+.success-message {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #10B981; /* Verde */
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-message .cta-button {
+    display: inline-flex;
+    margin-top: 10px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 30px;
+}
+
+.success-message .cta-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* 6. Media Queries
+----------------------------------------------------- */
+@media (max-width: 575px) {
+    .consulta-hero {
+        padding: 40px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .form-container {
+        padding: 25px 15px;
+    }
+    
+    .form-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    /* Ajustes para mejorar la visualización en móvil */
+    body {
+        overflow-x: hidden;
+    }
+    
+    #header-placeholder,
+    header {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    .analytics-image {
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+    
+    .beneficio-item {
+        padding: 20px 15px;
+    }
+    
+    .beneficio-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .section-header {
+        margin-bottom: 25px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .contenedor-calendario iframe {
+        min-height: 650px !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .consulta-hero {
+        padding: 60px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .consulta-hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .consulta-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .beneficios-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+    
+    .form-container {
+        padding: 40px;
+    }
+    
+    .contenedor-calendario iframe {
+        min-height: 700px !important;
+    }
+    
+    .contenedor-calendario {
+        min-height: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .consulta-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .form-container {
+        padding: 50px;
+    }
+    
+    .consulta-hero .hero-text {
+        max-width: 50%;
+    }
+}
+
+/* --- FIN ESTILOS CONSULTA.HTML --- */

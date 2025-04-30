@@ -14,6 +14,26 @@
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
+    <!-- Estilos adicionales para corregir el header en móvil -->
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        body.loaded { opacity: 1; }
+        
+        @media (max-width: 767px) {
+            body, html {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+            
+            #header-placeholder, header {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+        }
+    </style>
+    
     <!-- Precarga de scripts críticos -->
     <script src="componentes-visuales/Header/header.js" defer></script>
 </head>
@@ -32,7 +52,7 @@
                         <p>Agenda 30 minutos con nuestros especialistas y descubre cómo podemos transformar tus datos en resultados tangibles para tu negocio.</p>
                     </div>
                     <div class="hero-image">
-                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai//ChatGPT%20Image%2023%20de%20abr.%20de%202025%2016_16_59.png" alt="Consulta con expertos en analítica" class="analytics-image">
+                        <img src="https://wizuhcnxstukjnhsgsac.supabase.co/storage/v1/object/public/Aethos%20ai/consulta/hero-analytics.jpg" alt="Consulta con expertos en analítica" class="analytics-image">
                     </div>
                 </div>
             </div>
@@ -80,55 +100,54 @@
                         <h2>Agenda tu consulta ahora</h2>
                     </div>
                     
-                    <!-- Formulario de GoHighLevel -->
-                    <div id="form-container" class="loading">
-                        <iframe
-                          src="https://vor.analiza.pe/widget/form/WJNOT5UtUYrdFkc7TZh1"
-                          style="width:100%;height:500px;border:none;border-radius:3px"
-                          id="inline-WJNOT5UtUYrdFkc7TZh1" 
-                          data-layout="{'id':'INLINE'}"
-                          data-trigger-type="alwaysShow"
-                          data-trigger-value=""
-                          data-activation-type="alwaysActivated"
-                          data-activation-value=""
-                          data-deactivation-type="neverDeactivate"
-                          data-deactivation-value=""
-                          data-form-name="Form 2"
-                          data-height="481"
-                          data-layout-iframe-id="inline-WJNOT5UtUYrdFkc7TZh1"
-                          data-form-id="WJNOT5UtUYrdFkc7TZh1"
-                          title="Form 2"
-                          onload="this.style.height='500px'; document.getElementById('form-container').classList.remove('loading');"
-                          onerror="handleIframeError()">
-                        </iframe>
-                        
-                        <!-- Formulario de respaldo -->
-                        <div id="backup-form" style="display: none;">
-                            <form id="consulta-form" class="consulta-form">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre completo</label>
-                                    <input type="text" id="nombre" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Correo electrónico</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="tel" id="telefono" name="telefono" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="empresa">Empresa</label>
-                                    <input type="text" id="empresa" name="empresa">
-                                </div>
-                                <div class="form-group">
-                                    <label for="mensaje">¿En qué podemos ayudarte?</label>
-                                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
-                                </div>
-                                <button type="submit" class="cta-button">Enviar solicitud</button>
-                            </form>
+                    <form id="consulta-form" class="consulta-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa <span class="required">*</span></label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Correo electrónico <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefono">Teléfono <span class="required">*</span></label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">¿Cuál es tu principal desafío con los datos? <span class="required">*</span></label>
+                            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente sobre tus necesidades" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="horario">Horario preferido para la consulta</label>
+                            <select id="horario" name="horario">
+                                <option value="manana">Mañana (9:00 - 12:00)</option>
+                                <option value="tarde">Tarde (12:00 - 17:00)</option>
+                                <option value="noche">Noche (17:00 - 20:00)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a> <span class="required">*</span></label>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="cta-button submit-button">
+                                <i class="fas fa-calendar-check"></i> Agendar Consulta Gratuita
+                            </button>
+                        </div>
+                    </form>
                     
                     <!-- Mensaje de éxito (oculto por defecto) -->
                     <div id="success-message" class="success-message" style="display: none;">
@@ -138,10 +157,12 @@
                         <h3>¡Solicitud enviada con éxito!</h3>
                         <p>Hemos recibido tu solicitud. Te contactaremos muy pronto.</p>
                         <a href="index.html" class="cta-button">Volver al inicio</a>
-                    </div>
+                    
                 </div>
             </div>
         </section>
+
+        <!-- Sección de testimonios eliminada para simplificar la página -->
 
         <!-- FAQs Section (Simplificada) -->
         <section class="faq-section">
@@ -206,16 +227,17 @@
 
             // --- Definición explícita de rutas ---
             if (componentName === 'Header') {
-                htmlUrl = 'componentes-visuales/Header/header.html';
-                jsUrl   = 'componentes-visuales/Header/header.js';
+                htmlUrl = 'componentes-visuales/Header/header.html'; // Carpeta 'Header', archivo 'header.html'
+                jsUrl   = 'componentes-visuales/Header/header.js';   // Carpeta 'Header', archivo 'header.js'
             } else if (componentName === 'Footer') {
-                htmlUrl = 'componentes-visuales/Footer/footer.html';
-                jsUrl   = 'componentes-visuales/Footer/footer.js';
+                htmlUrl = 'componentes-visuales/Footer/footer.html'; // Carpeta 'Footer', archivo 'footer.html'
+                jsUrl   = 'componentes-visuales/Footer/footer.js';   // Carpeta 'Footer', archivo 'footer.js'
             } else {
                 console.error(`Nombre de componente desconocido para carga: ${componentName}`);
                 placeholder.innerHTML = `<p style="color:orange;">Componente '${componentName}' no reconocido.</p>`;
-                return false;
+                return false; // Salir si no es un componente conocido
             }
+            // --- Fin definición explícita ---
 
             try {
                 // --- 1. Cargar HTML ---
@@ -223,36 +245,10 @@
                 const response = await fetch(htmlUrl);
                 if (!response.ok) throw new Error(`HTTP error ${response.status} loading ${htmlUrl}`);
                 const html = await response.text();
-                placeholder.innerHTML = html;
+                placeholder.innerHTML = html; // Inserta el HTML
                 console.log(`HTML para ${componentName} cargado correctamente.`);
-                
-                // --- 2. Cargar JS si no está ya cargado ---
-                // Verificar si ya está cargado este script
-                if (!document.querySelector(`script[src="${jsUrl}"]`)) {
-                    console.log(`Cargando JS para ${componentName} desde ${jsUrl}...`);
-                    const script = document.createElement('script');
-                    script.src = jsUrl;
-                    script.async = true;
-                    
-                    // Promesa para manejar la carga del script
-                    const scriptLoaded = new Promise((resolve, reject) => {
-                        script.onload = () => {
-                            console.log(`JS para ${componentName} cargado correctamente.`);
-                            resolve();
-                        };
-                        script.onerror = () => {
-                            console.error(`Error al cargar JS para ${componentName}.`);
-                            reject();
-                        };
-                    });
-                    
-                    document.body.appendChild(script);
-                    await scriptLoaded;
-                } else {
-                    console.log(`JS para ${componentName} ya está cargado.`);
-                }
 
-                return true;
+                return true; // Retornar true si se cargó correctamente
             } catch (error) {
                 console.error(`Error al cargar componente ${componentName}:`, error);
                 placeholder.innerHTML = `<p style="color: red; text-align: center; padding: 10px;">Error loading component ${componentName}. Check console.</p>`;
@@ -266,6 +262,7 @@
         async function loadAllComponents() {
             console.log("Cargando todos los componentes...");
             
+            // Seguimos usando 'Header' y 'Footer' para que el 'if' dentro de loadComponent funcione
             const results = await Promise.all([
                 loadComponent('Header', 'header-placeholder'),
                 loadComponent('Footer', 'footer-placeholder')
@@ -289,70 +286,12 @@
         }
         
         /**
-         * Función para manejar errores del iframe
-         */
-        function handleIframeError() {
-            console.error("Error al cargar el iframe del formulario");
-            const formContainer = document.getElementById('form-container');
-            formContainer.classList.remove('loading');
-            
-            // Ocultar iframe y mostrar formulario de respaldo
-            document.getElementById('inline-WJNOT5UtUYrdFkc7TZh1').style.display = 'none';
-            document.getElementById('backup-form').style.display = 'block';
-            
-            // Añadir un mensaje de error visible
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'error-message fade-in';
-            errorMsg.innerHTML = '<p>No se pudo cargar el formulario externo. Por favor, utiliza este formulario alternativo.</p>';
-            formContainer.insertBefore(errorMsg, document.getElementById('backup-form'));
-        }
-
-        /**
-         * Intenta verificar si el iframe se cargó correctamente
-         */
-        function checkIframeLoaded() {
-            const iframe = document.getElementById('inline-WJNOT5UtUYrdFkc7TZh1');
-            const formContainer = document.getElementById('form-container');
-            
-            if (!iframe) {
-                console.error("El iframe no existe en el DOM");
-                return;
-            }
-            
-            // Si después de 5 segundos no se ha cargado correctamente, mostramos el formulario de respaldo
-            setTimeout(function() {
-                try {
-                    // Intenta acceder al contenido del iframe para ver si está cargado
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    
-                    // Si llegamos aquí sin error, es porque el iframe está en el mismo dominio y se cargó
-                    console.log("Iframe cargado correctamente");
-                    formContainer.classList.remove('loading');
-                } catch (e) {
-                    // Si hay un error al acceder al contenido, verificamos si es por política de seguridad
-                    // o porque no se cargó en absoluto
-                    console.warn("No se puede verificar el contenido del iframe:", e);
-                    
-                    // Verificamos si el iframe se ha cargado intentando verificar su estilo computado
-                    const iframeStyle = window.getComputedStyle(iframe);
-                    const isVisible = iframeStyle.display !== 'none' && iframeStyle.visibility !== 'hidden';
-                    
-                    if (!isVisible || iframe.clientWidth === 0) {
-                        console.error("El iframe no parece haberse cargado correctamente");
-                        handleIframeError();
-                    } else {
-                        // Si parece estar visible, asumimos que se cargó correctamente
-                        formContainer.classList.remove('loading');
-                    }
-                }
-            }, 5000); // Esperar 5 segundos
-        }
-        
-        /**
          * Inicializa funcionalidades de la página
          */
         function initFormHandling() {
-            // Ajustar header móvil
+            // Solo necesitamos manejar los ajustes de tamaño para el header móvil
+            // ya que el formulario ahora es gestionado por GoHighLevel
+            
             const adjustMobileHeader = function() {
                 const header = document.querySelector('header');
                 const headerPlaceholder = document.getElementById('header-placeholder');
@@ -374,41 +313,15 @@
             adjustMobileHeader();
             window.addEventListener('resize', adjustMobileHeader);
             
-            // Inicializar verificación del iframe
-            checkIframeLoaded();
-            
-            // Inicializar el formulario de respaldo
-            const backupForm = document.getElementById('consulta-form');
-            if (backupForm) {
-                backupForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    // Simulamos el envío del formulario (en producción agregaría AJAX)
-                    console.log('Formulario de respaldo enviado');
-                    // Datos del formulario para depuración
-                    const formData = new FormData(backupForm);
-                    for (let [key, value] of formData.entries()) {
-                        console.log(`${key}: ${value}`);
-                    }
-                    
-                    // Ocultar formulario y mostrar mensaje de éxito
-                    document.getElementById('backup-form').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'block';
-                });
-            }
-            
-            // Escuchar eventos de mensajes del iframe para detectar envío exitoso
+            // Verificamos si el mensaje de confirmación del formulario de GoHighLevel aparece
+            // y ocultamos el contenedor del iframe si es necesario
             window.addEventListener('message', function(event) {
-                // Verificar origen del mensaje (dominio del iframe)
-                if (event.origin.includes('vor.analiza.pe') && 
-                    event.data && 
-                    (event.data.type === 'form-submit-success' || 
-                     event.data.status === 'success' || 
-                     event.data.action === 'form_submitted')) {
-                    
+                // Verificar si el mensaje viene del iframe de GoHighLevel
+                if (event.data && event.data.type === 'form-submit-success') {
                     console.log('Formulario enviado con éxito');
-                    // Ocultar iframe y mostrar mensaje de éxito
-                    document.getElementById('inline-WJNOT5UtUYrdFkc7TZh1').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'block';
+                    // Podríamos mostrar nuestro propio mensaje de éxito si fuera necesario
+                    // document.querySelector('.ghl-form-container').style.display = 'none';
+                    // document.getElementById('success-message').style.display = 'block';
                 }
             });
         }
